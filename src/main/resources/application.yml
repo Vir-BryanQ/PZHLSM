@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql:///PZHLSM
+    username: root
+    password: mysqlpasswd
+    driver-class-name: com.mysql.cj.jdbc.Driver
