@@ -7,3 +7,10 @@ spring:
     username: root
     password: mysqlpasswd
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

@@ -1,7 +1,7 @@
 package edu.scu.pzhlsm.result;
 
-public class LoginResult {
-    private int status;     // HTTP状态码
+public class Result {
+    private int status;
 
     public int getStatus() {
         return status;
@@ -11,7 +11,7 @@ public class LoginResult {
         this.status = status;
     }
 
-    public LoginResult(int status) {
+    public Result(int status) {
         this.status = status;
     }
 }
