@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 对应dao层的名称/完整限定名；1个mapper对应1个dao层-->
+<mapper namespace="edu.scu.pzhlsm.dao.transscheduledao.MissionRecordDAO">
+
+    <insert id="insert" parameterType="MissionRecord" useGeneratedKeys="true" keyColumn="mission_id" keyProperty="missionId">
+        insert into transportation_mission_record
+            <trim prefix="(mission_id, " suffix=")" suffixOverrides=",">
+                <if test="1 == 1">
+                    mission_create_time,
+                </if>
+                <if test="missionOrigin != null">
+                    mission_origin,
+                </if>
+                <if test="missionDestination != null">
+                    mission_destination,
+                </if>
+                <if test="1 == 1">
+                    state,
+                </if>
+            </trim>
+            <trim prefix="values (null, " suffix=")" suffixOverrides=",">
+                <if test="1 == 1">
+                    #{missionCreateTime},
+                </if>
+                <if test="missionOrigin != null">
+                    #{missionOrigin},
+                </if>
+                <if test="missionDestination != null">
+                    #{missionDestination},
+                </if>
+                <if test="1 == 1">
+                    1,
+                </if>
+            </trim>
+    </insert>
+
+    <select id="dynamicQuery" resultType="MissionRecord">
+        select * from transportation_mission_record
+        <where>
+            <if test="missionId != null and missionId != 0">
+                mission_id = #{missionId}
+            </if>
+            <if test="missionCreateTime != null">
+                and mission_create_time like concat('%', #{missionCreateTime}, '%')
+            </if>
+            <if test="missionFinishTime != null">
+                and mission_finish_time like concat('%', #{missionFinishTime}, '%')
+            </if>
+            <if test="missionOrigin != null">
+                and mission_origin like concat('%', #{missionOrigin}, '%')
+            </if>
+            <if test="missionDestination != null">
+                and mission_destination like concat('%', #{missionDestinationn}, '%')
+            </if>
+            <if test="state != null and state != 0">
+                and state = #{state}
+            </if>
+        </where>
+    </select>
+
+    <update id="dynamicUpdate" parameterType="MissionRecord">
+        UPDATE transportation_mission_record
+        <trim prefix="set" suffixOverrides=",">
+<!--            <if test="missionCreateTime!=null">
+                mission_create_time = #{missionCreateTime},
+            </if>-->
+            <if test="missionFinishTime!=null">
+                mission_finish_time = #{missionFinishTime},
+            </if>
+            <if test="missionOrigin!=null">
+                mission_origin = #{missionOrigin},
+            </if>
+            <if test="missionDestination!=null">
+                mission_destination = #{missionDestination},
+            </if>
+            <if test="state!=0">
+                state = #{state},
+            </if>
+        </trim>
+        WHERE mission_id =#{missionId}
+    </update>
+</mapper>
