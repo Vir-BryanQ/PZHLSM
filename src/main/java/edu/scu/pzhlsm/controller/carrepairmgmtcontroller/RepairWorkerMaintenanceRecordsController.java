@@ -1,4 +1,4 @@
-package edu.scu.pzhlsm.controller.carrepairmgmt;
+package edu.scu.pzhlsm.controller.carrepairmgmtcontroller;
 
 import edu.scu.pzhlsm.pojo.carrepairmgmtpojo.RepairWorkerMaintenanceRecord;
 import edu.scu.pzhlsm.result.Result;
