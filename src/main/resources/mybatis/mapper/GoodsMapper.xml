@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.scu.pzhlsm.dao.basicinfomgmtdao.GoodsDao">
+    <insert id="insertGoods" useGeneratedKeys="true">
+        insert into pzhwl.goods(goods_id, goods_number, goods_tpye, goods_weight, goods_quantity, commodity_id)
+        values (null, #{goodsNumber}, #{goodsType}, #{goodsWeight}, #{goodsQuantity}, #{commodityId})
+    </insert>
+
+    <update id="updateGoods">
+        update pzhwl.goods set goods_number=#{goodsNumber},
+                               goods_tpye=#{goodsType},
+                               goods_weight=#{goodsWeight},
+                               goods_quantity=#{goodsQuantity},
+                               commodity_id=#{commodityId}
+        where goods_id= #{goodsId}
+    </update>
+
+    <delete id="deleteGoods">
+        delete from pzhwl.goods
+        where goods_id =#{goodsId}
+    </delete>
+
+    <select id="queryAllList" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Goods">
+        select * from pzhwl.goods;
+    </select>
+
+    <select id="queryById" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Goods">
+        select * from pzhwl.goods
+        where goods_id=#{goodsId}
+    </select>
+</mapper>

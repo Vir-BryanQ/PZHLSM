@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.scu.pzhlsm.dao.basicinfomgmtdao.BuildingDao">
+    <insert id="insertBuilding">
+        insert into pzhwl.building(building_id, building_name, building_place, building_area, create_time, update_time)
+        values (null, #{buildingName}, #{buildingPlace}, #{buildingArea}, #{createTime}, #{updateTime})
+    </insert>
+    <update id="updateBuilding">
+        update pzhwl.building set building_name=#{buildingName},
+                                  building_place=#{buildingPlace},
+                                  building_area=#{buildingArea},
+                                  create_time=#{createTime},
+                                  update_time=#{updateTime}
+        where building_id=#{buildingId}
+    </update>
+    <delete id="deleteBuilding">
+        delete from pzhwl.building
+        where building_id=#{buildingId}
+    </delete>
+
+
+    <select id="queryAllList" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Building">
+        select * from pzhwl.building
+    </select>
+    <select id="queryById" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Building">
+        select * from pzhwl.building
+        where building_id = #{buildingId}
+    </select>
+</mapper>
