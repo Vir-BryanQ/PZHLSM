@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.scu.pzhlsm.dao.basicinfomgmtdao.ResourceDao">
+    <insert id="insertResource" useGeneratedKeys="true">
+        insert into pzhwl.resource(resource_id, resource_name, resource_use, material_id)
+        values (null, #{resourceName}, #{resourceUse}, #{materialId});
+
+    </insert>
+
+    <update id="updateResource">
+        update pzhwl.resource set
+                                  resource_name=#{resourceName},
+                                  resource_use=#{resourceUse},
+                                  material_id=#{materialId}
+    </update>
+    <delete id="deleteResource">
+        delete from pzhwl.resource
+        where resource_id=#{resourceId}
+    </delete>
+
+    <select id="queryAllList" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Resource">
+        select * from pzhwl.resource;
+    </select>
+
+    <select id="queryById" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Resource">
+        select * from pzhwl.resource
+        where resource_id=#{resourceId};
+    </select>
+</mapper>
