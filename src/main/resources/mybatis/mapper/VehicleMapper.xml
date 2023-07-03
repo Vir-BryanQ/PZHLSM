@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.scu.pzhlsm.dao.basicinfomgmtdao.VehicleDao">
+    <insert id="insertVehicle">
+        insert into pzhwl.vehicle(vehicle_id, vehicle_number, type_id, latest_use, status, supplier, plate, purpose, automobile_id)
+        VALUES (null, #{vehicleNumber}, #{typeId}, #{latestUse}, #{status},#{supplier}, #{plate}, #{purpose}, #{automobileId})
+    </insert>
+
+    <update id="updateVehicle">
+        update pzhwl.vehicle set vehicle_number=#{vehicleNumber},
+                                 type_id=#{typeId},
+                                 latest_use=#{latestUse},
+                                 status=#{status},
+                                 supplier=#{supplier},
+                                 plate=#{plate},
+                                 purpose=#{purpose},
+                                 automobile_id=#{automobileId}
+        where vehicle_id=#{vehicleId};
+    </update>
+
+    <delete id="deleteVehicle">
+        delete from pzhwl.vehicle
+        where vehicle_id = #{vehicleId}
+    </delete>
+
+
+    <select id="queryAllList" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Vehicle">
+        select *
+        from pzhwl.vehicle;
+    </select>
+    <select id="queryById" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Vehicle">
+        select *
+        from pzhwl.vehicle
+        where vehicle_id = #{vehicleId}
+    </select>
+
+</mapper>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.scu.pzhlsm.dao.purchaseandsalemgmtdao.CommodityDao">
+    <insert id="insertCommodityPsi" useGeneratedKeys="true">
+        insert into pzhwl.commodity_psi(commodity_id, commodity_name, commodity_quantity, commodity_status, create_time, commodity_price, remark)
+        values (null, #{commodityName}, #{commodityQuantity} ,#{commodityStatus}, #{createTime}, #{commodityPrice}, #{remark})
+    </insert>
+
+    <update id="updateCommodityPsi">
+        update pzhwl.commodity_psi set
+            commodity_name=#{commodityName},
+            commodity_quantity=#{commodityQuantity},
+            commodity_status=#{commodityStatus},
+            create_time=#{createTime},
+            commodity_price=#{commodityPrice},
+            remark=#{remark}
+        where commodity_id=#{commodityId};
+    </update>
+
+    <delete id="deleteCommodityPsi">
+        delete from pzhwl.commodity_psi
+        where commodity_id=#{commodityId}
+    </delete>
+
+    <select id="queryAllList" resultType="edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.CommodityPsi">
+        select * from pzhwl.commodity_psi
+    </select>
+
+    <select id="queryById" resultType="edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.CommodityPsi">
+        select * from pzhwl.commodity_psi
+        where commodity_id = #{commodityId};
+    </select>
+
+    <select id="queryByCondition" resultType="edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.CommodityPsi">
+        select *
+        from pzhwl.commodity_psi
+        <where>
+            <if test="commodityName != null and commodityName != ''">
+                and commodity_name like concat('%',#{commodityName},'%')
+            </if>
+            <if test="commodityTime neq null and commodityTime neq ''">
+                and create_time like concat('%', #{commodityTime}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>
