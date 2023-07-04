@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.scu.pzhlsm.dao.purchaseandsalemgmtdao.VehiclepsiDao">
     <insert id="insertVehiclePsi" useGeneratedKeys="true">
-        insert into pzhwl.automobile_purchase(vehicle_id, vehicle_name, vehicle_model, vehicle_quantity, vehicle_status, create_time, vehicle_price, remark)
+        insert into automobile_purchase(vehicle_id, vehicle_name, vehicle_model, vehicle_quantity, vehicle_status, create_time, vehicle_price, remark)
         values (null, #{vehicleName}, #{vehicleModel}, #{vehicleQuantity}, #{vehicleStatus}, #{createTime}, #{vehiclePrice}, #{remark})
     </insert>
 
     <update id="updateVehiclePsi">
-        update pzhwl.automobile_purchase set vehicle_name=#{vehicleName},
+        update automobile_purchase set vehicle_name=#{vehicleName},
                                              vehicle_model=#{vehicleModel},
                                              vehicle_quantity=#{vehicleQuantity},
                                              vehicle_status=#{vehicleStatus},
@@ -18,16 +18,16 @@
     </update>
 
     <delete id="deleteVehiclePsi">
-        delete from pzhwl.automobile_purchase
+        delete from automobile_purchase
         where vehicle_id=#{vehicleId}
     </delete>
 
     <select id="queryAllList" resultType="edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.VehiclePsi">
-        select * from pzhwl.automobile_purchase;
+        select * from automobile_purchase;
     </select>
 
     <select id="queryById" resultType="edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.VehiclePsi">
-        select * from pzhwl.automobile_purchase
+        select * from automobile_purchase
         where vehicle_id=#{vehicleId}
     </select>
 </mapper>

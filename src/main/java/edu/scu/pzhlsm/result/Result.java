@@ -11,6 +11,9 @@ public class Result {
         this.status = status;
     }
 
+    public Result() {
+    }
+
     public Result(int status) {
         this.status = status;
     }

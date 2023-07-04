@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.scu.pzhlsm.dao.basicinfomgmtdao.StaffDao">
     <insert id="insertStaff" useGeneratedKeys="true">
-        insert into pzhwl.staff(staff_id, staff_number, staff_name, gender, staff_age, staff_role, staff_time, salary, phone, staff_address, card_number)
+        insert into staff(staff_id, staff_number, staff_name, gender, staff_age, staff_role, staff_time, salary, phone, staff_address, card_number)
         values (null, #{staffNumber}, #{staffName}, #{gender}, #{staffAge}, #{staffRole}, #{staffTime}, #{salary}, #{phone}, #{staffAddress}, #{cardNumber})
     </insert>
 
     <update id="updateStaff">
-        update pzhwl.staff set
+        update staff set
                                staff_number=#{staffNumber},
                                staff_name=#{staffName},
                                gender=#{gender},
@@ -21,16 +21,16 @@
         where staff_id=#{staffId}
     </update>
     <delete id="deleteStaff">
-        delete from pzhwl.staff
+        delete from staff
         where staff_id=#{staffId}
     </delete>
 
     <select id="queryAllList" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Staff">
-        select * from pzhwl.staff;
+        select * from staff;
     </select>
 
     <select id="queryById" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Staff">
-        select * from pzhwl.staff
+        select * from pzhlsm.staff
         where staff_id = #{staffId};
     </select>
 </mapper>

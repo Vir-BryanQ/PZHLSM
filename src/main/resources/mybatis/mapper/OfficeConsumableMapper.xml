@@ -4,31 +4,31 @@
 
 <!--    updateConsumable-->
     <update id="updateConsumable">
-        update pzhwl.office_consumables set consumable_name=#{consumableName}, purchase_quantity=#{perPrice},
+        update office_consumables set consumable_name=#{consumableName}, purchase_quantity=#{perPrice},
                                       create_time=#{createTime}, per_price=#{perPrice}, remark=#{remark}
         where office_consumables_id = #{officeConsumablesId};
     </update>
 
     <!--    deleteConsumable-->
     <delete id="deleteConsumable">
-        delete from pzhwl.office_consumables
+        delete from office_consumables
         where office_consumables_id = #{consumableId}
     </delete>
     <!--    queryOfficeConsumables-->
     <select id="queryOfficeConsumables" resultType="OfficeConsumable">
         select *
-        from pzhwl.office_consumables;
+        from office_consumables;
     </select>
 
 <!--    queryById-->
     <select id="queryById" resultType="OfficeConsumable">
-        select * from pzhwl.office_consumables
+        select * from office_consumables
         where office_consumables_id = #{consumableId};
     </select>
 
 <!--    insertConsumable-->
     <insert id="insertConsumable" useGeneratedKeys="true">
-        insert into pzhwl.office_consumables(consumable_name, purchase_quantity, create_time, per_price, remark)
+        insert into office_consumables(consumable_name, purchase_quantity, create_time, per_price, remark)
         values (#{consumableName}, #{purchaseQuantity}, #{createTime}, #{perPrice}, #{remark});
     </insert>
 </mapper>

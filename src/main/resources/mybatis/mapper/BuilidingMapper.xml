@@ -3,11 +3,11 @@
 
 <mapper namespace="edu.scu.pzhlsm.dao.basicinfomgmtdao.BuildingDao">
     <insert id="insertBuilding">
-        insert into pzhwl.building(building_id, building_name, building_place, building_area, create_time, update_time)
+        insert into building(building_id, building_name, building_place, building_area, create_time, update_time)
         values (null, #{buildingName}, #{buildingPlace}, #{buildingArea}, #{createTime}, #{updateTime})
     </insert>
     <update id="updateBuilding">
-        update pzhwl.building set building_name=#{buildingName},
+        update building set building_name=#{buildingName},
                                   building_place=#{buildingPlace},
                                   building_area=#{buildingArea},
                                   create_time=#{createTime},
@@ -15,16 +15,16 @@
         where building_id=#{buildingId}
     </update>
     <delete id="deleteBuilding">
-        delete from pzhwl.building
+        delete from building
         where building_id=#{buildingId}
     </delete>
 
 
     <select id="queryAllList" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Building">
-        select * from pzhwl.building
+        select * from building
     </select>
     <select id="queryById" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Building">
-        select * from pzhwl.building
+        select * from building
         where building_id = #{buildingId}
     </select>
 </mapper>
