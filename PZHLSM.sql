@@ -1,21 +1,26 @@
 /*
-SQLyog Ultimate v12.08 (64 bit)
-MySQL - 8.0.31 : Database - pzhwl
-*********************************************************************
-*/
+ Navicat Premium Data Transfer
 
-/*!40101 SET NAMES utf8 */;
+ Source Server         : MySQL
+ Source Server Type    : MySQL
+ Source Server Version : 80033 (8.0.33)
+ Source Host           : localhost:3306
+ Source Schema         : PZHLSM
 
-/*!40101 SET SQL_MODE=''*/;
+ Target Server Type    : MySQL
+ Target Server Version : 80033 (8.0.33)
+ File Encoding         : 65001
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-/*Table structure for table `automobile_purchase` */
+ Date: 04/07/2023 08:54:51
+*/
 
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for automobile_purchase
+-- ----------------------------
 DROP TABLE IF EXISTS `automobile_purchase`;
-
 CREATE TABLE `automobile_purchase` (
   `vehicle_id` int unsigned NOT NULL AUTO_INCREMENT,
   `vehicle_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -28,14 +33,20 @@ CREATE TABLE `automobile_purchase` (
   PRIMARY KEY (`vehicle_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `automobile_purchase` */
+-- ----------------------------
+-- Records of automobile_purchase
+-- ----------------------------
+BEGIN;
+INSERT INTO `automobile_purchase` (`vehicle_id`, `vehicle_name`, `vehicle_model`, `vehicle_quantity`, `vehicle_status`, `create_time`, `vehicle_price`, `remark`) VALUES (1, '大众', '帕萨特', 5, 1, '2012-3-12', 20, NULL);
+INSERT INTO `automobile_purchase` (`vehicle_id`, `vehicle_name`, `vehicle_model`, `vehicle_quantity`, `vehicle_status`, `create_time`, `vehicle_price`, `remark`) VALUES (2, '比亚迪', '唐', 2, 0, '2023-4-28', 23, NULL);
+INSERT INTO `automobile_purchase` (`vehicle_id`, `vehicle_name`, `vehicle_model`, `vehicle_quantity`, `vehicle_status`, `create_time`, `vehicle_price`, `remark`) VALUES (3, '吉利', '缤越', 1, 0, '2023-5-12', 20, NULL);
+INSERT INTO `automobile_purchase` (`vehicle_id`, `vehicle_name`, `vehicle_model`, `vehicle_quantity`, `vehicle_status`, `create_time`, `vehicle_price`, `remark`) VALUES (4, '比亚迪', '汉', 2, 0, '20222-1-13', 25, '');
+COMMIT;
 
-insert  into `automobile_purchase`(`vehicle_id`,`vehicle_name`,`vehicle_model`,`vehicle_quantity`,`vehicle_status`,`create_time`,`vehicle_price`,`remark`) values (1,'大众','帕萨特',5,1,'2012-3-12',20,NULL),(2,'比亚迪','唐',2,0,'2023-4-28',23,NULL),(3,'吉利','缤越',1,0,'2023-5-12',20,NULL),(4,'比亚迪','汉',2,0,'20222-1-13',25,'');
-
-/*Table structure for table `building` */
-
+-- ----------------------------
+-- Table structure for building
+-- ----------------------------
 DROP TABLE IF EXISTS `building`;
-
 CREATE TABLE `building` (
   `building_id` int NOT NULL AUTO_INCREMENT,
   `building_name` varchar(255) DEFAULT NULL,
@@ -46,14 +57,17 @@ CREATE TABLE `building` (
   PRIMARY KEY (`building_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `building` */
+-- ----------------------------
+-- Records of building
+-- ----------------------------
+BEGIN;
+INSERT INTO `building` (`building_id`, `building_name`, `building_place`, `building_area`, `create_time`, `update_time`) VALUES (2, '1', '1', '1', '1', '1');
+COMMIT;
 
-insert  into `building`(`building_id`,`building_name`,`building_place`,`building_area`,`create_time`,`update_time`) values (2,'1','1','1','1','1');
-
-/*Table structure for table `building_transaction_records` */
-
+-- ----------------------------
+-- Table structure for building_transaction_records
+-- ----------------------------
 DROP TABLE IF EXISTS `building_transaction_records`;
-
 CREATE TABLE `building_transaction_records` (
   `record_id` int NOT NULL AUTO_INCREMENT,
   `building_id` int DEFAULT NULL,
@@ -65,14 +79,45 @@ CREATE TABLE `building_transaction_records` (
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `building_transaction_records` */
+-- ----------------------------
+-- Records of building_transaction_records
+-- ----------------------------
+BEGIN;
+INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (1, 8888, '更新测试', '大卫', '2021-09-09', 29999.00, 300);
+INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (5, 9999, '测试', '大卫', '2021-09-09', 29999.00, 300);
+INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (6, 2, '3', '4', '5', 6.00, 7);
+INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (7, 2, '2', '3', '3', 3.00, 3);
+INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (10, 3, '3', '3', '3', 3.00, 3);
+COMMIT;
 
-insert  into `building_transaction_records`(`record_id`,`building_id`,`transaction_type`,`tenant_buyer_name`,`transaction_date`,`transaction_price`,`lease_term`) values (1,8888,'更新测试','大卫','2021-09-09','29999.00',300),(5,9999,'测试','大卫','2021-09-09','29999.00',300),(6,2,'3','4','5','6.00',7),(7,2,'2','3','3','3.00',3),(10,3,'3','3','3','3.00',3);
+-- ----------------------------
+-- Table structure for car_operate_record
+-- ----------------------------
+DROP TABLE IF EXISTS `car_operate_record`;
+CREATE TABLE `car_operate_record` (
+  `mission_id` int NOT NULL,
+  `car_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `car_type` int DEFAULT NULL,
+  `car_licence` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `mission_begin_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `state` int DEFAULT NULL,
+  PRIMARY KEY (`mission_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
-/*Table structure for table `car_repair_records` */
+-- ----------------------------
+-- Records of car_operate_record
+-- ----------------------------
+BEGIN;
+INSERT INTO `car_operate_record` (`mission_id`, `car_id`, `car_type`, `car_licence`, `mission_begin_time`, `state`) VALUES (0, '3', 3, '3', '3', 3);
+INSERT INTO `car_operate_record` (`mission_id`, `car_id`, `car_type`, `car_licence`, `mission_begin_time`, `state`) VALUES (999, '220101', 1, '川C-22222', '2023-07-02', 3);
+INSERT INTO `car_operate_record` (`mission_id`, `car_id`, `car_type`, `car_licence`, `mission_begin_time`, `state`) VALUES (10000000, '190812', 2, '川A-10086', '2023-07-01', 1);
+INSERT INTO `car_operate_record` (`mission_id`, `car_id`, `car_type`, `car_licence`, `mission_begin_time`, `state`) VALUES (10000001, '190811', 2, '川A-11111', '2023-07-03', 1);
+COMMIT;
 
+-- ----------------------------
+-- Table structure for car_repair_records
+-- ----------------------------
 DROP TABLE IF EXISTS `car_repair_records`;
-
 CREATE TABLE `car_repair_records` (
   `record_id` int NOT NULL AUTO_INCREMENT,
   `car_id` int DEFAULT NULL,
@@ -83,12 +128,41 @@ CREATE TABLE `car_repair_records` (
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `car_repair_records` */
+-- ----------------------------
+-- Records of car_repair_records
+-- ----------------------------
+BEGIN;
+COMMIT;
 
-/*Table structure for table `commodity_psi` */
+-- ----------------------------
+-- Table structure for commercial_customer_record
+-- ----------------------------
+DROP TABLE IF EXISTS `commercial_customer_record`;
+CREATE TABLE `commercial_customer_record` (
+  `mission_id` int NOT NULL,
+  `company_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `mission_price` int DEFAULT NULL,
+  `state` int DEFAULT NULL,
+  PRIMARY KEY (`mission_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
+-- ----------------------------
+-- Records of commercial_customer_record
+-- ----------------------------
+BEGIN;
+INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (0, '2', 2, 2);
+INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (1, 'nvdia', 100000, 0);
+INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (10000000, '顺丰速递', 100000, 2);
+INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (10000001, '圆通速递', 80000, 1);
+INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (10000002, '宁德时代', 75000, 1);
+INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (10000003, '贵州茅台', 150000, 2);
+INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (10000004, '华迪', 10000, 4);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for commodity_psi
+-- ----------------------------
 DROP TABLE IF EXISTS `commodity_psi`;
-
 CREATE TABLE `commodity_psi` (
   `commodity_id` int unsigned NOT NULL AUTO_INCREMENT,
   `commodity_name` varchar(255) DEFAULT NULL,
@@ -100,14 +174,19 @@ CREATE TABLE `commodity_psi` (
   PRIMARY KEY (`commodity_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `commodity_psi` */
+-- ----------------------------
+-- Records of commodity_psi
+-- ----------------------------
+BEGIN;
+INSERT INTO `commodity_psi` (`commodity_id`, `commodity_name`, `commodity_quantity`, `commodity_status`, `create_time`, `commodity_price`, `remark`) VALUES (1, '运动鞋', NULL, 0, '2012-6-03', 120, NULL);
+INSERT INTO `commodity_psi` (`commodity_id`, `commodity_name`, `commodity_quantity`, `commodity_status`, `create_time`, `commodity_price`, `remark`) VALUES (2, '面包', NULL, 1, '2016-8-23', 8, NULL);
+INSERT INTO `commodity_psi` (`commodity_id`, `commodity_name`, `commodity_quantity`, `commodity_status`, `create_time`, `commodity_price`, `remark`) VALUES (4, '1', NULL, 1, '1', 1, '1');
+COMMIT;
 
-insert  into `commodity_psi`(`commodity_id`,`commodity_name`,`commodity_quantity`,`commodity_status`,`create_time`,`commodity_price`,`remark`) values (1,'运动鞋',NULL,0,'2012-6-03',120,NULL),(2,'面包',NULL,1,'2016-8-23',8,NULL),(4,'1',NULL,1,'1',1,'1');
-
-/*Table structure for table `goods` */
-
+-- ----------------------------
+-- Table structure for goods
+-- ----------------------------
 DROP TABLE IF EXISTS `goods`;
-
 CREATE TABLE `goods` (
   `goods_id` int NOT NULL AUTO_INCREMENT,
   `goods_number` varchar(30) DEFAULT NULL,
@@ -118,14 +197,18 @@ CREATE TABLE `goods` (
   PRIMARY KEY (`goods_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `goods` */
+-- ----------------------------
+-- Records of goods
+-- ----------------------------
+BEGIN;
+INSERT INTO `goods` (`goods_id`, `goods_number`, `goods_tpye`, `goods_weight`, `goods_quantity`, `commodity_id`) VALUES (1, '213223', '运动鞋', NULL, NULL, 1);
+INSERT INTO `goods` (`goods_id`, `goods_number`, `goods_tpye`, `goods_weight`, `goods_quantity`, `commodity_id`) VALUES (3, '2', '2', '2', '2', 2);
+COMMIT;
 
-insert  into `goods`(`goods_id`,`goods_number`,`goods_tpye`,`goods_weight`,`goods_quantity`,`commodity_id`) values (1,'213223','运动鞋',NULL,NULL,1),(3,'2','2','2','2',2);
-
-/*Table structure for table `material_psi` */
-
+-- ----------------------------
+-- Table structure for material_psi
+-- ----------------------------
 DROP TABLE IF EXISTS `material_psi`;
-
 CREATE TABLE `material_psi` (
   `material_id` int unsigned NOT NULL AUTO_INCREMENT,
   `material_name` varchar(255) DEFAULT NULL,
@@ -137,14 +220,23 @@ CREATE TABLE `material_psi` (
   PRIMARY KEY (`material_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `material_psi` */
+-- ----------------------------
+-- Records of material_psi
+-- ----------------------------
+BEGIN;
+INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (2, '钢圈', 200, 0, '2023-7-01', 120, NULL);
+INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (3, '盆子1', 50, 1, '2020-12-1', 5, '');
+INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (4, '2', 2, 2, '2', 2, '2');
+INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (5, '2', 2, 2, '2', 2, '2');
+INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (6, '2', 2, 2, '2', 2, '2');
+INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (7, '3', 3, 3, '3', 3, '3');
+INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (8, '4', 4, 4, '4', 4, '4');
+COMMIT;
 
-insert  into `material_psi`(`material_id`,`material_name`,`material_quantity`,`material_status`,`create_time`,`material_price`,`remark`) values (2,'钢圈',200,0,'2023-7-01',120,NULL),(3,'盆子1',50,1,'2020-12-1',5,''),(4,'2',2,2,'2',2,'2'),(5,'2',2,2,'2',2,'2'),(6,'2',2,2,'2',2,'2'),(7,'3',3,3,'3',3,'3'),(8,'4',4,4,'4',4,'4');
-
-/*Table structure for table `material_usage_records` */
-
+-- ----------------------------
+-- Table structure for material_usage_records
+-- ----------------------------
 DROP TABLE IF EXISTS `material_usage_records`;
-
 CREATE TABLE `material_usage_records` (
   `record_id` int NOT NULL AUTO_INCREMENT,
   `material_id` int DEFAULT NULL,
@@ -155,12 +247,16 @@ CREATE TABLE `material_usage_records` (
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `material_usage_records` */
+-- ----------------------------
+-- Records of material_usage_records
+-- ----------------------------
+BEGIN;
+COMMIT;
 
-/*Table structure for table `office_consumables` */
-
+-- ----------------------------
+-- Table structure for office_consumables
+-- ----------------------------
 DROP TABLE IF EXISTS `office_consumables`;
-
 CREATE TABLE `office_consumables` (
   `office_consumables_id` int unsigned NOT NULL AUTO_INCREMENT,
   `consumable_name` varchar(255) DEFAULT NULL,
@@ -171,14 +267,47 @@ CREATE TABLE `office_consumables` (
   PRIMARY KEY (`office_consumables_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `office_consumables` */
+-- ----------------------------
+-- Records of office_consumables
+-- ----------------------------
+BEGIN;
+INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1, '中性笔', 30, '2012-12-05', 1, '无');
+INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (3, '橡皮', 20, '2022-1-3', 2, '');
+INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (4, '尺子1', 20, '2022-1-3', 10, '');
+INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (5, '稿纸', 20, '2022-1-3', 5, '');
+INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (6, '稿纸', 20, '2022-1-3', 5, '');
+INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (7, '稿纸', 20, '2022-1-3', 5, '');
+COMMIT;
 
-insert  into `office_consumables`(`office_consumables_id`,`consumable_name`,`purchase_quantity`,`create_time`,`per_price`,`remark`) values (1,'中性笔',30,'2012-12-05',1,'无'),(3,'橡皮',20,'2022-1-3',2,''),(4,'尺子1',20,'2022-1-3',10,''),(5,'稿纸',20,'2022-1-3',5,''),(6,'稿纸',20,'2022-1-3',5,''),(7,'稿纸',20,'2022-1-3',5,'');
+-- ----------------------------
+-- Table structure for railway_mission_record
+-- ----------------------------
+DROP TABLE IF EXISTS `railway_mission_record`;
+CREATE TABLE `railway_mission_record` (
+  `company_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `mission_price` int DEFAULT NULL,
+  `mission_origin` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `mission_destination` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `train_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `mission_begin_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `mission_finish_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `state` int DEFAULT NULL,
+  `mission_id` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`mission_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=100003 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
-/*Table structure for table `repair_worker_maintenance_records` */
+-- ----------------------------
+-- Records of railway_mission_record
+-- ----------------------------
+BEGIN;
+INSERT INTO `railway_mission_record` (`company_name`, `mission_price`, `mission_origin`, `mission_destination`, `train_id`, `mission_begin_time`, `mission_finish_time`, `state`, `mission_id`) VALUES ('panzhihua', 100000, 'SCCD', NULL, 'E-120', NULL, NULL, 0, 100001);
+INSERT INTO `railway_mission_record` (`company_name`, `mission_price`, `mission_origin`, `mission_destination`, `train_id`, `mission_begin_time`, `mission_finish_time`, `state`, `mission_id`) VALUES ('3', 3, '3', '3', '3', '3', '3', 3, 100002);
+COMMIT;
 
+-- ----------------------------
+-- Table structure for repair_worker_maintenance_records
+-- ----------------------------
 DROP TABLE IF EXISTS `repair_worker_maintenance_records`;
-
 CREATE TABLE `repair_worker_maintenance_records` (
   `record_id` int NOT NULL AUTO_INCREMENT,
   `repair_worker_id` int DEFAULT NULL,
@@ -189,12 +318,16 @@ CREATE TABLE `repair_worker_maintenance_records` (
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `repair_worker_maintenance_records` */
+-- ----------------------------
+-- Records of repair_worker_maintenance_records
+-- ----------------------------
+BEGIN;
+COMMIT;
 
-/*Table structure for table `resource` */
-
+-- ----------------------------
+-- Table structure for resource
+-- ----------------------------
 DROP TABLE IF EXISTS `resource`;
-
 CREATE TABLE `resource` (
   `resource_id` int NOT NULL AUTO_INCREMENT,
   `resource_name` varchar(50) DEFAULT NULL,
@@ -203,14 +336,20 @@ CREATE TABLE `resource` (
   PRIMARY KEY (`resource_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `resource` */
+-- ----------------------------
+-- Records of resource
+-- ----------------------------
+BEGIN;
+INSERT INTO `resource` (`resource_id`, `resource_name`, `resource_use`, `material_id`) VALUES (1, '钢圈', NULL, NULL);
+INSERT INTO `resource` (`resource_id`, `resource_name`, `resource_use`, `material_id`) VALUES (3, '2', '2', 2);
+INSERT INTO `resource` (`resource_id`, `resource_name`, `resource_use`, `material_id`) VALUES (4, NULL, NULL, 0);
+INSERT INTO `resource` (`resource_id`, `resource_name`, `resource_use`, `material_id`) VALUES (5, '2', '2', 2);
+COMMIT;
 
-insert  into `resource`(`resource_id`,`resource_name`,`resource_use`,`material_id`) values (1,'钢圈',NULL,NULL),(3,'2','2',2),(4,NULL,NULL,0),(5,'2','2',2);
-
-/*Table structure for table `staff` */
-
+-- ----------------------------
+-- Table structure for staff
+-- ----------------------------
 DROP TABLE IF EXISTS `staff`;
-
 CREATE TABLE `staff` (
   `staff_id` bigint NOT NULL AUTO_INCREMENT,
   `staff_number` varchar(20) DEFAULT NULL,
@@ -226,14 +365,50 @@ CREATE TABLE `staff` (
   PRIMARY KEY (`staff_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 
-/*Data for the table `staff` */
+-- ----------------------------
+-- Records of staff
+-- ----------------------------
+BEGIN;
+INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (3, '20230007', '小明', '0', 24, NULL, NULL, 4000, NULL, NULL, NULL);
+INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (6, '1', '1', '1', 1, NULL, '1', 1, '1', '1', '1');
+INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (7, '1', '1', '1', 1, NULL, '1', 1, '1', '1', '1');
+INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (8, '2020000001', '张三', '男', 25, '经理', '2020-01-01', 20000, '13700000000', '四川大学', '6666');
+INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (9, '2', '2', '2', 2, '2', '2', 2, '2', '2', '2');
+COMMIT;
 
-insert  into `staff`(`staff_id`,`staff_number`,`staff_name`,`gender`,`staff_age`,`staff_role`,`staff_time`,`salary`,`phone`,`staff_address`,`card_number`) values (3,'20230007','小明','0',24,NULL,NULL,4000,NULL,NULL,NULL),(6,'1','1','1',1,NULL,'1',1,'1','1','1'),(7,'1','1','1',1,NULL,'1',1,'1','1','1'),(8,'2020000001','张三','男',25,'经理','2020-01-01',20000,'13700000000','四川大学','6666'),(9,'2','2','2',2,'2','2',2,'2','2','2');
+-- ----------------------------
+-- Table structure for transportation_mission_record
+-- ----------------------------
+DROP TABLE IF EXISTS `transportation_mission_record`;
+CREATE TABLE `transportation_mission_record` (
+  `mission_id` int NOT NULL AUTO_INCREMENT,
+  `mission_create_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `mission_finish_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `mission_origin` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `mission_destination` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `state` int DEFAULT NULL,
+  PRIMARY KEY (`mission_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=10000009 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
-/*Table structure for table `user_info` */
+-- ----------------------------
+-- Records of transportation_mission_record
+-- ----------------------------
+BEGIN;
+INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000000, '2023-06-05', NULL, '成都市郫都区华迪公司', NULL, 0);
+INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000001, '2023-06-05', NULL, '成都市郫都区华迪公司', NULL, 0);
+INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000002, '2023-06-05', NULL, '成都市郫都区京东分公司', NULL, 0);
+INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000003, '2023-06-06', '2002-01-01', '成都市郫都区圆通分公司', '成都市郫都区京东分公司', 2);
+INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000004, '2023-06-06', NULL, '成都市郫都区京东分公司', '成都市郫都区京东分公司', 1);
+INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000005, '2023-06-06', NULL, '成都市郫都区京东分公司', '成都市郫都区京东分公司', 1);
+INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000006, '3', '3', '3', '3', 0);
+INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000007, '2023-07-03', NULL, '2', '2', 1);
+INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000008, '2023-07-03', NULL, '成都市郫都区圆通分公司', '成都市郫都区京东分公司', 1);
+COMMIT;
 
+-- ----------------------------
+-- Table structure for user_info
+-- ----------------------------
 DROP TABLE IF EXISTS `user_info`;
-
 CREATE TABLE `user_info` (
   `id` char(10) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
@@ -242,30 +417,17 @@ CREATE TABLE `user_info` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
-/*Data for the table `user_info` */
+-- ----------------------------
+-- Records of user_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `user_info` (`id`, `username`, `passwd`, `email`) VALUES ('0123456789', 'pzhlsm', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '000000@email.com');
+COMMIT;
 
-insert  into `user_info`(`id`,`username`,`passwd`,`email`) values ('0123456789','pzhlsm','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92','000000@email.com');
-
-/*Table structure for table `userinfo` */
-
-DROP TABLE IF EXISTS `userinfo`;
-
-CREATE TABLE `userinfo` (
-  `id` char(10) NOT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `passwd` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
-/*Data for the table `userinfo` */
-
-insert  into `userinfo`(`id`,`username`,`passwd`,`email`) values ('0123456789','pzhlsm','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92','000000@email.com');
-
-/*Table structure for table `vehicle` */
-
+-- ----------------------------
+-- Table structure for vehicle
+-- ----------------------------
 DROP TABLE IF EXISTS `vehicle`;
-
 CREATE TABLE `vehicle` (
   `vehicle_id` bigint NOT NULL AUTO_INCREMENT,
   `vehicle_number` varchar(20) DEFAULT NULL,
@@ -279,11 +441,11 @@ CREATE TABLE `vehicle` (
   PRIMARY KEY (`vehicle_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 
-/*Data for the table `vehicle` */
+-- ----------------------------
+-- Records of vehicle
+-- ----------------------------
+BEGIN;
+INSERT INTO `vehicle` (`vehicle_id`, `vehicle_number`, `type_id`, `latest_use`, `status`, `supplier`, `plate`, `purpose`, `automobile_id`) VALUES (1, '3', '3', '3', 3, '3', '3', '3', 3);
+COMMIT;
 
-insert  into `vehicle`(`vehicle_id`,`vehicle_number`,`type_id`,`latest_use`,`status`,`supplier`,`plate`,`purpose`,`automobile_id`) values (1,'3','3','3',3,'3','3','3',3);
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+SET FOREIGN_KEY_CHECKS = 1;
