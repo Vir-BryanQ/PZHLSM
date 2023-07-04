@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 对应dao层的名称/完整限定名；1个mapper对应1个dao层-->
+<mapper namespace="edu.scu.pzhlsm.dao.transscheduledao.RailwayMissionRecordDAO">
+    <insert id="insert" parameterType="RailwayMissionRecord" useGeneratedKeys="true" keyProperty="missionId" keyColumn="mission_id">
+        insert into railway_mission_record
+            <trim prefix="(mission_id,">
+                <if test="missionPrice != 0">
+                    mission_price,
+                </if>
+                <if test="trainId != null">
+                    train_id,
+                </if>
+                <if test="1 == 1">
+                    company_name, mission_origin, mission_destination,mission_begin_time, mission_finish_time, state)
+                </if>
+            </trim>
+            <trim prefix="values (null,">
+                <if test="missionPrice != 0">
+                    #{missionPrice},
+                </if>
+                <if test="trainId != null">
+                    #{trainId},
+                </if>
+                <if test="1==1">
+                    #{companyName}, #{missionOrigin}, #{missionDestination}, #{missionBeginTime}, #{missionFinishTime}, 1)
+                </if>
+            </trim>
+    </insert>
+    
+    <select id="dynamicQuery" resultType="edu.scu.pzhlsm.pojo.transschedulepojo.RailwayMissionRecord">
+        select * from railway_mission_record
+        <where>
+            <if test="missionId != null">
+                and  mission_id = #{missionId}
+            </if>
+            <if test="companyName != null">
+                and company_name like concat('%', #{companyName}, '%')
+            </if>
+            <if test="missionOrigin != null">
+                and mission_Origin like concat('%', #{missionOrigin}, '%')
+            </if>
+            <if test="missionDestination != null">
+                and mission_destination like concat('%', #{missionDestination}, '%')
+            </if>
+            <if test="trainId != null">
+                and train_id like concat('%', #{trainId}, '%')
+            </if>
+            <if test="mission_beginTime != null">
+                and mission_beginTime like concat('%', #{mission_beginTime}, '%')
+            </if>
+            <if test="missionFinishTime != null">
+                and mission_finishTime like concat('%', #{missionFinishTime}, '%')
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+        </where>
+    </select>
+</mapper>

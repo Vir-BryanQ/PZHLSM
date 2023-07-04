@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 对应dao层的名称/完整限定名；1个mapper对应1个dao层-->
+<mapper namespace="edu.scu.pzhlsm.dao.transscheduledao.BusinessRecordDAO">
+
+    <select id="dynamicQuery" parameterType="map" resultType="BusinessRecord">
+        select * from commercial_customer_record
+        <where>
+            <if test="missionId != null">
+                mission_id = #{missionId}
+            </if>
+            <if test="companyName != null">
+                and company_name like concat('%', #{companyName} ,'%')
+            </if>
+            <if test="smallPrice != null">
+                and mission_price >= #{smallPrice}
+            </if>
+            <if test="bigPrice != null">
+                and mission_price &lt;= #{bigPrice}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+        </where>
+    </select>
+
+    <update id="dynamicUpdate" parameterType="BusinessRecord">
+        UPDATE commercial_customer_record
+        <trim prefix="set" suffixOverrides=",">
+            <if test="companyName!=null">
+                company_name = #{companyName},
+            </if>
+            <if test="missionPrice!=0">
+                mission_price = #{missionPrice},
+            </if>
+            <if test="state!=0">
+                state = #{state},
+            </if>
+        </trim>
+        WHERE mission_id = #{missionId}
+    </update>
+
+</mapper>

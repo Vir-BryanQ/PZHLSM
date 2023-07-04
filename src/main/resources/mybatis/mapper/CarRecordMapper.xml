@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间 对应dao层的名称/完整限定名；1个mapper对应1个dao层-->
+<mapper namespace="edu.scu.pzhlsm.dao.transscheduledao.CarRecordDAO">
+<!--    <update id="dynamicUpdate">
+        UPDATE car_operate_record
+        <trim prefix="set" suffixOverrides=",">
+            <if test="companyName!=null">
+                company_name = #{companyName},
+            </if>
+            <if test="missionPrice!=-1">
+                mission_price = #{missionPrice},
+            </if>
+            <if test="state!=-1">
+                state = #{state},
+            </if>
+        </trim>
+        WHERE mission_id = #{missionId}
+    </update>-->
+
+    <select id="dynamicQuery" resultType="edu.scu.pzhlsm.pojo.transschedulepojo.CarRecord">
+        select * from car_operate_record
+        <where>
+            <if test="missionId != null and missionId != 0">
+                mission_id = #{missionId}
+            </if>
+            <if test="carType != null and carType != 0">
+                and car_type = #{carType}
+            </if>
+            <if test="carId != null">
+                and car_id like concat('%', #{carId}, '%')
+            </if>
+            <if test="carLicence != null">
+                and car_licence like concat('%', #{carLicence}, '%')
+            </if>
+            <if test="missionBeginTime != null">
+                and mission_begin_time like concat('%', #{missionBeginTime}, '%')
+            </if>
+            <if test="state != null and state != 0">
+                and state = #{state}
+            </if>
+        </where>
+    </select>
+</mapper>
