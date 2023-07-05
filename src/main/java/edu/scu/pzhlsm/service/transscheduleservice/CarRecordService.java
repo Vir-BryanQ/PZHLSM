@@ -26,13 +26,13 @@ public class CarRecordService {
         return carRecordDAO.update(carRecord);
     }
 
-    public List<CarRecord> dynamicQuery(JSON json){
-        Map<String, Object> map = JSON.parseObject(json.toString());
+    public List<CarRecord> dynamicQuery(Map<String, Object> map){
+        //Map<String, Object> map = JSON.parseObject(json.toString());
         //System.out.println(map);
         return carRecordDAO.dynamicQuery(map);
     }
 
-    public int insert(CarRecord carRecord){
+/*    public int insert(CarRecord carRecord){
         return carRecordDAO.insert(carRecord);
-    }
+    }*/
 }

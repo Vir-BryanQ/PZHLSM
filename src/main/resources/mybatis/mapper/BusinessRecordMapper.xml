@@ -6,19 +6,19 @@
     <select id="dynamicQuery" parameterType="map" resultType="BusinessRecord">
         select * from commercial_customer_record
         <where>
-            <if test="missionId != null">
+            <if test="missionId != null and missionId != ''">
                 mission_id = #{missionId}
             </if>
-            <if test="companyName != null">
+            <if test="companyName != null and companyName != ''">
                 and company_name like concat('%', #{companyName} ,'%')
             </if>
-            <if test="smallPrice != null">
+            <if test="smallPrice != null and smallPrice != ''">
                 and mission_price >= #{smallPrice}
             </if>
-            <if test="bigPrice != null">
+            <if test="bigPrice != null and bigPrice != ''">
                 and mission_price &lt;= #{bigPrice}
             </if>
-            <if test="state != null">
+            <if test="state != null and state != 0">
                 and state = #{state}
             </if>
         </where>

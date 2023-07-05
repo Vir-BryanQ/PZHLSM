@@ -1,6 +1,8 @@
 package edu.scu.pzhlsm.service.transscheduleservice;
 
 import com.alibaba.fastjson.JSON;
+import edu.scu.pzhlsm.dao.transscheduledao.BusinessRecordDAO;
+import edu.scu.pzhlsm.dao.transscheduledao.CarRecordDAO;
 import edu.scu.pzhlsm.dao.transscheduledao.MissionRecordDAO;
 import edu.scu.pzhlsm.pojo.transschedulepojo.MissionRecord;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,10 @@ import java.util.Map;
 public class MissionRecordService {
     @Autowired
     private MissionRecordDAO missionRecordDAO;
+    @Autowired
+    private CarRecordDAO carRecordDAO;
+    @Autowired
+    private BusinessRecordDAO businessRecordDAO;
 
     public List<MissionRecord> selectAll(){
         return this.missionRecordDAO.selectAll();
@@ -27,18 +33,27 @@ public class MissionRecordService {
         return this.missionRecordDAO.update(missionRecord);
     }
 
-    public List<MissionRecord> dynamicQuery(JSON json){
-        Map<String, Object> map = JSON.parseObject(json.toString());
+    public List<MissionRecord> dynamicQuery(Map<String, Object> map){
         return this.missionRecordDAO.dynamicQuery(map);
     }
 
-    public int insert(MissionRecord missionRecord){
+/*    public List<MissionRecord> dynamicQuery(JSON json){
+        Map<String, Object> map = JSON.parseObject(json.toString());
+        return this.missionRecordDAO.dynamicQuery(map);
+    }*/
+
+    public int insert(MissionRecord missionRecord) {
         LocalDate localDate = LocalDate.now();
-/*        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");*/
         String createTime = localDate.toString();
         missionRecord.setMissionCreateTime(createTime);
-/*        System.out.println(missionRecord);*/
         this.missionRecordDAO.insert(missionRecord);
-        return missionRecord.getMissionId();
+        int ret = missionRecord.getMissionId();
+        correlationTest(ret);
+        return ret;
+    }
+
+    void correlationTest(int missionId){
+        carRecordDAO.insert(missionId);
+        businessRecordDAO.insert(missionId);
     }
 }

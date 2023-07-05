@@ -51,7 +51,7 @@ public class CarRecordServiceTest {
         System.out.println(carRecordService.dynamicQuery(json));
     }
 
-    //插入测试
+/*    //插入测试
     @Test
     void insert(){
         CarRecord carRecord = new CarRecord();
@@ -62,5 +62,5 @@ public class CarRecordServiceTest {
         carRecord.setMissionBeginTime("2023-07-02");
         carRecord.setCarType(1);
         carRecordService.insert(carRecord);
-    }
+    }*/
 }

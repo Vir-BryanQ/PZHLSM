@@ -22,9 +22,12 @@ public interface BusinessRecordDAO {
     //后面改成map入参
     List<BusinessRecord> dynamicQuery(Map<String, Object> map);
 
-    @Insert("insert into commercial_customer_record(mission_id, company_name, mission_price, state) " +
+/*    @Insert("insert into commercial_customer_record(mission_id, company_name, mission_price, state) " +
             "values (#{missionId}, #{companyName}, #{missionPrice}, #{state})")
-    int insert(BusinessRecord businessRecord);
+    int insert(BusinessRecord businessRecord);*/
+
+    @Insert("insert into commercial_customer_record(mission_id) values (#{missionId})")
+    int insert(int missionId);
 
     int dynamicUpdate(BusinessRecord businessRecord);
 

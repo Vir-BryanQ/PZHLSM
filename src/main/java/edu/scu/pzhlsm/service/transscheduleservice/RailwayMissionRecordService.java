@@ -26,8 +26,7 @@ public class RailwayMissionRecordService {
         return railwayMissionRecordDAO.update(railwayMissionRecord);
     }
 
-    public List<RailwayMissionRecord> dynamicQuery(JSON json){
-        Map<String, Object> map = JSON.parseObject(json.toString());
+    public List<RailwayMissionRecord> dynamicQuery(Map<String, Object> map){
         return railwayMissionRecordDAO.dynamicQuery(map);
     }
 

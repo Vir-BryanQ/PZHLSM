@@ -41,17 +41,17 @@
             <if test="missionId != null and missionId != 0">
                 mission_id = #{missionId}
             </if>
-            <if test="missionCreateTime != null">
+            <if test="missionCreateTime != null and missionCreateTime != ''">
                 and mission_create_time like concat('%', #{missionCreateTime}, '%')
             </if>
-            <if test="missionFinishTime != null">
+            <if test="missionFinishTime != null and missionFinishTime != '' ">
                 and mission_finish_time like concat('%', #{missionFinishTime}, '%')
             </if>
-            <if test="missionOrigin != null">
+            <if test="missionOrigin != null and missionOrigin != ''">
                 and mission_origin like concat('%', #{missionOrigin}, '%')
             </if>
-            <if test="missionDestination != null">
-                and mission_destination like concat('%', #{missionDestinationn}, '%')
+            <if test="missionDestination != null and missionDestination != ''">
+                and mission_destination like concat('%', #{missionDestination}, '%')
             </if>
             <if test="state != null and state != 0">
                 and state = #{state}
