@@ -17,6 +17,10 @@ public interface MissionRecordDAO {
     @Select("select * from transportation_mission_record where mission_id = #{missionId}")
     MissionRecord selectOne(int missionId);
 
+    @Select("select count(*) from transportation_mission_record where mission_destination " +
+            "like concat('%', #{des}, '%') and mission_create_time like concat('%', #{year}, '%')")
+    int getNumOfYearByDestination(String year, String des);
+
     List<MissionRecord> dynamicQuery(Map<String, Object> map);
 
     int dynamicUpdate(MissionRecord missionRecord);
