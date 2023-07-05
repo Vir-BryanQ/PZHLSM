@@ -59,4 +59,11 @@ public class RepairWorkerMaintenanceRecordsController {
             return new Result(400);
         }
     }
+
+    @CrossOrigin
+    @PostMapping(value = "api/carrepairmgmt/repairworkermaintenancerecords/getbydate")
+    @ResponseBody
+    public List<RepairWorkerMaintenanceRecord> doByDate(@RequestBody RepairWorkerMaintenanceRecord record) {
+        return repairWorkerMaintenanceRecordsService.searchByMaintenanceDate(record);
+    }
 }
