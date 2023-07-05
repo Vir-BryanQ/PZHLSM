@@ -15,15 +15,15 @@ public class StaffService {
 
     public List<Staff> queryAll(){
         List<Staff> staffList = staffDao.queryAllList();
-        staffList.forEach(staff -> {
-            System.out.println(staff);
-        });
+//        staffList.forEach(staff -> {
+//            System.out.println(staff);
+//        });
         return staffList;
     }
 
     public Staff querryById(int id){
         Staff staff = staffDao.queryById(id);
-        System.out.println(staff);
+//        System.out.println(staff);
         return staff;
     }
 

@@ -15,15 +15,15 @@ public class ResourceService {
 
     public List<Resource> queryAll(){
         List<Resource> resourceList = resourceDao.queryAllList();
-        resourceList.forEach(resource -> {
-            System.out.println(resource);
-        });
+//        resourceList.forEach(resource -> {
+//            System.out.println(resource);
+//        });
         return resourceList;
     }
 
     public Resource querryById(int id){
         Resource resource = resourceDao.queryById(id);
-        System.out.println(resource);
+//        System.out.println(resource);
         return resource;
     }
 

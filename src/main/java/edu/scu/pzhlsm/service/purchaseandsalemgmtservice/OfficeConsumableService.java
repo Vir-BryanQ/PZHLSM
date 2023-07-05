@@ -15,23 +15,23 @@ public class OfficeConsumableService {
     //查询所有办公耗材采购信息
     public List<OfficeConsumable> queryAll(){
         List<OfficeConsumable> officeConsumables = officeConsumableDao.queryOfficeConsumables();
-        officeConsumables.forEach(officeConsumable -> {
-            System.out.println(officeConsumable);
-        });
+//        officeConsumables.forEach(officeConsumable -> {
+//            System.out.println(officeConsumable);
+//        });
         return officeConsumables;
     }
 
     //通过Id查询办公耗材采购信息
     public OfficeConsumable queryById(int consumableId){
         OfficeConsumable officeConsumable = officeConsumableDao.queryById(consumableId);
-        System.out.println(officeConsumable);
+//        System.out.println(officeConsumable);
         return officeConsumable;
     }
 
     //新增办公耗材采购信息
     public int addConsumable(OfficeConsumable officeConsumable){
         int result = officeConsumableDao.insertConsumable(officeConsumable);
-        System.out.println(officeConsumable);
+//        System.out.println(officeConsumable);
         return result;
     }
 

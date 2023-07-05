@@ -14,15 +14,15 @@ public class VehiclepsiService {
 
     public List<VehiclePsi> queryAll(){
         List<VehiclePsi> vehiclePsiList = vehiclepsiDao.queryAllList();
-        vehiclePsiList.forEach(vehiclePsi -> {
-            System.out.println(vehiclePsi);
-        });
+//        vehiclePsiList.forEach(vehiclePsi -> {
+//            System.out.println(vehiclePsi);
+//        });
         return vehiclePsiList;
     }
 
     public VehiclePsi queryById(int id){
         VehiclePsi vehiclePsi = vehiclepsiDao.queryById(id);
-        System.out.println(vehiclePsi);
+//        System.out.println(vehiclePsi);
         return vehiclePsi;
     }
 

@@ -14,15 +14,15 @@ public class MaterialService {
 
     public List<MaterialPsi> queryAll(){
         List<MaterialPsi> materialPsiList = materialDao.queryAllList();
-        materialPsiList.forEach(materialPsi -> {
-            System.out.println(materialPsi);
-        });
+//        materialPsiList.forEach(materialPsi -> {
+//            System.out.println(materialPsi);
+//        });
         return materialPsiList;
     }
 
     public MaterialPsi queryById(int id){
         MaterialPsi materialPsi = materialDao.queryById(id);
-        System.out.println(materialPsi);
+//        System.out.println(materialPsi);
         return materialPsi;
     }
 

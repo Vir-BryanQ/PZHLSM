@@ -16,15 +16,15 @@ public class GoodsService {
 
     public List<Goods> queryAll(){
         List<Goods> goodsList = goodsDao.queryAllList();
-        goodsList.forEach(goods -> {
-            System.out.println(goods);
-        });
+//        goodsList.forEach(goods -> {
+//            System.out.println(goods);
+//        });
         return goodsList;
     }
 
     public Goods querryById(int id){
         Goods goods = goodsDao.queryById(id);
-        System.out.println(goods);
+//        System.out.println(goods);
         return goods;
     }
 
