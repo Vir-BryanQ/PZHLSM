@@ -16,15 +16,15 @@ public class VehicleService {
 
     public List<Vehicle> queryAll(){
         List<Vehicle> vehicleList = vehicleDao.queryAllList();
-        vehicleList.forEach(staff -> {
-            System.out.println(staff);
-        });
+//        vehicleList.forEach(staff -> {
+//            System.out.println(staff);
+//        });
         return vehicleList;
     }
 
     public Vehicle querryById(int id){
         Vehicle vehicle = vehicleDao.queryById(id);
-        System.out.println(vehicle);
+//        System.out.println(vehicle);
         return vehicle;
     }
 

@@ -15,15 +15,15 @@ public class BuildingService {
 
     public List<Building> queryAll(){
         List<Building> buildings = buildingDao.queryAllList();
-        buildings.forEach(building -> {
-            System.out.println(building);
-        });
+//        buildings.forEach(building -> {
+//            System.out.println(building);
+//        });
         return buildings;
     }
 
     public Building querryById(int id){
         Building building = buildingDao.queryById(id);
-        System.out.println(building);
+//        System.out.println(building);
         return building;
     }
 

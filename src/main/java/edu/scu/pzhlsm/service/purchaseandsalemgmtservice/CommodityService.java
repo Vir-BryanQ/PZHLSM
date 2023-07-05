@@ -14,23 +14,23 @@ public class CommodityService {
 
     public List<CommodityPsi> queryAll(){
         List<CommodityPsi> commodityPsiList = commodityDao.queryAllList();
-        commodityPsiList.forEach(commodityPsi -> {
-            System.out.println(commodityPsi);
-        });
+//        commodityPsiList.forEach(commodityPsi -> {
+//            System.out.println(commodityPsi);
+//        });
         return commodityPsiList;
     }
 
     public CommodityPsi queryById(int id){
         CommodityPsi commodityPsi = commodityDao.queryById(id);
-        System.out.println(commodityPsi);
+//        System.out.println(commodityPsi);
         return commodityPsi;
     }
 
     public List<CommodityPsi> queryByCondition(String name, String time){
         List<CommodityPsi> commodityPsiList = commodityDao.queryByCondition(name, time);
-        commodityPsiList.forEach(commodityPsi -> {
-            System.out.println(commodityPsi);
-        });
+//        commodityPsiList.forEach(commodityPsi -> {
+//            System.out.println(commodityPsi);
+//        });
         return commodityPsiList;
     }
 
