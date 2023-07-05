@@ -28,10 +28,10 @@ public class BusinessRecordService {
         return businessRecordDAO.update(businessRecord);
     }
 
-    public List<BusinessRecord> dynamicQuery(JSON json){
+    public List<BusinessRecord> dynamicQuery(Map<String, Object> map){
 /*        String jsonStr = json.toJSONString();
-        Map<String, Object> map = JSON.parseObject(jsonStr, new TypeReference<>(){});*/
-        Map<String, Object> map = JSON.parseObject(json.toString());
+        Map<String, Object> map = JSON.parseObject(jsonStr, new TypeReference<>(){});
+        Map<String, Object> map = JSON.parseObject(json.toString());*/
         return businessRecordDAO.dynamicQuery(map);
     }
 

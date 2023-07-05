@@ -32,8 +32,8 @@ public class BusinessRecordServiceTest {
     {
         //封装查询参数
         Map<String, Object> map = new HashMap<>();
-        map.put("state", 0);
-        map.put("companyName", "nv");
+        //map.put("state", 0);
+        map.put("companyName", "华");
         JSONObject json = new JSONObject();
         json.putAll(map);
         //调用

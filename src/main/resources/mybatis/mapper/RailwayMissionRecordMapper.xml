@@ -31,28 +31,28 @@
     <select id="dynamicQuery" resultType="edu.scu.pzhlsm.pojo.transschedulepojo.RailwayMissionRecord">
         select * from railway_mission_record
         <where>
-            <if test="missionId != null">
+            <if test="missionId != null and missionId != 0">
                 and  mission_id = #{missionId}
             </if>
-            <if test="companyName != null">
+            <if test="companyName != null and companyName != ''">
                 and company_name like concat('%', #{companyName}, '%')
             </if>
-            <if test="missionOrigin != null">
+            <if test="missionOrigin != null and missionOrigin != ''">
                 and mission_Origin like concat('%', #{missionOrigin}, '%')
             </if>
-            <if test="missionDestination != null">
+            <if test="missionDestination != null and missionDestination != ''">
                 and mission_destination like concat('%', #{missionDestination}, '%')
             </if>
-            <if test="trainId != null">
+            <if test="trainId != null and trainId != 0">
                 and train_id like concat('%', #{trainId}, '%')
             </if>
-            <if test="mission_beginTime != null">
+            <if test="mission_beginTime != null and mission_beginTime != ''">
                 and mission_beginTime like concat('%', #{mission_beginTime}, '%')
             </if>
-            <if test="missionFinishTime != null">
+            <if test="missionFinishTime != null and missionFinishTime != ''">
                 and mission_finishTime like concat('%', #{missionFinishTime}, '%')
             </if>
-            <if test="state != null">
+            <if test="state != null and state != 0">
                 and state = #{state}
             </if>
         </where>

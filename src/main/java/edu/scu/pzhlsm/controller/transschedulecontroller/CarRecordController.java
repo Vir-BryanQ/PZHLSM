@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/TransSchedule/CarRecord")
@@ -43,7 +44,7 @@ public class CarRecordController {
     @CrossOrigin
     @PostMapping("/query")
     @ResponseBody
-    List<CarRecord> queryByCondition(@RequestBody JSON json){
-        return this.carRecordService.dynamicQuery(json);
+    List<CarRecord> queryByCondition(@RequestBody Map<String, Object> map){
+        return this.carRecordService.dynamicQuery(map);
     }
 }

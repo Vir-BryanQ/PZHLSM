@@ -55,11 +55,12 @@ public class MissionRecordTest {
     @Test
     void dynamicQuery(){
         Map<String, Object> map = new HashMap<>();
-        map.put("createTime", "2023-06");
-        map.put("state", 1);
-        map.put("missionOrigin", "京东");
+        map.put("missionCreateTime", "2023-06-05");
+        //map.put("state", 1);
+        map.put("missionDestination", "双流");
         JSONObject json = new JSONObject();
         json.putAll(map);
-        System.out.println(missionRecordService.dynamicQuery(json));
+        List<MissionRecord> result = missionRecordService.dynamicQuery(map);
+        for(MissionRecord missionRecord : result) System.out.println(missionRecord);
     }
 }

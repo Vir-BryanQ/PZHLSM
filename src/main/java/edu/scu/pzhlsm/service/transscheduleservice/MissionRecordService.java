@@ -33,10 +33,14 @@ public class MissionRecordService {
         return this.missionRecordDAO.update(missionRecord);
     }
 
-    public List<MissionRecord> dynamicQuery(JSON json){
-        Map<String, Object> map = JSON.parseObject(json.toString());
+    public List<MissionRecord> dynamicQuery(Map<String, Object> map){
         return this.missionRecordDAO.dynamicQuery(map);
     }
+
+/*    public List<MissionRecord> dynamicQuery(JSON json){
+        Map<String, Object> map = JSON.parseObject(json.toString());
+        return this.missionRecordDAO.dynamicQuery(map);
+    }*/
 
     public int insert(MissionRecord missionRecord) {
         LocalDate localDate = LocalDate.now();
