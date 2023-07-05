@@ -32,7 +32,7 @@ public class CarRecordService {
         return carRecordDAO.dynamicQuery(map);
     }
 
-    public int insert(CarRecord carRecord){
+/*    public int insert(CarRecord carRecord){
         return carRecordDAO.insert(carRecord);
-    }
+    }*/
 }

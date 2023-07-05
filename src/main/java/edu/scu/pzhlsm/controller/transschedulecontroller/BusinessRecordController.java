@@ -34,11 +34,11 @@ public class BusinessRecordController {
         return this.businessRecordService.update(businessRecord);
     }
 
-    @CrossOrigin
+/*    @CrossOrigin
     @PostMapping("/insert")
     int insert(@RequestBody BusinessRecord businessRecord){
         return businessRecordService.insert(businessRecord);
-    }
+    }*/
 
     @CrossOrigin
     @PostMapping("/query")

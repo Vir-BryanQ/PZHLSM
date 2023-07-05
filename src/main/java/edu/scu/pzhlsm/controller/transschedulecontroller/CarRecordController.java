@@ -34,11 +34,11 @@ public class CarRecordController {
         return this.carRecordService.update(carRecord);
     }
 
-    @CrossOrigin
+/*    @CrossOrigin
     @PostMapping("/insert")
     int insert(@RequestBody CarRecord carRecord){
         return carRecordService.insert(carRecord);
-    }
+    }*/
 
     @CrossOrigin
     @PostMapping("/query")

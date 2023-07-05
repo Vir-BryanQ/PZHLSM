@@ -44,7 +44,7 @@ public class MissionRecordController {
     @CrossOrigin
     @PostMapping("/insert")
     int insert(@RequestBody MissionRecord missionRecord){
-        System.out.println(missionRecord);
+/*        System.out.println(missionRecord);*/
         return this.missionRecordService.insert(missionRecord);
     }
 }

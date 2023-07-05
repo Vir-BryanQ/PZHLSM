@@ -20,9 +20,8 @@ public class MissionRecordTest {
     void missionRecordInsertTest(){
         //插入对象
         MissionRecord missionRecord = new MissionRecord();
-        missionRecord.setMissionId(10);
         missionRecord.setstate(2);
-        missionRecord.setMissionCreateTime("2023-06-06");
+        missionRecord.setMissionCreateTime("2023-06-11");
         missionRecord.setMissionFinishTime("2002-01-01");
         missionRecord.setMissionOrigin("成都市郫都区圆通分公司");
         missionRecord.setMissionDestination("成都市郫都区京东分公司");

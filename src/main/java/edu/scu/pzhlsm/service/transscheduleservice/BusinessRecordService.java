@@ -2,7 +2,9 @@ package edu.scu.pzhlsm.service.transscheduleservice;
 
 import com.alibaba.fastjson.JSON;
 import edu.scu.pzhlsm.dao.transscheduledao.BusinessRecordDAO;
+import edu.scu.pzhlsm.dao.transscheduledao.CarRecordDAO;
 import edu.scu.pzhlsm.pojo.transschedulepojo.BusinessRecord;
+import edu.scu.pzhlsm.pojo.transschedulepojo.CarRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +35,7 @@ public class BusinessRecordService {
         return businessRecordDAO.dynamicQuery(map);
     }
 
-    public int insert(BusinessRecord businessRecord){
-        return businessRecordDAO.insert(businessRecord);
-    }
+/*    public int insert(BusinessRecord businessRecord){
+        return this.businessRecordDAO.insert(businessRecord);
+    }*/
 }
