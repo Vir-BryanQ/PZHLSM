@@ -12,6 +12,7 @@
                                   resource_name=#{resourceName},
                                   resource_use=#{resourceUse},
                                   material_id=#{materialId}
+        where resource_id=#{resourceId}
     </update>
     <delete id="deleteResource">
         delete from resource
