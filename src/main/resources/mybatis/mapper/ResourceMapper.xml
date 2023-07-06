@@ -26,4 +26,13 @@
         select * from resource
         where resource_id=#{resourceId};
     </select>
+    <select id="queryByCondition" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Resource">
+        select *
+        from resource
+        <where>
+            <if test="resourceName != null and resourceName != ''">
+                and resource_name like concat('%', #{resourceName}, '%')
+            </if>
+        </where>;
+    </select>
 </mapper>

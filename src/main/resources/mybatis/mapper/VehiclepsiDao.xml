@@ -14,7 +14,7 @@
                                              create_time=#{createTime},
                                              vehicle_price=#{vehiclePrice},
                                              remark=#{remark}
-        where vehicle_id=#{vehicle_id};
+        where vehicle_id=#{vehicleId};
     </update>
 
     <delete id="deleteVehiclePsi">
@@ -29,5 +29,16 @@
     <select id="queryById" resultType="edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.VehiclePsi">
         select * from automobile_purchase
         where vehicle_id=#{vehicleId}
+    </select>
+    <select id="queryByCondition" resultType="edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.VehiclePsi">
+        select * from automobile_purchase
+        <where>
+            <if test="vehicleName != null and vehicleName != ''">
+                and vehicle_name like concat('%',#{vehicleName},'%')
+            </if>
+            <if test="vehicleTime != null and vehicleTime != ''">
+                and create_time like concat('%',#{vehicleTime},'%')
+            </if>
+        </where>
     </select>
 </mapper>

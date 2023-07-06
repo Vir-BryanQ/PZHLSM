@@ -26,6 +26,11 @@ public class MaterialService {
         return materialPsi;
     }
 
+    public List<MaterialPsi> queryByCondition(String name, String time){
+        List<MaterialPsi> materialPsiList = materialDao.queryByCondition(name, time);
+        return materialPsiList;
+    }
+
     public int addMaterialPsi(MaterialPsi materialPsi){
         int result = materialDao.insertMaterialPsi(materialPsi);
         return result;

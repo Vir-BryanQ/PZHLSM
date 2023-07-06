@@ -1,6 +1,7 @@
 package edu.scu.pzhlsm.dao.basicinfomgmtdao;
 
 import edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Resource;
+import edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Staff;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,8 @@ public interface ResourceDao {
     List<Resource> queryAllList();
 
     Resource queryById(@Param("resourceId") int id);
+
+    List<Resource> queryByCondition(@Param("resourceName") String name);
 
     int insertResource(Resource resource);
 

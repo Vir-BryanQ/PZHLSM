@@ -30,7 +30,7 @@ public class CommodityController {
     }
 
     @CrossOrigin
-    @GetMapping("api/purchaseandsalemgmt/commoditypsi/getbycondition")
+    @PostMapping("api/purchaseandsalemgmt/commoditypsi/getbycondition")
     public List<CommodityPsi> queryByCondition(@RequestBody CommodityPsi commodityPsi){
         List<CommodityPsi> commodityPsiList = commodityService.queryByCondition(commodityPsi.getCommodityName(), commodityPsi.getCreateTime());
         return commodityPsiList;

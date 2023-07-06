@@ -15,6 +15,8 @@ public interface VehicleDao {
 
     Vehicle queryById(@Param("vehicleId") int id);
 
+    List<Vehicle> queryByCondition(String number);
+
     int insertVehicle(Vehicle vehicle);
 
     int deleteVehicle(@Param("vehicleId") int id);

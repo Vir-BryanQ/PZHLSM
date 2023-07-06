@@ -31,6 +31,13 @@ public class OfficeConsumableController {
     }
 
     @CrossOrigin
+    @PostMapping("api/purchaseandsalemgmt/officeconsumables/getbycondition")
+    public List<OfficeConsumable> queryByCondition(@RequestBody OfficeConsumable officeConsumable){
+        List<OfficeConsumable> officeConsumableList = officeConsumableService.queryByCondition(officeConsumable.getConsumableName(), officeConsumable.getCreateTime());
+        return officeConsumableList;
+    }
+
+    @CrossOrigin
     @PostMapping("api/purchaseandsalemgmt/officeconsumables/save")
     public Result insertConsumable(@RequestBody OfficeConsumable officeConsumable){
         int result = officeConsumableService.addConsumable(officeConsumable);

@@ -5,6 +5,7 @@ import edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.VehiclePsi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.plaf.PanelUI;
 import java.util.List;
 
 @Service
@@ -24,6 +25,11 @@ public class VehiclepsiService {
         VehiclePsi vehiclePsi = vehiclepsiDao.queryById(id);
 //        System.out.println(vehiclePsi);
         return vehiclePsi;
+    }
+
+    public List<VehiclePsi> queryByCondition(String name, String time){
+        List<VehiclePsi> vehiclePsiList = vehiclepsiDao.queryByCondition(name, time);
+        return vehiclePsiList;
     }
 
     public int addVehiclePsi(VehiclePsi vehiclePsi){

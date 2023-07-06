@@ -2,6 +2,7 @@ package edu.scu.pzhlsm.service.basicinfomgmtservice;
 
 import edu.scu.pzhlsm.dao.basicinfomgmtdao.StaffDao;
 import edu.scu.pzhlsm.dao.basicinfomgmtdao.VehicleDao;
+import edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Resource;
 import edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Staff;
 import edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,11 @@ public class VehicleService {
         Vehicle vehicle = vehicleDao.queryById(id);
 //        System.out.println(vehicle);
         return vehicle;
+    }
+
+    public List<Vehicle> queryByCondition(String number){
+        List<Vehicle> vehicleList = vehicleDao.queryByCondition(number);
+        return vehicleList;
     }
 
     public int insertVehicle(Vehicle vehicle){

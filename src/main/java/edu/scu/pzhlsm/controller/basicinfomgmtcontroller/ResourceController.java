@@ -30,6 +30,13 @@ public class ResourceController {
     }
 
     @CrossOrigin
+    @PostMapping("api/basicinfomgmt/resource/getbycondition")
+    public List<Resource> queryByCondition(@RequestBody Resource resource){
+        List<Resource> resourceList = resourceService.queryByCondition(resource.getResourceName());
+        return resourceList;
+    }
+
+    @CrossOrigin
     @PostMapping("api/basicinfomgmt/resource/save")
     public Result insertResource(@RequestBody Resource resource){
         int result = resourceService.insertResource(resource);

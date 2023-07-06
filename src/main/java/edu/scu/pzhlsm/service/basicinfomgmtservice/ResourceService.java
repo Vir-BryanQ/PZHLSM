@@ -27,6 +27,11 @@ public class ResourceService {
         return resource;
     }
 
+    public List<Resource> queryByCondition(String name){
+        List<Resource> resourceList = resourceDao.queryByCondition(name);
+        return resourceList;
+    }
+
     public int insertResource(Resource resource){
         int result = resourceDao.insertResource(resource);
         return result;

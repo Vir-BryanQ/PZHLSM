@@ -30,6 +30,13 @@ public class MaterialController {
     }
 
     @CrossOrigin
+    @PostMapping("api/purchaseandsalemgmt/materialpsi/getbycondition")
+    public List<MaterialPsi> queryByCondition(@RequestBody MaterialPsi materialPsi){
+        List<MaterialPsi> materialPsiList = materialService.queryByCondition(materialPsi.getMaterialName(), materialPsi.getCreateTime());
+        return materialPsiList;
+    }
+
+    @CrossOrigin
     @PostMapping("api/purchaseandsalemgmt/materialpsi/save")
     public Result insertMaterialPsi(@RequestBody MaterialPsi materialPsi){
         int result = materialService.addMaterialPsi(materialPsi);

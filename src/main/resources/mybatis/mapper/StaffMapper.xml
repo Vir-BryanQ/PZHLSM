@@ -33,4 +33,16 @@
         select * from pzhlsm.staff
         where staff_id = #{staffId};
     </select>
+    <select id="queryByCondition" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Staff">
+        select *
+        from staff
+        <where>
+            <if test="staffName != null and staffName != ''">
+                and staff_name like concat('%', #{staffName}, '%')
+            </if>
+            <if test="staffNumber != null and staffNumber != ''">
+                and staff_number like concat('%', #{staffNumber}, '%')
+            </if>
+        </where>;
+    </select>
 </mapper>

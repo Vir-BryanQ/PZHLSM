@@ -31,6 +31,13 @@ public class VehicleController {
     }
 
     @CrossOrigin
+    @PostMapping("api/basicinfomgmt/vehicle/getbycondition")
+    public List<Vehicle> queryByCondition(@RequestBody Vehicle vehicle){
+        List<Vehicle> vehicleList = vehicleService.queryByCondition(vehicle.getVehicleNumber());
+        return vehicleList;
+    }
+
+    @CrossOrigin
     @PostMapping("api/basicinfomgmt/vehicle/save")
     public Result insertVehicle(@RequestBody Vehicle vehicle){
         int result = vehicleService.insertVehicle(vehicle);

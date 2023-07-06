@@ -32,5 +32,17 @@
         where material_id = #{materialId};
     </select>
 
+    <select id="queryByCondition" resultType="edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.MaterialPsi">
+        select * from material_psi
+        <where>
+            <if test="materialName != null and materialName != ''">
+                and material_name like concat('%', #{materialName}, '%')
+            </if>
+            <if test="materialTime != null and materialTime != ''">
+                and create_time like concat('%', #{materialTime}, '%')
+            </if>
+        </where>
+    </select>
+
 
 </mapper>

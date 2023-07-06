@@ -14,6 +14,9 @@ public interface StaffDao {
 
     Staff queryById(@Param("staffId") int id);
 
+    List<Staff> queryByCondition(@Param("staffName") String name,
+                                 @Param("staffNumber") String number);
+
     int insertStaff(Staff staff);
 
     int deleteStaff(@Param("staffId") int id);

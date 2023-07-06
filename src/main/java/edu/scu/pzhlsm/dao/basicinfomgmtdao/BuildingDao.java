@@ -15,6 +15,8 @@ public interface BuildingDao {
 
     Building queryById(@Param("buildingId") int id);
 
+
+    List<Building> queryByCondition(@Param("buildingName") String name);
     int insertBuilding(Building building);
 
     int deleteBuilding(@Param("buildingId") int id);

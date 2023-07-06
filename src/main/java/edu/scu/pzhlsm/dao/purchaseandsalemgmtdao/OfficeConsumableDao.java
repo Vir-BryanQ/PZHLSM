@@ -15,6 +15,9 @@ public interface OfficeConsumableDao {
 
     OfficeConsumable queryById(@Param("consumableId") int id);
 
+    List<OfficeConsumable> queryByCondition(@Param("consumableName") String name,
+                                            @Param("consumableTime") String time);
+
     int insertConsumable(OfficeConsumable officeConsumable);
 
     int deleteConsumable(@Param("consumableId") int id);
