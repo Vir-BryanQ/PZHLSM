@@ -4,7 +4,7 @@
 
 <!--    updateConsumable-->
     <update id="updateConsumable">
-        update office_consumables set consumable_name=#{consumableName}, purchase_quantity=#{perPrice},
+        update office_consumables set consumable_name=#{consumableName}, purchase_quantity=#{purchaseQuantity},
                                       create_time=#{createTime}, per_price=#{perPrice}, remark=#{remark}
         where office_consumables_id = #{officeConsumablesId};
     </update>
