@@ -26,7 +26,8 @@ public class LinearDataAnalysisService {
             for (String date : dates) {
                 Integer count = 0;
                 for (MissionRecord missionRecord : missionRecordList) {
-                    if (missionRecord.getMissionFinishTime().contains(date)) {
+                    String temp = missionRecord.getMissionFinishTime();
+                    if (temp!= null && temp.contains(date)) {
                         count++;
                     }
                 }
@@ -47,7 +48,8 @@ public class LinearDataAnalysisService {
             for (String date : dates) {
                 Integer count = 0;
                 for (CarRepairRecord carRepairRecord : carRepairRecordList) {
-                    if (carRepairRecord.getRepairDate().contains(date)) {
+                    String temp = carRepairRecord.getRepairDate();
+                    if (temp!=null && temp.contains(date)) {
                         count++;
                     }
                 }
