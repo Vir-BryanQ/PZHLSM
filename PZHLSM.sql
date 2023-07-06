@@ -1,26 +1,21 @@
 /*
- Navicat Premium Data Transfer
+SQLyog Ultimate v12.08 (64 bit)
+MySQL - 8.0.31 : Database - pzhlsm
+*********************************************************************
+*/
 
- Source Server         : MySQL
- Source Server Type    : MySQL
- Source Server Version : 80033 (8.0.33)
- Source Host           : localhost:3306
- Source Schema         : PZHLSM
+/*!40101 SET NAMES utf8 */;
 
- Target Server Type    : MySQL
- Target Server Version : 80033 (8.0.33)
- File Encoding         : 65001
+/*!40101 SET SQL_MODE=''*/;
 
- Date: 06/07/2023 14:49:47
-*/
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*Table structure for table `automobile_purchase` */
 
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for automobile_purchase
--- ----------------------------
 DROP TABLE IF EXISTS `automobile_purchase`;
+
 CREATE TABLE `automobile_purchase` (
   `vehicle_id` int unsigned NOT NULL AUTO_INCREMENT,
   `vehicle_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -33,16 +28,12 @@ CREATE TABLE `automobile_purchase` (
   PRIMARY KEY (`vehicle_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=156 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of automobile_purchase
--- ----------------------------
-BEGIN;
-COMMIT;
+/*Data for the table `automobile_purchase` */
 
--- ----------------------------
--- Table structure for building
--- ----------------------------
+/*Table structure for table `building` */
+
 DROP TABLE IF EXISTS `building`;
+
 CREATE TABLE `building` (
   `building_id` int NOT NULL AUTO_INCREMENT,
   `building_name` varchar(255) DEFAULT NULL,
@@ -53,17 +44,14 @@ CREATE TABLE `building` (
   PRIMARY KEY (`building_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of building
--- ----------------------------
-BEGIN;
-INSERT INTO `building` (`building_id`, `building_name`, `building_place`, `building_area`, `create_time`, `update_time`) VALUES (3, '仓库', '四川成都', '500', '2023-07-03', '');
-COMMIT;
+/*Data for the table `building` */
 
--- ----------------------------
--- Table structure for building_transaction_records
--- ----------------------------
+insert  into `building`(`building_id`,`building_name`,`building_place`,`building_area`,`create_time`,`update_time`) values (3,'仓库','四川成都','500','2023-07-03','');
+
+/*Table structure for table `building_transaction_records` */
+
 DROP TABLE IF EXISTS `building_transaction_records`;
+
 CREATE TABLE `building_transaction_records` (
   `record_id` int NOT NULL AUTO_INCREMENT,
   `building_id` int DEFAULT NULL,
@@ -75,66 +63,14 @@ CREATE TABLE `building_transaction_records` (
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=242 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of building_transaction_records
--- ----------------------------
-BEGIN;
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (191, 251, '6Qk1pSqqzb', 'Travis Munoz', '2022-02-07', 114670.46, 11);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (192, 710, 'iSTq9TBjQP', 'Shing Lai Yan', '2022-02-26', 126754.03, 8);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (193, 814, 'Wkv2Pvh1dY', 'Lu Yunxi', '2022-09-10', 137990.31, 12);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (194, 515, 'Q3DSrK3v8j', 'Chu Ling Ling', '2022-09-19', 118507.08, 11);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (195, 73, 'cBYtkjxRiw', 'Meng Ziyi', '2023-05-24', 114972.22, 6);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (196, 178, '8w9c3nVmQd', 'Hou Xiaoming', '2022-11-12', 129459.33, 9);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (197, 235, '8an7zYtcFF', 'Chin Chun Yu', '2022-10-31', 143716.89, 8);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (198, 495, 'A4q7vBJqK8', 'Xue Jialun', '2023-11-27', 118853.32, 7);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (199, 252, 'anT1IzFlWZ', 'Zou Rui', '2023-12-19', 146112.70, 9);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (200, 533, 'GYhHO9tPHZ', 'Chu Ming Sze', '2022-08-24', 141565.98, 7);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (201, 665, 'Gqd8Q0WklV', 'Hao Anqi', '2022-08-29', 121695.39, 11);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (202, 460, '6jIYwgWclm', 'Dai Lai Yan', '2022-12-31', 147591.85, 6);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (203, 598, 'h6C5eF3hHI', 'Matsuda Eita', '2022-10-03', 120902.98, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (204, 20, 'AH3NHriNL5', 'Man Tin Wing', '2023-04-19', 109069.35, 7);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (205, 906, 'NSellAMRsx', 'Kam Ming', '2022-01-10', 113849.12, 11);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (206, 388, 'q5sOxmTbOU', 'Yeow Wai Han', '2023-10-07', 112097.63, 7);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (207, 938, 'vf61rFM6N5', 'Nakajima Airi', '2022-03-27', 131545.56, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (208, 273, 'V22HZ1c1lB', 'Sasaki Riku', '2023-03-09', 121670.44, 8);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (209, 995, 'GbUmyBZebg', 'Zhu Yuning', '2023-07-06', 125668.53, 9);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (210, 120, 'CZWEDz7mSL', 'Ogawa Sara', '2022-03-17', 137714.93, 8);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (211, 784, 'FRUbZrnWNP', 'Sakamoto Yota', '2023-08-12', 139001.56, 8);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (212, 642, 'lH8pmkM78N', 'Wada Mitsuki', '2023-10-20', 147726.51, 11);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (213, 311, 'NRM8Pn7W7V', 'Chan Lai Yan', '2023-07-31', 127937.39, 11);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (214, 282, 'hQefdDkM8A', 'Ono Akina', '2022-11-12', 124510.84, 12);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (215, 101, 'MHJR337NPr', 'Hashimoto Daisuke', '2023-05-12', 145252.89, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (216, 728, 'gZ712Yx3w3', 'Anthony Garza', '2023-01-27', 133974.80, 9);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (217, 429, '31ir4GFBbR', 'Sun Yunxi', '2023-05-26', 142876.49, 6);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (218, 155, 'CiM4FZfoRh', 'Yin Zhennan', '2023-09-15', 147036.25, 6);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (219, 761, 'bspvAyASkb', 'Ota Seiko', '2022-12-17', 143714.47, 7);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (220, 53, 'JtNHU0esJz', 'Cheng Ming', '2023-11-22', 107898.56, 12);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (221, 447, 'GLCfO1bAsj', 'Yip Sai Wing', '2022-03-30', 115907.79, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (222, 564, 'NJPKnnVloG', 'Huang Zhennan', '2023-04-02', 114940.88, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (223, 262, 'cbUpgsrFnR', 'Mary Gomez', '2023-08-21', 105105.09, 8);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (224, 955, 'D6lIHUsOgI', 'Harada Momoe', '2022-04-25', 102510.73, 7);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (225, 596, 'Z8OxBrJCA7', 'Ding Lan', '2023-09-11', 141779.01, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (226, 749, 'a0DtPFdicr', 'Nomura Ren', '2022-11-28', 127540.75, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (227, 908, 'VC3H5iZkSY', 'Watanabe Aoshi', '2022-08-10', 122438.91, 11);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (228, 18, 'R8cspzDKmu', 'Sato Airi', '2022-12-03', 135736.50, 8);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (229, 458, '5D5rsh9FWG', 'Jiang Ziyi', '2023-04-28', 141622.46, 12);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (230, 432, '9M8U8UsSPj', 'Ando Tsubasa', '2023-03-01', 128356.37, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (231, 82, 'qJuqKbdNPi', 'Yuen Tsz Hin', '2022-08-08', 101404.25, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (232, 193, 'N79g6QJFS0', 'Nakajima Shino', '2022-05-14', 101660.47, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (233, 813, 'BFa9iqJcL5', 'Amy Peterson', '2022-01-04', 138332.62, 7);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (234, 233, 'w18qlBGwOT', 'Fang Zhennan', '2022-06-22', 114861.25, 9);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (235, 191, 'jScSaSM2xC', 'Ying Kwok Ming', '2022-12-30', 145301.77, 7);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (236, 482, 'M7svJTUuWX', 'Sugiyama Tsubasa', '2023-04-30', 138239.92, 12);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (237, 338, '6XMQXPpQVv', 'Jiang Zitao', '2023-11-17', 127743.72, 6);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (238, 206, '9FqUHo62Sb', 'Kojima Yuto', '2022-09-04', 111883.22, 7);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (239, 477, 'Sxpx5meDOZ', 'Ota Hikaru', '2022-06-18', 102661.81, 10);
-INSERT INTO `building_transaction_records` (`record_id`, `building_id`, `transaction_type`, `tenant_buyer_name`, `transaction_date`, `transaction_price`, `lease_term`) VALUES (240, 113, '4ytObXXoug', 'Murata Kazuma', '2023-08-04', 117038.19, 7);
-COMMIT;
+/*Data for the table `building_transaction_records` */
 
--- ----------------------------
--- Table structure for car_operate_record
--- ----------------------------
+insert  into `building_transaction_records`(`record_id`,`building_id`,`transaction_type`,`tenant_buyer_name`,`transaction_date`,`transaction_price`,`lease_term`) values (191,251,'6Qk1pSqqzb','Travis Munoz','2022-02-07','114670.46',11),(192,710,'iSTq9TBjQP','Shing Lai Yan','2022-02-26','126754.03',8),(193,814,'Wkv2Pvh1dY','Lu Yunxi','2022-09-10','137990.31',12),(194,515,'Q3DSrK3v8j','Chu Ling Ling','2022-09-19','118507.08',11),(195,73,'cBYtkjxRiw','Meng Ziyi','2023-05-24','114972.22',6),(196,178,'8w9c3nVmQd','Hou Xiaoming','2022-11-12','129459.33',9),(197,235,'8an7zYtcFF','Chin Chun Yu','2022-10-31','143716.89',8),(198,495,'A4q7vBJqK8','Xue Jialun','2023-11-27','118853.32',7),(199,252,'anT1IzFlWZ','Zou Rui','2023-12-19','146112.70',9),(200,533,'GYhHO9tPHZ','Chu Ming Sze','2022-08-24','141565.98',7),(201,665,'Gqd8Q0WklV','Hao Anqi','2022-08-29','121695.39',11),(202,460,'6jIYwgWclm','Dai Lai Yan','2022-12-31','147591.85',6),(203,598,'h6C5eF3hHI','Matsuda Eita','2022-10-03','120902.98',10),(204,20,'AH3NHriNL5','Man Tin Wing','2023-04-19','109069.35',7),(205,906,'NSellAMRsx','Kam Ming','2022-01-10','113849.12',11),(206,388,'q5sOxmTbOU','Yeow Wai Han','2023-10-07','112097.63',7),(207,938,'vf61rFM6N5','Nakajima Airi','2022-03-27','131545.56',10),(208,273,'V22HZ1c1lB','Sasaki Riku','2023-03-09','121670.44',8),(209,995,'GbUmyBZebg','Zhu Yuning','2023-07-06','125668.53',9),(210,120,'CZWEDz7mSL','Ogawa Sara','2022-03-17','137714.93',8),(211,784,'FRUbZrnWNP','Sakamoto Yota','2023-08-12','139001.56',8),(212,642,'lH8pmkM78N','Wada Mitsuki','2023-10-20','147726.51',11),(213,311,'NRM8Pn7W7V','Chan Lai Yan','2023-07-31','127937.39',11),(214,282,'hQefdDkM8A','Ono Akina','2022-11-12','124510.84',12),(215,101,'MHJR337NPr','Hashimoto Daisuke','2023-05-12','145252.89',10),(216,728,'gZ712Yx3w3','Anthony Garza','2023-01-27','133974.80',9),(217,429,'31ir4GFBbR','Sun Yunxi','2023-05-26','142876.49',6),(218,155,'CiM4FZfoRh','Yin Zhennan','2023-09-15','147036.25',6),(219,761,'bspvAyASkb','Ota Seiko','2022-12-17','143714.47',7),(220,53,'JtNHU0esJz','Cheng Ming','2023-11-22','107898.56',12),(221,447,'GLCfO1bAsj','Yip Sai Wing','2022-03-30','115907.79',10),(222,564,'NJPKnnVloG','Huang Zhennan','2023-04-02','114940.88',10),(223,262,'cbUpgsrFnR','Mary Gomez','2023-08-21','105105.09',8),(224,955,'D6lIHUsOgI','Harada Momoe','2022-04-25','102510.73',7),(225,596,'Z8OxBrJCA7','Ding Lan','2023-09-11','141779.01',10),(226,749,'a0DtPFdicr','Nomura Ren','2022-11-28','127540.75',10),(227,908,'VC3H5iZkSY','Watanabe Aoshi','2022-08-10','122438.91',11),(228,18,'R8cspzDKmu','Sato Airi','2022-12-03','135736.50',8),(229,458,'5D5rsh9FWG','Jiang Ziyi','2023-04-28','141622.46',12),(230,432,'9M8U8UsSPj','Ando Tsubasa','2023-03-01','128356.37',10),(231,82,'qJuqKbdNPi','Yuen Tsz Hin','2022-08-08','101404.25',10),(232,193,'N79g6QJFS0','Nakajima Shino','2022-05-14','101660.47',10),(233,813,'BFa9iqJcL5','Amy Peterson','2022-01-04','138332.62',7),(234,233,'w18qlBGwOT','Fang Zhennan','2022-06-22','114861.25',9),(235,191,'jScSaSM2xC','Ying Kwok Ming','2022-12-30','145301.77',7),(236,482,'M7svJTUuWX','Sugiyama Tsubasa','2023-04-30','138239.92',12),(237,338,'6XMQXPpQVv','Jiang Zitao','2023-11-17','127743.72',6),(238,206,'9FqUHo62Sb','Kojima Yuto','2022-09-04','111883.22',7),(239,477,'Sxpx5meDOZ','Ota Hikaru','2022-06-18','102661.81',10),(240,113,'4ytObXXoug','Murata Kazuma','2023-08-04','117038.19',7);
+
+/*Table structure for table `car_operate_record` */
+
 DROP TABLE IF EXISTS `car_operate_record`;
+
 CREATE TABLE `car_operate_record` (
   `mission_id` int NOT NULL,
   `car_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -145,43 +81,32 @@ CREATE TABLE `car_operate_record` (
   PRIMARY KEY (`mission_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of car_operate_record
--- ----------------------------
-BEGIN;
-INSERT INTO `car_operate_record` (`mission_id`, `car_id`, `car_type`, `car_licence`, `mission_begin_time`, `state`) VALUES (122, '084354', 3, '川C-22222', '2023-07-12', 3);
-INSERT INTO `car_operate_record` (`mission_id`, `car_id`, `car_type`, `car_licence`, `mission_begin_time`, `state`) VALUES (999, '220101', 1, '川C-22222', '2023-07-02', 3);
-INSERT INTO `car_operate_record` (`mission_id`, `car_id`, `car_type`, `car_licence`, `mission_begin_time`, `state`) VALUES (10000000, '190812', 2, '川A-10086', '2023-07-01', 1);
-INSERT INTO `car_operate_record` (`mission_id`, `car_id`, `car_type`, `car_licence`, `mission_begin_time`, `state`) VALUES (10000001, '190811', 2, '川A-11111', '2023-07-03', 1);
-INSERT INTO `car_operate_record` (`mission_id`, `car_id`, `car_type`, `car_licence`, `mission_begin_time`, `state`) VALUES (10000013, NULL, 0, '川AAB555', NULL, 0);
-COMMIT;
+/*Data for the table `car_operate_record` */
 
--- ----------------------------
--- Table structure for car_repair_records
--- ----------------------------
+insert  into `car_operate_record`(`mission_id`,`car_id`,`car_type`,`car_licence`,`mission_begin_time`,`state`) values (122,'084354',3,'川C-22222','2023-07-12',3),(999,'220101',1,'川C-22222','2023-07-02',3),(10000000,'190812',2,'川A-10086','2023-07-01',1),(10000001,'190811',2,'川A-11111','2023-07-03',1),(10000013,NULL,0,'川AAB555',NULL,0),(10000014,NULL,NULL,NULL,NULL,NULL);
+
+/*Table structure for table `car_repair_records` */
+
 DROP TABLE IF EXISTS `car_repair_records`;
+
 CREATE TABLE `car_repair_records` (
   `record_id` int NOT NULL AUTO_INCREMENT,
   `car_id` int DEFAULT NULL,
-  `repair_date` char(10) DEFAULT NULL,
-  `repair_type` varchar(255) DEFAULT NULL,
-  `repair_description` varchar(255) DEFAULT NULL,
+  `repair_date` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `repair_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `repair_description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `repair_cost` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`record_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=261 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of car_repair_records
--- ----------------------------
-BEGIN;
-INSERT INTO `car_repair_records` (`record_id`, `car_id`, `repair_date`, `repair_type`, `repair_description`, `repair_cost`) VALUES (3, 1111, '2023-07-05', '坏了', '坏了', 1.00);
-INSERT INTO `car_repair_records` (`record_id`, `car_id`, `repair_date`, `repair_type`, `repair_description`, `repair_cost`) VALUES (4, 2222, '2023-07-04', '1', '2', 3.00);
-COMMIT;
+/*Data for the table `car_repair_records` */
 
--- ----------------------------
--- Table structure for commercial_customer_record
--- ----------------------------
+insert  into `car_repair_records`(`record_id`,`car_id`,`repair_date`,`repair_type`,`repair_description`,`repair_cost`) values (1,1016,'2022-02-27','purus. Duis elementum, dui quis accumsan convallis,','tempor diam dictum sapien. Aenean','727.52'),(2,1160,'2023-08-21','morbi tristique senectus et netus et malesuada','aliquet molestie','660.49'),(3,1402,'2022-04-20','mi enim, condimentum eget, volutpat','Duis volutpat nunc sit amet metus. Aliquam erat volutpat.','1089.40'),(4,1017,'2021-11-21','eros nec tellus.','metus vitae velit egestas lacinia. Sed congue, elit sed','1349.37'),(5,1908,'2021-07-01','enim. Sed nulla ante, iaculis nec, eleifend non,','per','1700.31'),(6,1082,'2021-12-09','quis accumsan convallis, ante lectus convallis','tortor at risus. Nunc','1190.45'),(7,1373,'2023-12-19','dictum magna. Ut','fermentum fermentum arcu. Vestibulum ante ipsum primis in','2168.40'),(8,1514,'2021-11-03','augue ut lacus. Nulla tincidunt,','sociosqu ad litora torquent per conubia nostra, per inceptos','1079.11'),(9,1501,'2022-10-11','erat. Etiam vestibulum massa rutrum magna. Cras convallis','sed orci lobortis augue','917.65'),(10,1784,'2023-01-08','mollis','ipsum','1818.88'),(11,1847,'2022-12-04','Vivamus nibh dolor, nonummy ac,','tortor, dictum eu, placerat eget, venenatis a, magna. Lorem ipsum','896.12'),(12,1519,'2023-10-17','vitae erat vel pede blandit congue. In scelerisque','imperdiet dictum magna.','876.09'),(13,1173,'2023-06-27','et, eros. Proin ultrices. Duis volutpat nunc sit','consectetuer euismod est arcu','1203.14'),(14,1920,'2021-08-02','amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse','natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.','1022.35'),(15,1719,'2023-03-22','cubilia Curae Phasellus ornare. Fusce mollis.','ultricies ornare, elit elit fermentum risus,','811.50'),(16,1537,'2023-10-24','sem mollis dui, in sodales','imperdiet dictum magna.','947.05'),(17,1171,'2022-12-24','ac orci. Ut semper pretium neque. Morbi','magna. Cras convallis convallis dolor.','413.50'),(18,1345,'2022-09-15','pellentesque. Sed dictum. Proin eget','eu, accumsan','1509.33'),(19,1168,'2022-02-01','morbi tristique senectus et','Nunc lectus pede, ultrices a,','1090.56'),(20,1650,'2022-12-27','consectetuer adipiscing elit. Curabitur sed','arcu vel','744.51'),(21,1333,'2023-06-06','vestibulum, neque sed dictum eleifend, nunc risus varius','amet diam eu dolor','1071.54'),(22,1207,'2023-05-24','ut erat. Sed nunc est,','laoreet lectus quis massa. Mauris vestibulum, neque sed','808.98'),(23,1141,'2022-04-03','accumsan laoreet ipsum. Curabitur consequat, lectus sit amet luctus vulputate,','vel pede blandit congue.','416.10'),(24,1395,'2023-09-11','egestas nunc sed libero. Proin','dictum. Proin','705.10'),(25,1440,'2022-07-28','vel, mauris. Integer','hendrerit a, arcu. Sed et libero. Proin','728.77'),(26,1025,'2023-01-05','amet, consectetuer adipiscing elit. Etiam laoreet, libero et tristique','convallis erat, eget tincidunt dui augue','1659.20'),(27,1280,'2022-08-16','rutrum non, hendrerit id, ante. Nunc mauris sapien, cursus','luctus aliquet odio. Etiam ligula tortor,','1396.75'),(28,1195,'2022-05-10','semper tellus id nunc interdum','blandit enim consequat purus. Maecenas libero est, congue','542.21'),(29,1885,'2022-09-24','ipsum primis','diam vel arcu. Curabitur ut','1300.85'),(30,1941,'2022-06-08','neque tellus, imperdiet non,','lectus justo eu arcu. Morbi sit','1575.94'),(31,1318,'2022-07-21','sed turpis nec mauris blandit mattis.','sit','787.69'),(32,1448,'2022-11-16','lacinia vitae, sodales at, velit. Pellentesque','nibh vulputate mauris sagittis placerat.','-316.98'),(33,1220,'2023-11-14','semper egestas,','magna. Duis dignissim tempor arcu.','185.20'),(34,1804,'2023-01-11','Fusce feugiat. Lorem','egestas. Duis ac arcu. Nunc','1094.43'),(35,1971,'2023-08-29','semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices','in lobortis tellus justo sit amet nulla. Donec non justo.','730.56'),(36,1994,'2022-10-04','eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis','facilisi. Sed neque. Sed eget lacus. Mauris non','1427.52'),(37,1390,'2023-09-06','fringilla mi lacinia','lobortis tellus justo sit amet nulla.','692.39'),(38,1841,'2021-09-13','eleifend non, dapibus rutrum, justo. Praesent luctus. Curabitur egestas','Phasellus dolor elit, pellentesque a, facilisis','256.22'),(39,1637,'2023-10-07','pharetra. Quisque ac libero nec ligula consectetuer','posuere cubilia Curae Donec tincidunt. Donec vitae erat','1063.01'),(40,1709,'2023-10-17','arcu.','dolor. Nulla semper','1183.82'),(41,1960,'2021-09-13','ornare, elit elit fermentum risus, at fringilla purus','cursus luctus, ipsum leo elementum sem,','945.06'),(42,1217,'2021-11-15','pharetra, felis eget','In at pede.','784.63'),(43,1666,'2022-08-22','odio. Nam interdum enim non nisi. Aenean eget metus.','arcu. Vestibulum ut eros non enim commodo hendrerit.','807.56'),(44,1246,'2023-08-31','lacinia. Sed congue, elit sed consequat auctor, nunc','dolor dapibus gravida. Aliquam tincidunt,','481.41'),(45,1989,'2023-01-10','lorem lorem, luctus ut, pellentesque eget, dictum placerat,','lorem vitae odio','1166.66'),(46,1105,'2022-08-03','cubilia Curae Phasellus ornare.','sit amet, consectetuer adipiscing elit.','1189.13'),(47,1102,'2023-04-07','iaculis, lacus pede sagittis augue,','cursus non, egestas a, dui. Cras pellentesque. Sed dictum.','1179.92'),(48,1872,'2023-07-05','sem molestie sodales. Mauris blandit enim consequat','Aliquam erat','1275.96'),(49,1838,'2022-06-19','arcu. Vestibulum ante ipsum primis in','gravida. Aliquam tincidunt, nunc ac mattis ornare,','803.15'),(50,1648,'2021-08-26','ut erat. Sed','Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices','383.01'),(51,1371,'2022-07-19','elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed et','urna. Vivamus molestie dapibus ligula. Aliquam erat volutpat. Nulla dignissim.','609.60'),(52,1437,'2023-02-20','sollicitudin a,','at augue id ante dictum','743.23'),(53,1848,'2022-05-03','Proin dolor. Nulla semper tellus id nunc','In faucibus. Morbi vehicula. Pellentesque','480.31'),(54,1343,'2021-08-22','auctor, nunc','libero. Proin mi. Aliquam gravida','114.42'),(55,1898,'2023-04-05','Donec porttitor tellus non magna. Nam','metus. Aenean sed pede nec','273.82'),(56,1270,'2021-07-21','sed sem egestas blandit. Nam nulla magna,','pede. Nunc sed orci','176.82'),(57,1988,'2022-01-06','Praesent eu nulla at sem','erat. Etiam vestibulum massa rutrum','1215.51'),(58,1014,'2022-01-13','Fusce dolor quam,','mauris ipsum porta elit, a feugiat tellus','1626.70'),(59,1096,'2023-09-14','lectus','nulla. Donec non justo. Proin','650.14'),(60,1553,'2023-02-05','sit amet luctus vulputate, nisi sem semper','egestas nunc sed libero. Proin sed turpis nec','1034.73'),(61,1188,'2022-05-26','et tristique pellentesque, tellus sem mollis dui, in','sit amet, risus. Donec nibh enim, gravida sit amet,','709.06'),(62,1245,'2023-08-06','leo elementum sem, vitae aliquam eros','sapien','778.92'),(63,1397,'2023-12-24','Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.','ut lacus. Nulla tincidunt, neque vitae semper egestas,','1670.91'),(64,1145,'2023-04-15','Sed','penatibus et magnis dis','458.93'),(65,1223,'2022-02-24','ac mi eleifend egestas. Sed pharetra, felis eget','odio. Phasellus at augue','424.40'),(66,1930,'2022-10-30','est ac mattis','nostra, per inceptos hymenaeos.','1791.50'),(67,1336,'2022-02-14','egestas. Aliquam fringilla cursus purus. Nullam scelerisque','nec metus facilisis lorem','877.60'),(68,1127,'2021-07-13','non massa non ante bibendum ullamcorper. Duis cursus,','vitae nibh. Donec est','502.25'),(69,1702,'2023-01-10','cursus. Nunc mauris elit, dictum eu, eleifend','turpis non','1116.63'),(70,1793,'2021-12-05','sollicitudin a,','nec, imperdiet nec, leo. Morbi neque tellus, imperdiet','485.06'),(72,1463,'2023-01-23','Cras dictum','lorem','919.67'),(73,1729,'2021-12-19','elit, a','Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus','166.57'),(74,1646,'2022-09-26','eu lacus. Quisque imperdiet, erat nonummy','tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc','2082.03'),(75,1221,'2023-07-02','lobortis quis, pede. Suspendisse dui. Fusce diam','Phasellus libero mauris, aliquam eu, accumsan sed, facilisis vitae,','784.73'),(76,1586,'2021-08-27','Etiam ligula','laoreet, libero et tristique','1436.81'),(77,1861,'2023-07-24','molestie.','odio sagittis semper. Nam tempor diam dictum sapien.','1209.16'),(78,1249,'2023-06-28','dis parturient montes, nascetur ridiculus mus. Proin vel','tellus, imperdiet non, vestibulum nec, euismod','1349.54'),(79,1998,'2023-04-18','Quisque porttitor','facilisis, magna tellus faucibus leo, in lobortis','1151.40'),(80,1359,'2022-11-26','dignissim. Maecenas ornare egestas','malesuada','546.24'),(81,1286,'2023-01-20','semper tellus id nunc interdum feugiat.','fames ac turpis egestas. Aliquam fringilla','1710.58'),(82,1312,'2023-11-13','eget laoreet posuere,','fames ac turpis egestas. Fusce','1167.69'),(83,1979,'2021-07-10','Etiam ligula tortor, dictum eu,','nec, eleifend non,','797.21'),(84,1182,'2022-09-19','neque. Nullam nisl. Maecenas malesuada fringilla','ut, pellentesque eget, dictum placerat,','1207.54'),(85,1469,'2023-02-14','ad litora torquent per conubia nostra, per','at pede. Cras vulputate velit eu sem. Pellentesque ut','1475.72'),(86,1159,'2022-05-29','eu, ultrices','lectus pede, ultrices a,','921.39'),(87,1852,'2022-10-08','dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante','euismod enim. Etiam gravida','1153.70'),(89,1820,'2022-08-29','dui. Suspendisse ac metus vitae velit','ultrices sit amet, risus. Donec nibh enim, gravida sit','2329.95'),(90,1791,'2023-08-16','suscipit nonummy.','lobortis mauris. Suspendisse aliquet molestie tellus. Aenean egestas hendrerit','1002.04'),(91,1873,'2022-04-03','ornare lectus justo eu arcu.','Nunc sed orci lobortis augue scelerisque mollis. Phasellus','652.98'),(92,1103,'2022-03-11','nisi. Aenean eget','egestas. Duis ac arcu. Nunc mauris. Morbi','1516.00'),(93,1509,'2022-05-15','Maecenas malesuada fringilla est.','vitae risus. Duis a mi fringilla','1417.05'),(94,1589,'2022-03-02','tellus faucibus leo, in','posuere cubilia Curae Donec','1262.06'),(95,1444,'2021-07-16','dui augue eu tellus. Phasellus elit pede, malesuada vel,','Etiam vestibulum massa','1893.67'),(96,1374,'2022-11-26','diam luctus lobortis. Class aptent taciti','Duis sit amet diam eu dolor egestas','167.99'),(97,1269,'2022-05-18','vel lectus. Cum sociis natoque penatibus et magnis dis parturient','in lobortis tellus justo sit amet nulla. Donec non justo.','681.50'),(98,1772,'2023-10-17','dui nec urna suscipit','lobortis, nisi nibh lacinia orci, consectetuer euismod est arcu','1009.04'),(99,1323,'2023-09-16','ipsum ac mi eleifend egestas. Sed pharetra,','nulla. In','957.10'),(100,1794,'2023-02-02','et, rutrum non, hendrerit id,','dui','55.66'),(101,1520,'2022-09-12','enim nec tempus scelerisque, lorem ipsum sodales purus,','Aliquam erat volutpat. Nulla','1293.46'),(102,1813,'2023-07-03','non, egestas a, dui. Cras','purus. Maecenas libero est, congue a, aliquet vel,','732.74'),(103,1016,'2022-08-24','Etiam bibendum fermentum','pharetra nibh. Aliquam ornare, libero at','427.06'),(104,1894,'2022-10-23','Quisque porttitor','habitant morbi tristique senectus','1135.32'),(105,1447,'2023-05-09','Sed pharetra, felis eget','adipiscing','265.74'),(106,1799,'2023-09-28','enim mi tempor lorem,','molestie. Sed','726.02'),(107,1738,'2023-11-24','Donec at arcu. Vestibulum','lectus ante dictum mi,','1028.47'),(108,1071,'2022-05-21','inceptos hymenaeos. Mauris ut','dis parturient montes, nascetur','775.41'),(109,1451,'2022-07-01','Vivamus molestie dapibus ligula. Aliquam','ac mi eleifend egestas. Sed pharetra,','1232.73'),(110,1599,'2023-11-05','Lorem ipsum dolor sit amet, consectetuer adipiscing','feugiat metus','1799.38'),(111,1806,'2021-10-19','iaculis aliquet diam. Sed diam lorem, auctor quis,','Nam ac nulla. In tincidunt','1460.33'),(112,1231,'2023-11-01','lacinia.','sem, consequat nec, mollis vitae, posuere at, velit. Cras','306.71'),(113,1090,'2023-07-21','et arcu imperdiet ullamcorper.','Phasellus vitae mauris','228.79'),(114,1599,'2021-09-09','eget odio. Aliquam vulputate ullamcorper magna. Sed eu eros. Nam','venenatis','651.63'),(115,1210,'2023-10-18','erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus','Quisque porttitor eros nec tellus. Nunc','1445.90'),(117,1870,'2023-08-30','bibendum ullamcorper.','at,','652.93'),(118,1844,'2023-03-01','arcu eu odio tristique','Etiam vestibulum massa rutrum magna. Cras convallis convallis dolor.','1717.69'),(119,1245,'2023-11-19','consequat, lectus sit amet luctus vulputate, nisi sem','Maecenas libero est, congue a, aliquet vel,','870.60'),(120,1566,'2023-12-11','Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue','Aenean sed pede nec ante blandit','1062.59'),(121,1516,'2023-05-18','dolor elit,','lacus. Aliquam rutrum lorem ac risus. Morbi metus. Vivamus','1192.40'),(122,1375,'2023-08-19','urna. Nunc quis arcu vel quam dignissim pharetra. Nam ac','commodo at, libero.','809.27'),(123,1513,'2021-12-30','mattis velit','molestie','398.47'),(124,1046,'2023-01-19','ipsum. Donec sollicitudin adipiscing ligula. Aenean gravida nunc','turpis nec mauris blandit mattis. Cras eget nisi','378.59'),(125,1681,'2022-02-06','sodales','nonummy ipsum non arcu. Vivamus sit amet risus. Donec','244.45'),(126,1425,'2021-11-16','mi. Aliquam gravida','elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.','1429.27'),(127,1670,'2023-07-03','auctor velit. Aliquam','blandit mattis. Cras eget nisi dictum augue malesuada malesuada. Integer','1236.36'),(128,1640,'2021-12-20','nisi dictum augue malesuada','nibh. Donec est mauris,','1018.57'),(129,1225,'2022-04-06','urna. Nullam lobortis quam a felis','eget mollis lectus pede et risus. Quisque','408.57'),(130,1795,'2022-05-26','auctor','ligula.','2002.57'),(131,1898,'2022-05-02','orci, in consequat enim','Phasellus ornare. Fusce mollis. Duis sit amet diam','765.94'),(132,1970,'2022-09-23','turpis vitae purus gravida sagittis. Duis gravida.','Nulla facilisi. Sed neque. Sed eget lacus.','1596.32'),(133,1422,'2023-08-12','sociis natoque penatibus et magnis','Sed diam lorem,','1245.09'),(134,1814,'2021-11-01','libero et tristique pellentesque, tellus sem mollis dui, in','odio vel est tempor bibendum. Donec felis orci,','1749.63'),(135,1374,'2022-08-01','Vivamus','ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed','1393.66'),(136,1138,'2022-11-28','sem molestie sodales.','convallis convallis dolor.','849.99'),(137,1651,'2021-12-14','est ac mattis semper,','luctus aliquet odio. Etiam ligula tortor,','1677.18'),(138,1700,'2023-02-25','lorem ut aliquam iaculis, lacus','tempus non,','1048.03'),(139,1834,'2023-11-02','nonummy ipsum','Suspendisse ac metus vitae velit','1724.02'),(140,1362,'2023-06-25','amet luctus vulputate, nisi','vitae, sodales at, velit. Pellentesque ultricies','1710.20'),(141,1039,'2021-11-26','Curabitur ut odio vel est tempor bibendum.','turpis. In condimentum. Donec at','880.59'),(142,1236,'2023-05-14','ridiculus mus. Proin vel','mauris blandit mattis. Cras eget nisi dictum','1459.36'),(143,1194,'2022-04-24','erat neque non quam. Pellentesque habitant morbi tristique senectus et','malesuada id, erat.','1474.69'),(144,1295,'2021-09-12','Integer aliquam adipiscing lacus. Ut nec urna','Donec egestas. Aliquam nec enim. Nunc ut erat. Sed','517.13'),(145,1802,'2021-08-14','egestas hendrerit neque. In ornare sagittis felis. Donec','Cum sociis natoque penatibus','987.47'),(146,1220,'2021-08-17','neque sed sem egestas','nulla. Donec non justo. Proin non massa non ante','1821.67'),(147,1456,'2022-08-05','dolor. Quisque tincidunt pede ac urna. Ut','ridiculus mus.','1673.02'),(148,1594,'2023-09-03','a, enim.','ipsum primis in faucibus orci','1284.91'),(149,1703,'2023-11-27','vitae','pede','938.13'),(150,1191,'2021-12-01','cursus purus. Nullam scelerisque neque sed','libero est, congue a, aliquet','2100.73'),(151,1369,'2022-03-21','adipiscing lobortis risus. In mi pede, nonummy ut,','pretium aliquet, metus urna','1675.51'),(152,1930,'2023-07-15','at, libero. Morbi accumsan laoreet ipsum. Curabitur','Integer sem elit, pharetra','1005.43'),(153,1268,'2022-11-01','Phasellus in felis. Nulla tempor augue ac ipsum. Phasellus','Integer in magna. Phasellus dolor elit, pellentesque','1477.00'),(154,1321,'2023-10-27','est ac','eu, ultrices sit amet, risus. Donec','655.20'),(155,1226,'2023-08-15','quis turpis vitae purus','consequat enim diam vel arcu. Curabitur ut odio','1073.10'),(156,1261,'2022-02-27','nec ligula consectetuer rhoncus. Nullam velit dui, semper et, lacinia','Mauris nulla.','443.58'),(157,1294,'2021-10-23','tempor arcu. Vestibulum ut eros non enim','Nulla interdum. Curabitur dictum. Phasellus in felis. Nulla tempor','1088.92'),(158,1432,'2022-05-22','posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis','Aliquam tincidunt, nunc ac mattis ornare,','1175.06'),(159,1861,'2021-09-22','elit, pharetra ut, pharetra','dolor, tempus non, lacinia at, iaculis','52.07'),(160,1943,'2022-05-21','montes, nascetur ridiculus mus. Proin vel nisl. Quisque fringilla euismod','Cum sociis natoque penatibus et magnis dis parturient','1574.14'),(161,1216,'2022-07-27','a felis ullamcorper viverra. Maecenas iaculis aliquet diam. Sed diam','dapibus quam quis diam. Pellentesque habitant morbi tristique senectus et','736.26'),(162,1567,'2023-05-27','ut,','Quisque nonummy ipsum non arcu. Vivamus sit amet','1121.32'),(163,1221,'2022-04-02','venenatis vel,','non enim commodo hendrerit. Donec porttitor tellus non magna. Nam','1279.64'),(164,1089,'2023-12-15','nec tempus mauris erat','erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin dolor.','1136.55'),(165,1757,'2021-08-21','et risus. Quisque libero lacus,','in, tempus eu, ligula. Aenean euismod mauris','1297.11'),(166,1005,'2023-02-13','ac mattis velit justo nec ante.','eu, ligula. Aenean euismod mauris eu elit. Nulla','1044.45'),(167,1550,'2021-11-27','pede. Suspendisse dui. Fusce','laoreet, libero et tristique pellentesque, tellus sem mollis','787.02'),(168,1391,'2023-02-25','sit amet nulla. Donec non justo. Proin','venenatis','1368.35'),(169,1468,'2022-05-10','ut eros non enim commodo hendrerit. Donec porttitor','malesuada fringilla','1747.42'),(170,1535,'2022-11-18','Phasellus vitae mauris sit','at auctor ullamcorper, nisl','935.66'),(171,1596,'2021-07-30','varius et, euismod et, commodo at, libero. Morbi accumsan','non, lobortis quis, pede. Suspendisse dui. Fusce diam nunc,','383.87'),(172,1454,'2022-04-26','sodales purus, in molestie tortor nibh sit amet','tellus. Suspendisse sed','2522.43'),(173,1165,'2023-07-04','dolor','erat, in consectetuer','375.60'),(174,1695,'2023-08-31','tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel,','et netus et malesuada fames ac turpis egestas. Fusce','653.69'),(175,1261,'2022-09-03','eget nisi dictum augue malesuada','arcu. Sed eu nibh vulputate','1488.79'),(176,1018,'2022-01-09','mauris ipsum','Vivamus non lorem vitae odio','1351.54'),(177,1980,'2022-06-14','sapien. Aenean massa. Integer vitae nibh. Donec est mauris,','lorem eu','170.90'),(178,1511,'2022-10-04','sem. Nulla interdum. Curabitur dictum.','tincidunt, nunc ac','482.39'),(179,1613,'2023-10-06','molestie tellus. Aenean egestas hendrerit neque.','pede nec','1971.37'),(180,1629,'2023-10-17','Suspendisse eleifend. Cras sed leo.','Nullam lobortis quam','594.76'),(181,1855,'2022-07-11','at augue id ante dictum cursus.','nec quam. Curabitur vel lectus. Cum sociis','1027.47'),(182,1792,'2023-07-25','Proin sed turpis nec mauris','consectetuer adipiscing elit. Etiam laoreet, libero et tristique pellentesque, tellus','654.25'),(183,1505,'2022-05-13','amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo','sed orci lobortis augue scelerisque mollis. Phasellus libero mauris, aliquam','1354.00'),(184,1245,'2022-10-03','nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet.','quam dignissim pharetra. Nam ac nulla.','1292.35'),(185,1709,'2023-01-05','auctor, nunc nulla vulputate dui, nec tempus mauris erat','vitae dolor. Donec','1175.19'),(186,1379,'2023-11-07','eu nibh vulputate mauris sagittis','ipsum. Suspendisse sagittis.','926.92'),(187,1996,'2022-01-29','sagittis felis. Donec tempor, est ac mattis','tempor arcu. Vestibulum ut eros non enim','1418.35'),(188,1941,'2021-09-20','elementum, dui quis accumsan convallis, ante','tristique senectus et netus','580.87'),(189,1475,'2021-10-01','sem magna nec quam. Curabitur vel lectus. Cum sociis natoque','consectetuer ipsum nunc id','1167.84'),(190,1540,'2022-10-30','porttitor eros','velit. Pellentesque ultricies dignissim lacus. Aliquam','1394.22'),(191,1590,'2021-11-18','non leo. Vivamus nibh dolor, nonummy ac,','nunc est, mollis non, cursus non,','939.82'),(192,1450,'2022-05-29','orci, in consequat enim diam vel arcu. Curabitur ut','dolor, tempus non, lacinia at, iaculis quis, pede.','397.88'),(193,1421,'2021-12-27','Nunc mauris','diam. Pellentesque habitant morbi tristique senectus','770.07'),(194,1031,'2021-09-20','pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec','lacinia at, iaculis quis, pede. Praesent eu dui. Cum','1471.79'),(195,1142,'2022-08-19','ante. Nunc mauris sapien, cursus in, hendrerit consectetuer, cursus et,','nulla vulputate dui, nec tempus mauris','189.70'),(196,1435,'2023-10-21','Cum sociis','feugiat tellus','906.87'),(197,1031,'2022-11-14','vitae, aliquet nec,','nulla at sem molestie sodales. Mauris','458.45'),(198,1941,'2021-12-02','Aliquam rutrum lorem ac risus. Morbi','arcu imperdiet ullamcorper. Duis at lacus.','1019.65'),(199,1860,'2022-03-17','egestas. Aliquam nec enim. Nunc ut erat. Sed','mauris sagittis placerat. Cras','2284.74'),(251,1212,'2022-11-27','tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu','Sed auctor odio a purus. Duis elementum, dui quis accumsan','2110.92');
+
+/*Table structure for table `commercial_customer_record` */
+
 DROP TABLE IF EXISTS `commercial_customer_record`;
+
 CREATE TABLE `commercial_customer_record` (
   `mission_id` int NOT NULL,
   `company_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -190,67 +115,14 @@ CREATE TABLE `commercial_customer_record` (
   PRIMARY KEY (`mission_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of commercial_customer_record
--- ----------------------------
-BEGIN;
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (1, 'Liang Kee Company Limited', 1053, 3);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (2, 'Wai Man Limited', 1038, 3);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (3, 'Liang Kee Telecommunication Company Limited', 1074, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (4, 'Lu Network Systems Company Limited', 1090, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (5, 'Hana Corporation', 1068, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (6, 'Watson\'s Pharmaceutical Inc.', 1286, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (7, 'Wing Suen Pharmaceutical Limited', 1197, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (8, 'Kinoshita Telecommunication Corporation', 1180, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (9, 'Sylvia Inc.', 1487, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (10, 'Stephanie Trading LLC', 1306, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (11, 'King\'s Trading LLC', 1349, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (12, 'Lan Engineering Company Limited', 1458, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (13, 'Tang Kee Development & Trading Limited', 1379, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (14, 'Lu Engineering Company Limited', 1181, 3);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (15, 'Graham\'s Pharmaceutical LLC', 1090, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (16, 'Miu\'s Limited', 1459, 3);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (17, 'Sakura Corporation', 1493, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (18, 'Jimenez Brothers Inc.', 1023, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (19, 'Yuning Pharmaceutical Company Limited', 1053, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (20, 'Kenneth Electronic Inc.', 1044, 3);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (21, 'Wai Yee Electronic Limited', 1037, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (22, 'John Consultants Inc.', 1211, 3);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (23, 'Lan Company Limited', 1348, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (24, 'Lan Development & Trading Company Limited', 1094, 0);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (25, 'Aoi Corporation', 1171, 0);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (26, 'Jennifer Inc.', 1261, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (27, 'Cheung\'s Electronic Limited', 1195, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (28, 'Lin Network Systems Company Limited', 1261, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (29, 'Wu Technology Company Limited', 1060, 0);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (30, 'Eleanor Inc.', 1248, 0);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (31, 'Shimada Corporation', 1229, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (32, 'Momoka Corporation', 1011, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (33, 'Zhiyuan Electronic Company Limited', 1355, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (34, 'Peterson Brothers Toy Inc.', 1293, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (35, 'Chen Company Limited', 1374, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (36, 'Adam Electronic Inc.', 1090, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (37, 'Xia Kee Company Limited', 1436, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (38, 'Anqi Company Limited', 1229, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (39, 'Hui\'s Network Systems Limited', 1045, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (40, 'Tak Wah Electronic Limited', 1227, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (41, 'Jialun Company Limited', 1366, 0);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (42, 'Denise Trading Inc.', 1138, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (43, 'Su Kee Telecommunication Company Limited', 1372, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (44, 'Chi Ming Communications Limited', 1304, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (45, 'Baker Brothers Inc.', 1200, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (46, 'Rui Company Limited', 1393, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (47, 'Brooks Consultants LLC', 1326, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (48, 'Jialun Company Limited', 1362, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (49, 'Cheung Kee Development & Trading Limited', 1047, 1);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (50, 'Tin Lok Property Limited', 1290, 2);
-INSERT INTO `commercial_customer_record` (`mission_id`, `company_name`, `mission_price`, `state`) VALUES (10000013, 'SICHUAN', 50000, 1);
-COMMIT;
+/*Data for the table `commercial_customer_record` */
 
--- ----------------------------
--- Table structure for commodity_psi
--- ----------------------------
+insert  into `commercial_customer_record`(`mission_id`,`company_name`,`mission_price`,`state`) values (1,'Liang Kee Company Limited',1053,3),(2,'Wai Man Limited',1038,3),(3,'Liang Kee Telecommunication Company Limited',1074,2),(4,'Lu Network Systems Company Limited',1090,2),(5,'Hana Corporation',1068,2),(6,'Watson\'s Pharmaceutical Inc.',1286,1),(7,'Wing Suen Pharmaceutical Limited',1197,2),(8,'Kinoshita Telecommunication Corporation',1180,2),(9,'Sylvia Inc.',1487,1),(10,'Stephanie Trading LLC',1306,2),(11,'King\'s Trading LLC',1349,1),(12,'Lan Engineering Company Limited',1458,2),(13,'Tang Kee Development & Trading Limited',1379,1),(14,'Lu Engineering Company Limited',1181,3),(15,'Graham\'s Pharmaceutical LLC',1090,1),(16,'Miu\'s Limited',1459,3),(17,'Sakura Corporation',1493,1),(18,'Jimenez Brothers Inc.',1023,1),(19,'Yuning Pharmaceutical Company Limited',1053,1),(20,'Kenneth Electronic Inc.',1044,3),(21,'Wai Yee Electronic Limited',1037,2),(22,'John Consultants Inc.',1211,3),(23,'Lan Company Limited',1348,1),(24,'Lan Development & Trading Company Limited',1094,0),(25,'Aoi Corporation',1171,0),(26,'Jennifer Inc.',1261,2),(27,'Cheung\'s Electronic Limited',1195,2),(28,'Lin Network Systems Company Limited',1261,1),(29,'Wu Technology Company Limited',1060,0),(30,'Eleanor Inc.',1248,0),(31,'Shimada Corporation',1229,1),(32,'Momoka Corporation',1011,2),(33,'Zhiyuan Electronic Company Limited',1355,2),(34,'Peterson Brothers Toy Inc.',1293,2),(35,'Chen Company Limited',1374,2),(36,'Adam Electronic Inc.',1090,1),(37,'Xia Kee Company Limited',1436,1),(38,'Anqi Company Limited',1229,2),(39,'Hui\'s Network Systems Limited',1045,1),(40,'Tak Wah Electronic Limited',1227,1),(41,'Jialun Company Limited',1366,0),(42,'Denise Trading Inc.',1138,2),(43,'Su Kee Telecommunication Company Limited',1372,1),(44,'Chi Ming Communications Limited',1304,1),(45,'Baker Brothers Inc.',1200,1),(46,'Rui Company Limited',1393,1),(47,'Brooks Consultants LLC',1326,2),(48,'Jialun Company Limited',1362,1),(49,'Cheung Kee Development & Trading Limited',1047,1),(50,'Tin Lok Property Limited',1290,2),(10000013,'SICHUAN',50000,1),(10000014,NULL,NULL,NULL);
+
+/*Table structure for table `commodity_psi` */
+
 DROP TABLE IF EXISTS `commodity_psi`;
+
 CREATE TABLE `commodity_psi` (
   `commodity_id` int unsigned NOT NULL AUTO_INCREMENT,
   `commodity_name` varchar(255) DEFAULT NULL,
@@ -262,17 +134,14 @@ CREATE TABLE `commodity_psi` (
   PRIMARY KEY (`commodity_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1107 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of commodity_psi
--- ----------------------------
-BEGIN;
-INSERT INTO `commodity_psi` (`commodity_id`, `commodity_name`, `commodity_quantity`, `commodity_status`, `create_time`, `commodity_price`, `remark`) VALUES (1106, '食物', 500, 2, '2023-07-06', 50.00, '1');
-COMMIT;
+/*Data for the table `commodity_psi` */
 
--- ----------------------------
--- Table structure for goods
--- ----------------------------
+insert  into `commodity_psi`(`commodity_id`,`commodity_name`,`commodity_quantity`,`commodity_status`,`create_time`,`commodity_price`,`remark`) values (1106,'食物',500,2,'2023-07-06','50.00','1');
+
+/*Table structure for table `goods` */
+
 DROP TABLE IF EXISTS `goods`;
+
 CREATE TABLE `goods` (
   `goods_id` int NOT NULL AUTO_INCREMENT,
   `goods_number` varchar(30) DEFAULT NULL,
@@ -283,16 +152,12 @@ CREATE TABLE `goods` (
   PRIMARY KEY (`goods_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of goods
--- ----------------------------
-BEGIN;
-COMMIT;
+/*Data for the table `goods` */
 
--- ----------------------------
--- Table structure for material_psi
--- ----------------------------
+/*Table structure for table `material_psi` */
+
 DROP TABLE IF EXISTS `material_psi`;
+
 CREATE TABLE `material_psi` (
   `material_id` int unsigned NOT NULL AUTO_INCREMENT,
   `material_name` varchar(255) DEFAULT NULL,
@@ -304,66 +169,14 @@ CREATE TABLE `material_psi` (
   PRIMARY KEY (`material_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1161 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of material_psi
--- ----------------------------
-BEGIN;
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1111, 'Goto Mio', 5, 0, '2023-12-03', 91.45, 'uLkP44I2j7');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1112, 'Jiang Yuning', 5, 1, '2022-04-10', 90.63, 'I3V2DdPJtb');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1113, 'Sun Zitao', 6, 1, '2022-08-24', 51.34, 'JkyxwRbIKn');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1114, 'Ma Ho Yin', 7, 1, '2022-08-08', 83.86, 'w03NG2ELRD');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1115, 'Ng Sau Man', 8, 0, '2023-06-29', 95.24, 'aIDxdkZKQG');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1116, 'Wong Fu Shing', 6, 1, '2022-04-03', 76.73, 't4Z3qYygCm');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1117, 'Sakurai Kazuma', 10, 1, '2022-07-12', 67.85, '7LxfFqvQ1Z');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1118, 'Timothy Perry', 8, 0, '2022-11-24', 59.65, 'npLtW41de1');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1119, 'Murata Hana', 5, 0, '2023-05-31', 83.21, 'StG9ejeChx');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1120, 'Ding Zhennan', 8, 0, '2022-08-12', 70.42, 'kSXVMlOKwn');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1121, 'Chung Yun Fat', 7, 1, '2023-03-04', 76.62, 'I9JIn3vyid');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1122, 'Albert Fox', 10, 0, '2023-12-03', 96.18, 'DseJj4Yl38');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1123, 'Au Wing Kuen', 7, 0, '2023-10-24', 57.51, 'ZbTeII8Icj');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1124, 'Arai Yuna', 9, 1, '2023-02-03', 87.2, 'koGEveKNZy');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1125, 'Heung Wai Lam', 8, 1, '2022-03-03', 85.81, 'uuWukFazih');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1126, 'Fu Ling Ling', 10, 0, '2022-05-13', 95.52, 'COYEFpjuep');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1127, 'Gao Xiuying', 9, 1, '2022-11-10', 92.31, 'BljbCTcxJm');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1128, 'Gu Ziyi', 9, 0, '2022-04-30', 98.69, 'BZsxYI2hY1');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1129, 'Yin Cho Yee', 10, 1, '2022-07-16', 95.51, 'cDOrpajn7o');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1130, 'Hsuan Tsz Ching', 9, 1, '2023-12-20', 72.59, 'xiy7eeEmlC');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1131, 'Takeuchi Seiko', 7, 1, '2023-09-21', 89.95, 'FgZO1gcUbX');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1132, 'Ma Lik Sun', 9, 0, '2023-05-08', 76.12, '8QLlGVe6Pz');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1133, 'Wong Chi Yuen', 9, 0, '2023-03-05', 67.75, 'QWMlUhP4V2');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1134, 'Ueda Aoshi', 10, 0, '2023-11-29', 98.73, '0KJ3V96e6f');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1135, 'Yamada Misaki', 8, 0, '2022-05-30', 88.43, 'oA3hhn5Gir');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1136, 'Ono Rin', 8, 0, '2023-11-09', 59.19, 'Ok9F3sZNcF');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1137, 'Hara Aoshi', 10, 0, '2022-03-03', 66.82, 'lsMDg5ELGT');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1138, 'Yam Chiu Wai', 7, 0, '2022-08-25', 73.69, 'sicvXq3OOM');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1139, 'Nishimura Hina', 8, 0, '2022-01-10', 78.42, 'lZbNqmQJRv');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1140, 'Ann Payne', 6, 0, '2022-01-01', 82, 'uoiIXQlxqx');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1141, 'Yokoyama Airi', 8, 0, '2023-07-13', 99.7, '2aRoTVsxQ1');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1142, 'Sakurai Hikaru', 6, 1, '2022-07-01', 96.75, 'lDpUHSNpNq');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1143, 'Steven Hamilton', 7, 0, '2023-06-08', 58.76, 'i96BslcCQU');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1144, 'Kimberly Gardner', 7, 1, '2022-06-20', 59.5, '1DX3GDhCgD');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1145, 'Cheng Xiaoming', 5, 0, '2023-12-13', 78.51, 'Sqmhy3tr7w');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1146, 'Koon Hok Yau', 8, 0, '2022-12-01', 78.13, 'MtuxFuvHcI');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1147, 'Ma Ziyi', 7, 0, '2023-06-21', 54.27, 'Y690oxOCUx');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1148, 'Lee Kwok Ming', 8, 1, '2022-08-13', 73.59, 'R8JVmePQRt');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1149, 'Kwong Hok Yau', 5, 0, '2023-02-04', 98.81, '4bB7yWIMqa');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1150, 'Guo Zhiyuan', 9, 1, '2023-11-02', 95.9, 'i6OpahrVBA');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1151, 'Xu Zhennan', 10, 0, '2022-10-06', 78.22, '0bq5uYgMH7');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1152, 'Hirano Hina', 6, 1, '2022-02-20', 83.95, 'Tgez5A6iDI');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1153, 'Ichikawa Hana', 9, 0, '2022-11-25', 81.42, 'B3CzEXnfks');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1154, 'Koo Tin Lok', 9, 1, '2023-04-05', 95.76, 'Ffc4pCaE6I');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1155, 'Shen Rui', 6, 0, '2023-08-24', 80.85, 'aAMh1C8JsN');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1156, 'Carrie Turner', 10, 0, '2022-09-11', 58.89, 'GflN5GzF0v');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1157, 'Chang Yunxi', 7, 1, '2023-05-05', 50.59, '4KbGFdIK57');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1158, 'Hirano Seiko', 5, 1, '2023-01-09', 67, 'Dv52QZ6Lau');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1159, 'Sheh Kwok Kuen', 6, 1, '2023-10-15', 67.45, 'WdPjZQQhnn');
-INSERT INTO `material_psi` (`material_id`, `material_name`, `material_quantity`, `material_status`, `create_time`, `material_price`, `remark`) VALUES (1160, 'Eddie Hayes', 10, 0, '2022-01-09', 74.21, 'PY3Od3RqGX');
-COMMIT;
+/*Data for the table `material_psi` */
 
--- ----------------------------
--- Table structure for material_usage_records
--- ----------------------------
+insert  into `material_psi`(`material_id`,`material_name`,`material_quantity`,`material_status`,`create_time`,`material_price`,`remark`) values (1111,'Goto Mio',5,0,'2023-12-03',91.45,'uLkP44I2j7'),(1112,'Jiang Yuning',5,1,'2022-04-10',90.63,'I3V2DdPJtb'),(1113,'Sun Zitao',6,1,'2022-08-24',51.34,'JkyxwRbIKn'),(1114,'Ma Ho Yin',7,1,'2022-08-08',83.86,'w03NG2ELRD'),(1115,'Ng Sau Man',8,0,'2023-06-29',95.24,'aIDxdkZKQG'),(1116,'Wong Fu Shing',6,1,'2022-04-03',76.73,'t4Z3qYygCm'),(1117,'Sakurai Kazuma',10,1,'2022-07-12',67.85,'7LxfFqvQ1Z'),(1118,'Timothy Perry',8,0,'2022-11-24',59.65,'npLtW41de1'),(1119,'Murata Hana',5,0,'2023-05-31',83.21,'StG9ejeChx'),(1120,'Ding Zhennan',8,0,'2022-08-12',70.42,'kSXVMlOKwn'),(1121,'Chung Yun Fat',7,1,'2023-03-04',76.62,'I9JIn3vyid'),(1122,'Albert Fox',10,0,'2023-12-03',96.18,'DseJj4Yl38'),(1123,'Au Wing Kuen',7,0,'2023-10-24',57.51,'ZbTeII8Icj'),(1124,'Arai Yuna',9,1,'2023-02-03',87.2,'koGEveKNZy'),(1125,'Heung Wai Lam',8,1,'2022-03-03',85.81,'uuWukFazih'),(1126,'Fu Ling Ling',10,0,'2022-05-13',95.52,'COYEFpjuep'),(1127,'Gao Xiuying',9,1,'2022-11-10',92.31,'BljbCTcxJm'),(1128,'Gu Ziyi',9,0,'2022-04-30',98.69,'BZsxYI2hY1'),(1129,'Yin Cho Yee',10,1,'2022-07-16',95.51,'cDOrpajn7o'),(1130,'Hsuan Tsz Ching',9,1,'2023-12-20',72.59,'xiy7eeEmlC'),(1131,'Takeuchi Seiko',7,1,'2023-09-21',89.95,'FgZO1gcUbX'),(1132,'Ma Lik Sun',9,0,'2023-05-08',76.12,'8QLlGVe6Pz'),(1133,'Wong Chi Yuen',9,0,'2023-03-05',67.75,'QWMlUhP4V2'),(1134,'Ueda Aoshi',10,0,'2023-11-29',98.73,'0KJ3V96e6f'),(1135,'Yamada Misaki',8,0,'2022-05-30',88.43,'oA3hhn5Gir'),(1136,'Ono Rin',8,0,'2023-11-09',59.19,'Ok9F3sZNcF'),(1137,'Hara Aoshi',10,0,'2022-03-03',66.82,'lsMDg5ELGT'),(1138,'Yam Chiu Wai',7,0,'2022-08-25',73.69,'sicvXq3OOM'),(1139,'Nishimura Hina',8,0,'2022-01-10',78.42,'lZbNqmQJRv'),(1140,'Ann Payne',6,0,'2022-01-01',82,'uoiIXQlxqx'),(1141,'Yokoyama Airi',8,0,'2023-07-13',99.7,'2aRoTVsxQ1'),(1142,'Sakurai Hikaru',6,1,'2022-07-01',96.75,'lDpUHSNpNq'),(1143,'Steven Hamilton',7,0,'2023-06-08',58.76,'i96BslcCQU'),(1144,'Kimberly Gardner',7,1,'2022-06-20',59.5,'1DX3GDhCgD'),(1145,'Cheng Xiaoming',5,0,'2023-12-13',78.51,'Sqmhy3tr7w'),(1146,'Koon Hok Yau',8,0,'2022-12-01',78.13,'MtuxFuvHcI'),(1147,'Ma Ziyi',7,0,'2023-06-21',54.27,'Y690oxOCUx'),(1148,'Lee Kwok Ming',8,1,'2022-08-13',73.59,'R8JVmePQRt'),(1149,'Kwong Hok Yau',5,0,'2023-02-04',98.81,'4bB7yWIMqa'),(1150,'Guo Zhiyuan',9,1,'2023-11-02',95.9,'i6OpahrVBA'),(1151,'Xu Zhennan',10,0,'2022-10-06',78.22,'0bq5uYgMH7'),(1152,'Hirano Hina',6,1,'2022-02-20',83.95,'Tgez5A6iDI'),(1153,'Ichikawa Hana',9,0,'2022-11-25',81.42,'B3CzEXnfks'),(1154,'Koo Tin Lok',9,1,'2023-04-05',95.76,'Ffc4pCaE6I'),(1155,'Shen Rui',6,0,'2023-08-24',80.85,'aAMh1C8JsN'),(1156,'Carrie Turner',10,0,'2022-09-11',58.89,'GflN5GzF0v'),(1157,'Chang Yunxi',7,1,'2023-05-05',50.59,'4KbGFdIK57'),(1158,'Hirano Seiko',5,1,'2023-01-09',67,'Dv52QZ6Lau'),(1159,'Sheh Kwok Kuen',6,1,'2023-10-15',67.45,'WdPjZQQhnn'),(1160,'Eddie Hayes',10,0,'2022-01-09',74.21,'PY3Od3RqGX');
+
+/*Table structure for table `material_usage_records` */
+
 DROP TABLE IF EXISTS `material_usage_records`;
+
 CREATE TABLE `material_usage_records` (
   `record_id` int NOT NULL AUTO_INCREMENT,
   `material_id` int DEFAULT NULL,
@@ -374,18 +187,14 @@ CREATE TABLE `material_usage_records` (
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of material_usage_records
--- ----------------------------
-BEGIN;
-INSERT INTO `material_usage_records` (`record_id`, `material_id`, `department`, `user`, `usage_purpose`, `usage_quality`) VALUES (3, 1, '运输部', '某', '运输', 20.00);
-INSERT INTO `material_usage_records` (`record_id`, `material_id`, `department`, `user`, `usage_purpose`, `usage_quality`) VALUES (4, 2, '维修部', '张三', '维修', 50.00);
-COMMIT;
+/*Data for the table `material_usage_records` */
 
--- ----------------------------
--- Table structure for office_consumables
--- ----------------------------
+insert  into `material_usage_records`(`record_id`,`material_id`,`department`,`user`,`usage_purpose`,`usage_quality`) values (3,1,'运输部','某','运输','20.00'),(4,2,'维修部','张三','维修','50.00');
+
+/*Table structure for table `office_consumables` */
+
 DROP TABLE IF EXISTS `office_consumables`;
+
 CREATE TABLE `office_consumables` (
   `office_consumables_id` int unsigned NOT NULL AUTO_INCREMENT,
   `consumable_name` varchar(255) DEFAULT NULL,
@@ -396,68 +205,14 @@ CREATE TABLE `office_consumables` (
   PRIMARY KEY (`office_consumables_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1065 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of office_consumables
--- ----------------------------
-BEGIN;
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1013, 'Noguchi Eita', 86, '2023-02-01', 46.63, 'LP3aHisbFf');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1014, 'Jane Kennedy', 258, '2023-07-19', 85.48, '6oEyM38urQ');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1015, 'Kao Wing Sze', 115, '2022-11-26', 92, 'ZZZmgavvL4');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1016, 'Ishikawa Momoka', 89, '2022-11-03', 69.94, 'rtbrwKHpMe');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1017, 'Zhang Zhiyuan', 268, '2021-11-22', 35.17, 'ZJsizLcbcU');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1018, 'Norma Ramirez', 55, '2021-07-02', 54.95, '3cUc41riGd');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1019, 'Willie Turner', 138, '2021-01-01', 72.68, 'iqoFRcQfzk');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1020, 'Sakamoto Riku', 248, '2021-05-26', 20.16, 'tfVwEuLTS1');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1021, 'Takeuchi Sara', 259, '2020-01-12', 47.62, '32hAPbVuEI');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1022, 'Tan Rui', 241, '2020-07-05', 40.74, 'malNvHgPey');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1023, 'Yuen Wai San', 67, '2023-06-25', 37.67, 'pzwFxaPbMC');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1024, 'Chu Cho Yee', 114, '2022-11-21', 50.2, 'oDbZf3RjBT');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1025, 'Maruyama Rena', 174, '2021-08-09', 53.87, 'kOR5xTx80U');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1026, 'Aoki Hana', 241, '2022-04-11', 64.42, 'WGSaYw8nMw');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1027, 'Zhong Lan', 251, '2022-05-08', 50.94, '0XRMCRlwPR');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1028, 'Koo Wing Fat', 210, '2022-12-19', 49.11, 'RaToTBL42r');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1029, 'Fan Cho Yee', 60, '2022-07-16', 73.32, '04pu8bCHTR');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1030, 'Yamada Mio', 62, '2021-01-11', 46.67, '4DNyQVo8sB');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1031, 'Chen Ziyi', 234, '2021-05-24', 25.04, 'UN6D6wPUfM');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1032, 'Yue Wing Sze', 260, '2021-01-26', 75.87, 'IU37upXy8n');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1033, 'Shi Yunxi', 147, '2021-02-12', 86.92, 'hMUIXrEPJn');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1034, 'Lucille Mitchell', 131, '2023-05-30', 72.48, 'xiL0bHJdbD');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1035, 'Miyamoto Shino', 226, '2022-06-16', 36.01, 'gFGeL2djPD');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1036, 'Nakayama Ikki', 297, '2021-05-17', 66.33, 'FZ31LyzzhP');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1037, 'Maeda Hana', 274, '2021-06-14', 36.39, 'k1zi92OZbs');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1038, 'Ichikawa Miu', 266, '2022-12-02', 86.83, 'aJW8gGGViW');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1039, 'Wong Siu Wai', 144, '2020-05-24', 30.45, 'yWlW8Ubp4R');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1040, 'Edna Green', 260, '2022-04-22', 86.12, '2WFgB5XsiV');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1041, 'Siu Wing Sze', 285, '2020-03-04', 98.21, 'p047MMj8yN');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1042, 'Danielle Boyd', 159, '2021-06-07', 32, 'QYwkKfDjzZ');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1043, 'Elizabeth Ortiz', 287, '2023-12-07', 38.25, 'B6xyqQTipC');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1044, 'Miura Mitsuki', 90, '2023-06-07', 96.66, 'TeiB59PNH8');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1045, 'Glenn Morales', 164, '2022-04-03', 35.68, 'UeCRuhekCY');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1046, 'Chic Siu Wai', 98, '2020-01-04', 82.51, 'zgBpJQdPy1');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1047, 'Lam Tsz Ching', 226, '2021-01-02', 87.82, 'T6C8YkTWFO');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1048, 'Kong Sze Kwan', 156, '2020-08-02', 38.48, 'qOXiP33DqI');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1049, 'Ruby Moreno', 111, '2021-04-10', 43.56, 'V7F2cEvStA');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1050, 'Kong Xiaoming', 286, '2021-11-20', 95.53, 'Vw44zeEHa8');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1051, 'Kato Mitsuki', 114, '2023-10-31', 22.3, 'MBIfmudYzG');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1052, 'Peng Zhennan', 132, '2022-07-12', 42.66, 'XdyYV3Xisz');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1053, 'Goto Mai', 74, '2021-10-26', 57.74, 'kRKGkzKF3N');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1054, 'Wu Ziyi', 163, '2020-03-03', 52.68, 'o7ahAmcIia');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1055, 'Beverly Hill', 71, '2021-07-22', 24.8, '4ASIz3jmOV');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1056, 'Shirley Rice', 149, '2022-04-25', 79.51, 'HfxVj4pCX6');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1057, 'Han Lik Sun', 59, '2021-02-27', 40.33, 'DeliRqQFuy');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1058, 'Li Anqi', 73, '2021-04-06', 84.7, '2HjorbWRZs');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1059, 'Christina Young', 217, '2021-09-04', 72.98, 'xrsoUQ9lFk');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1060, 'Chen Jiehong', 166, '2023-11-25', 24.1, 'aifVw1K5gY');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1061, 'Richard Ortiz', 92, '2021-09-19', 24.16, 'rfk3MxUSeK');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1062, 'Tse Hiu Tung', 89, '2020-09-09', 89.15, 'QLL0p3GGZ8');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1063, '桌椅', 1, '2023-07-05', 1, '办公套件');
-INSERT INTO `office_consumables` (`office_consumables_id`, `consumable_name`, `purchase_quantity`, `create_time`, `per_price`, `remark`) VALUES (1064, '1', 5, '2023-07-05', 5, '2');
-COMMIT;
+/*Data for the table `office_consumables` */
 
--- ----------------------------
--- Table structure for railway_mission_record
--- ----------------------------
+insert  into `office_consumables`(`office_consumables_id`,`consumable_name`,`purchase_quantity`,`create_time`,`per_price`,`remark`) values (1013,'Noguchi Eita',86,'2023-02-01',46.63,'LP3aHisbFf'),(1014,'Jane Kennedy',258,'2023-07-19',85.48,'6oEyM38urQ'),(1015,'Kao Wing Sze',115,'2022-11-26',92,'ZZZmgavvL4'),(1016,'Ishikawa Momoka',89,'2022-11-03',69.94,'rtbrwKHpMe'),(1017,'Zhang Zhiyuan',268,'2021-11-22',35.17,'ZJsizLcbcU'),(1018,'Norma Ramirez',55,'2021-07-02',54.95,'3cUc41riGd'),(1019,'Willie Turner',138,'2021-01-01',72.68,'iqoFRcQfzk'),(1020,'Sakamoto Riku',248,'2021-05-26',20.16,'tfVwEuLTS1'),(1021,'Takeuchi Sara',259,'2020-01-12',47.62,'32hAPbVuEI'),(1022,'Tan Rui',241,'2020-07-05',40.74,'malNvHgPey'),(1023,'Yuen Wai San',67,'2023-06-25',37.67,'pzwFxaPbMC'),(1024,'Chu Cho Yee',114,'2022-11-21',50.2,'oDbZf3RjBT'),(1025,'Maruyama Rena',174,'2021-08-09',53.87,'kOR5xTx80U'),(1026,'Aoki Hana',241,'2022-04-11',64.42,'WGSaYw8nMw'),(1027,'Zhong Lan',251,'2022-05-08',50.94,'0XRMCRlwPR'),(1028,'Koo Wing Fat',210,'2022-12-19',49.11,'RaToTBL42r'),(1029,'Fan Cho Yee',60,'2022-07-16',73.32,'04pu8bCHTR'),(1030,'Yamada Mio',62,'2021-01-11',46.67,'4DNyQVo8sB'),(1031,'Chen Ziyi',234,'2021-05-24',25.04,'UN6D6wPUfM'),(1032,'Yue Wing Sze',260,'2021-01-26',75.87,'IU37upXy8n'),(1033,'Shi Yunxi',147,'2021-02-12',86.92,'hMUIXrEPJn'),(1034,'Lucille Mitchell',131,'2023-05-30',72.48,'xiL0bHJdbD'),(1035,'Miyamoto Shino',226,'2022-06-16',36.01,'gFGeL2djPD'),(1036,'Nakayama Ikki',297,'2021-05-17',66.33,'FZ31LyzzhP'),(1037,'Maeda Hana',274,'2021-06-14',36.39,'k1zi92OZbs'),(1038,'Ichikawa Miu',266,'2022-12-02',86.83,'aJW8gGGViW'),(1039,'Wong Siu Wai',144,'2020-05-24',30.45,'yWlW8Ubp4R'),(1040,'Edna Green',260,'2022-04-22',86.12,'2WFgB5XsiV'),(1041,'Siu Wing Sze',285,'2020-03-04',98.21,'p047MMj8yN'),(1042,'Danielle Boyd',159,'2021-06-07',32,'QYwkKfDjzZ'),(1043,'Elizabeth Ortiz',287,'2023-12-07',38.25,'B6xyqQTipC'),(1044,'Miura Mitsuki',90,'2023-06-07',96.66,'TeiB59PNH8'),(1045,'Glenn Morales',164,'2022-04-03',35.68,'UeCRuhekCY'),(1046,'Chic Siu Wai',98,'2020-01-04',82.51,'zgBpJQdPy1'),(1047,'Lam Tsz Ching',226,'2021-01-02',87.82,'T6C8YkTWFO'),(1048,'Kong Sze Kwan',156,'2020-08-02',38.48,'qOXiP33DqI'),(1049,'Ruby Moreno',111,'2021-04-10',43.56,'V7F2cEvStA'),(1050,'Kong Xiaoming',286,'2021-11-20',95.53,'Vw44zeEHa8'),(1051,'Kato Mitsuki',114,'2023-10-31',22.3,'MBIfmudYzG'),(1052,'Peng Zhennan',132,'2022-07-12',42.66,'XdyYV3Xisz'),(1053,'Goto Mai',74,'2021-10-26',57.74,'kRKGkzKF3N'),(1054,'Wu Ziyi',163,'2020-03-03',52.68,'o7ahAmcIia'),(1055,'Beverly Hill',71,'2021-07-22',24.8,'4ASIz3jmOV'),(1056,'Shirley Rice',149,'2022-04-25',79.51,'HfxVj4pCX6'),(1057,'Han Lik Sun',59,'2021-02-27',40.33,'DeliRqQFuy'),(1058,'Li Anqi',73,'2021-04-06',84.7,'2HjorbWRZs'),(1059,'Christina Young',217,'2021-09-04',72.98,'xrsoUQ9lFk'),(1060,'Chen Jiehong',166,'2023-11-25',24.1,'aifVw1K5gY'),(1061,'Richard Ortiz',92,'2021-09-19',24.16,'rfk3MxUSeK'),(1062,'Tse Hiu Tung',89,'2020-09-09',89.15,'QLL0p3GGZ8'),(1063,'桌椅',1,'2023-07-05',1,'办公套件'),(1064,'1',5,'2023-07-05',5,'2');
+
+/*Table structure for table `railway_mission_record` */
+
 DROP TABLE IF EXISTS `railway_mission_record`;
+
 CREATE TABLE `railway_mission_record` (
   `company_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `mission_price` int DEFAULT NULL,
@@ -471,18 +226,14 @@ CREATE TABLE `railway_mission_record` (
   PRIMARY KEY (`mission_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=100005 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of railway_mission_record
--- ----------------------------
-BEGIN;
-INSERT INTO `railway_mission_record` (`company_name`, `mission_price`, `mission_origin`, `mission_destination`, `train_id`, `mission_begin_time`, `mission_finish_time`, `state`, `mission_id`) VALUES ('2', 3, '4', '5', '6', '2023-07-05', '2023-07-07', 1, 100003);
-INSERT INTO `railway_mission_record` (`company_name`, `mission_price`, `mission_origin`, `mission_destination`, `train_id`, `mission_begin_time`, `mission_finish_time`, `state`, `mission_id`) VALUES ('SICHUAN', 5000, '四川', '重庆', '川渝500', '2023-07-05', '2023-07-05', 0, 100004);
-COMMIT;
+/*Data for the table `railway_mission_record` */
 
--- ----------------------------
--- Table structure for repair_worker_maintenance_records
--- ----------------------------
+insert  into `railway_mission_record`(`company_name`,`mission_price`,`mission_origin`,`mission_destination`,`train_id`,`mission_begin_time`,`mission_finish_time`,`state`,`mission_id`) values ('2',3,'4','5','6','2023-07-05','2023-07-07',1,100003),('SICHUAN',5000,'四川','重庆','川渝500','2023-07-05','2023-07-05',0,100004);
+
+/*Table structure for table `repair_worker_maintenance_records` */
+
 DROP TABLE IF EXISTS `repair_worker_maintenance_records`;
+
 CREATE TABLE `repair_worker_maintenance_records` (
   `record_id` int NOT NULL AUTO_INCREMENT,
   `repair_worker_id` int DEFAULT NULL,
@@ -493,18 +244,14 @@ CREATE TABLE `repair_worker_maintenance_records` (
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of repair_worker_maintenance_records
--- ----------------------------
-BEGIN;
-INSERT INTO `repair_worker_maintenance_records` (`record_id`, `repair_worker_id`, `car_id`, `maintenance_date`, `maintenance_description`, `maintenance_cost`) VALUES (3, 2020, 202, '2023-07-05', '车坏咯', 0.00);
-INSERT INTO `repair_worker_maintenance_records` (`record_id`, `repair_worker_id`, `car_id`, `maintenance_date`, `maintenance_description`, `maintenance_cost`) VALUES (5, 202001, 1, '2023-07-05', '', 0.00);
-COMMIT;
+/*Data for the table `repair_worker_maintenance_records` */
 
--- ----------------------------
--- Table structure for resource
--- ----------------------------
+insert  into `repair_worker_maintenance_records`(`record_id`,`repair_worker_id`,`car_id`,`maintenance_date`,`maintenance_description`,`maintenance_cost`) values (3,2020,202,'2023-07-05','车坏咯','0.00'),(5,202001,1,'2023-07-05','','0.00');
+
+/*Table structure for table `resource` */
+
 DROP TABLE IF EXISTS `resource`;
+
 CREATE TABLE `resource` (
   `resource_id` int NOT NULL AUTO_INCREMENT,
   `resource_name` varchar(50) DEFAULT NULL,
@@ -513,19 +260,14 @@ CREATE TABLE `resource` (
   PRIMARY KEY (`resource_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ----------------------------
--- Records of resource
--- ----------------------------
-BEGIN;
-INSERT INTO `resource` (`resource_id`, `resource_name`, `resource_use`, `material_id`) VALUES (1, '钢圈', NULL, NULL);
-INSERT INTO `resource` (`resource_id`, `resource_name`, `resource_use`, `material_id`) VALUES (3, '2', '2', 2);
-INSERT INTO `resource` (`resource_id`, `resource_name`, `resource_use`, `material_id`) VALUES (6, '轮胎', '备胎', 3);
-COMMIT;
+/*Data for the table `resource` */
 
--- ----------------------------
--- Table structure for staff
--- ----------------------------
+insert  into `resource`(`resource_id`,`resource_name`,`resource_use`,`material_id`) values (1,'钢圈',NULL,NULL),(3,'2','2',2),(6,'轮胎','备胎',3);
+
+/*Table structure for table `staff` */
+
 DROP TABLE IF EXISTS `staff`;
+
 CREATE TABLE `staff` (
   `staff_id` bigint NOT NULL AUTO_INCREMENT,
   `staff_number` varchar(20) DEFAULT NULL,
@@ -541,21 +283,14 @@ CREATE TABLE `staff` (
   PRIMARY KEY (`staff_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 
--- ----------------------------
--- Records of staff
--- ----------------------------
-BEGIN;
-INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (3, '20230007', '小明', '男', 24, '经理', '2023-07-05', 4500, '13700000000', '川大', '5555');
-INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (5, '20230007', '李四', '0', 24, NULL, NULL, 7000, NULL, NULL, NULL);
-INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (7, '20230007', '赵六', '0', 24, NULL, NULL, 8000, NULL, NULL, NULL);
-INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (10, '20230007', '小黄', '0', 24, NULL, NULL, 5000, NULL, NULL, NULL);
-INSERT INTO `staff` (`staff_id`, `staff_number`, `staff_name`, `gender`, `staff_age`, `staff_role`, `staff_time`, `salary`, `phone`, `staff_address`, `card_number`) VALUES (11, '20230008', '小红', '女', 26, '司机', '2023-07-03', 6000, '15555555555', '四川', '6666');
-COMMIT;
+/*Data for the table `staff` */
 
--- ----------------------------
--- Table structure for transportation_mission_record
--- ----------------------------
+insert  into `staff`(`staff_id`,`staff_number`,`staff_name`,`gender`,`staff_age`,`staff_role`,`staff_time`,`salary`,`phone`,`staff_address`,`card_number`) values (3,'20230007','小明','男',24,'经理','2023-07-05',4500,'13700000000','川大','5555'),(5,'20230007','李四','0',24,NULL,NULL,7000,NULL,NULL,NULL),(7,'20230007','赵六','0',24,NULL,NULL,8000,NULL,NULL,NULL),(10,'20230007','小黄','0',24,NULL,NULL,5000,NULL,NULL,NULL),(11,'20230008','小红','女',26,'司机','2023-07-03',6000,'15555555555','四川','6666');
+
+/*Table structure for table `transportation_mission_record` */
+
 DROP TABLE IF EXISTS `transportation_mission_record`;
+
 CREATE TABLE `transportation_mission_record` (
   `mission_id` int NOT NULL AUTO_INCREMENT,
   `mission_create_time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -564,32 +299,16 @@ CREATE TABLE `transportation_mission_record` (
   `mission_destination` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `state` int DEFAULT NULL,
   PRIMARY KEY (`mission_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10000014 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10000515 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Records of transportation_mission_record
--- ----------------------------
-BEGIN;
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000000, '2023-06-05', '2023-07-05', '成都市郫都区华迪公司', NULL, 0);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000001, '2023-06-05', NULL, '成都市郫都区华迪公司', NULL, 0);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000002, '2023-06-05', NULL, '成都市郫都区京东分公司', NULL, 0);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000003, '2023-06-06', '2002-01-01', '成都市郫都区圆通分公司', '成都市郫都区京东分公司', 2);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000004, '2023-06-06', NULL, '成都市郫都区京东分公司', '成都市郫都区京东分公司', 1);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000005, '2023-06-06', NULL, '成都市郫都区京东分公司', '成都市郫都区京东分公司', 1);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000006, '3', '3', '3', '3', 0);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000007, '2023-07-03', NULL, '2', '2', 1);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000008, '2023-07-03', NULL, '成都市郫都区圆通分公司', '成都市郫都区京东分公司', 1);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000009, '2023-07-05', NULL, '1', '2', 1);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000010, '2023-07-05', NULL, '1', '', 1);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000011, '2023-07-05', NULL, '1', '2', 1);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000012, '2023-07-05', '2023-07-07', '2', '2', 2);
-INSERT INTO `transportation_mission_record` (`mission_id`, `mission_create_time`, `mission_finish_time`, `mission_origin`, `mission_destination`, `state`) VALUES (10000013, '2023-07-06', '2023-07-07', '成都', '重庆', 0);
-COMMIT;
+/*Data for the table `transportation_mission_record` */
 
--- ----------------------------
--- Table structure for user_info
--- ----------------------------
+insert  into `transportation_mission_record`(`mission_id`,`mission_create_time`,`mission_finish_time`,`mission_origin`,`mission_destination`,`state`) values (10000000,'2023-06-05','2023-07-05','成都市郫都区华迪公司',NULL,1),(10000001,'2023-06-05','2023-07-05','成都市郫都区华迪公司',NULL,3),(10000002,'2023-06-05','2023-06-06','成都市郫都区京东分公司',NULL,1),(10000003,'2023-06-06','2023-05-10','成都市郫都区圆通分公司','成都市郫都区京东分公司',1),(10000004,'2023-06-06','2023-04-04','成都市郫都区京东分公司','成都市郫都区京东分公司',1),(10000005,'2023-06-06','2023-01-03','成都市郫都区京东分公司','成都市郫都区京东分公司',2),(10000008,'2023-07-03','2023-06-05','成都市郫都区圆通分公司','成都市郫都区京东分公司',1),(10000013,'2023-07-06','2023-07-07','成都','重庆',2),(10000014,'2023-07-06','2023-07-07','成都','成华区',2),(10000015,'2023-03-05','2022-06-30','Jiangxi','Fujian',2),(10000016,'2021-11-23','2022-11-22','Liaoning','Shanxi',2),(10000017,'2023-07-24','2021-10-30','Jiangxi','Yunnan',2),(10000018,'2023-07-31','2022-12-28','Shanxi','Sichuan',2),(10000019,'2022-05-14','2021-10-12','Hainan','Henan',1),(10000020,'2022-10-09','2023-01-12','Hainan','Guizhou',2),(10000021,'2022-07-05','2021-08-06','Hubei','Tibet',1),(10000022,'2021-09-06','2023-11-02','Hebei','Shandong',2),(10000023,'2022-04-21','2023-11-30','Zhejiang','Tibet',1),(10000024,'2022-07-27','2022-10-16','Jilin','Inner Mongolia',1),(10000025,'2022-08-23','2022-12-08','Beijing','Chongqing',2),(10000026,'2023-08-31','2021-12-19','Jiangsu','Jilin',2),(10000027,'2023-04-08','2022-08-26','Shanxi','Xinjiang',3),(10000028,'2022-06-04','2023-11-26','Xinjiang','Hebei',2),(10000029,'2022-06-28','2021-04-19','Tianjin','Shaanxi',3),(10000030,'2022-05-22','2023-12-17','Macau','Chongqing',2),(10000031,'2022-05-18','2021-12-11','Fujian','Tibet',3),(10000032,'2023-12-10','2023-04-09','Hainan','Shanghai',2),(10000033,'2021-12-24','2022-01-19','Hebei','Fujian',2),(10000034,'2023-03-29','2021-03-24','Qinghai','Chongqing',1),(10000035,'2023-09-26','2023-11-29','Ningxia','Liaoning',2),(10000036,'2023-05-19','2021-08-09','Macau','Hong Kong',2),(10000037,'2021-09-01','2022-02-27','Fujian','Zhejiang',2),(10000038,'2023-08-21','2022-11-16','Heilongjiang','Inner Mongolia',1),(10000039,'2022-07-16','2022-09-19','Guizhou','Heilongjiang',1),(10000040,'2022-05-11','2023-07-19','Liaoning','Henan',1),(10000041,'2022-04-20','2022-01-20','Shaanxi','Hong Kong',2),(10000042,'2022-07-14','2022-09-22','Shanxi','Chongqing',2),(10000043,'2023-11-04','2023-07-17','Xinjiang','Sichuan',2),(10000044,'2023-04-13','2022-10-21','Qinghai','Hebei',2),(10000045,'2022-03-03','2023-06-21','Tianjin','Guangdong',2),(10000046,'2021-09-19','2023-06-14','Beijing','Shanxi',2),(10000047,'2023-08-05','2022-08-30','Tibet','Tianjin',2),(10000048,'2022-01-27','2022-12-10','Tianjin','Sichuan',1),(10000049,'2023-11-29','2021-03-20','Shanxi','Guizhou',2),(10000050,'2021-08-27','2021-02-15','Hainan','Anhui',1),(10000051,'2023-09-25','2023-08-10','Guangdong','Tibet',2),(10000052,'2023-06-21','2022-05-30','Xinjiang','Anhui',2),(10000053,'2023-04-22','2022-08-25','Inner Mongolia','Sichuan',2),(10000054,'2022-06-07','2021-01-15','Jiangxi','Henan',1),(10000055,'2023-11-05','2022-05-12','Heilongjiang','Shanxi',2),(10000056,'2023-05-28','2023-07-30','Jiangsu','Jilin',3),(10000057,'2022-06-12','2021-07-25','Zhejiang','Hong Kong',2),(10000058,'2023-12-14','2023-04-12','Heilongjiang','Guangxi',3),(10000059,'2023-10-02','2022-04-25','Qinghai','Henan',2),(10000060,'2023-07-11','2021-12-20','Heilongjiang','Ningxia',2),(10000061,'2022-03-01','2021-03-22','Jilin','Yunnan',3),(10000062,'2022-12-18','2021-04-22','Hubei','Hong Kong',2),(10000063,'2021-08-06','2021-07-14','Guangxi','Shandong',2),(10000064,'2023-10-15','2021-11-05','Shanxi','Tibet',2),(10000065,'2023-03-29','2023-02-04','Ningxia','Fujian',3),(10000066,'2023-12-17','2023-08-11','Fujian','Inner Mongolia',2),(10000067,'2023-04-10','2023-01-23','Sichuan','Beijing',2),(10000068,'2023-07-04','2022-11-30','Guizhou','Gansu',2),(10000069,'2022-05-04','2022-09-02','Jilin','Inner Mongolia',1),(10000070,'2023-03-22','2021-12-03','Hong Kong','Guangdong',2),(10000071,'2021-10-02','2023-12-26','Shaanxi','Jiangsu',2),(10000072,'2022-12-09','2022-08-21','Chongqing','Xinjiang',1),(10000073,'2023-01-16','2022-09-14','Shanghai','Xinjiang',2),(10000074,'2022-05-18','2021-12-08','Hebei','Fujian',1),(10000075,'2023-08-19','2022-10-09','Inner Mongolia','Fujian',2),(10000076,'2022-03-29','2021-12-02','Jiangsu','Shaanxi',2),(10000077,'2022-07-09','2022-02-07','Tianjin','Yunnan',1),(10000078,'2023-10-24','2023-06-14','Gansu','Heilongjiang',3),(10000079,'2021-07-08','2022-08-26','Heilongjiang','Shandong',2),(10000080,'2023-09-14','2021-05-31','Heilongjiang','Tibet',1),(10000081,'2021-08-09','2023-05-13','Hunan','Hubei',1),(10000082,'2023-07-06','2021-09-08','Qinghai','Inner Mongolia',2),(10000083,'2022-03-08','2023-04-25','Jiangxi','Ningxia',3),(10000084,'2021-11-06','2022-08-14','Jilin','Tibet',1),(10000085,'2023-05-18','2021-01-20','Sichuan','Shandong',3),(10000086,'2022-01-04','2022-09-01','Heilongjiang','Gansu',2),(10000087,'2021-08-21','2022-11-09','Gansu','Beijing',3),(10000088,'2022-08-29','2022-09-10','Guangdong','Shaanxi',2),(10000089,'2023-02-11','2021-12-06','Shaanxi','Guangxi',1),(10000090,'2022-03-18','2021-05-10','Ningxia','Sichuan',2),(10000091,'2022-07-23','2021-02-17','Yunnan','Liaoning',1),(10000092,'2023-02-12','2021-07-11','Jilin','Fujian',3),(10000093,'2021-09-02','2023-11-19','Hebei','Fujian',2),(10000094,'2023-03-01','2021-06-01','Hebei','Shanxi',3),(10000095,'2023-12-24','2021-05-26','Jilin','Xinjiang',2),(10000096,'2022-04-03','2023-04-22','Gansu','Xinjiang',2),(10000097,'2023-02-16','2023-09-22','Heilongjiang','Ningxia',2),(10000098,'2023-11-13','2022-06-13','Macau','Jiangxi',3),(10000099,'2023-11-11','2022-01-08','Liaoning','Jiangsu',2),(10000100,'2021-10-23','2023-10-09','Jiangsu','Guizhou',1),(10000101,'2022-10-19','2023-07-24','Guizhou','Hebei',3),(10000102,'2023-12-18','2021-10-26','Shanghai','Beijing',2),(10000103,'2023-10-29','2022-02-26','Jiangsu','Shaanxi',2),(10000104,'2022-09-26','2021-10-02','Hainan','Liaoning',3),(10000105,'2021-12-13','2023-03-10','Chongqing','Shandong',2),(10000106,'2022-06-07','2023-06-04','Guizhou','Guangxi',3),(10000107,'2022-12-21','2021-12-24','Qinghai','Shaanxi',1),(10000108,'2022-10-02','2021-08-10','Guizhou','Jilin',3),(10000109,'2023-10-17','2022-06-12','Anhui','Hainan',2),(10000110,'2023-06-25','2023-10-11','Heilongjiang','Hebei',2),(10000111,'2023-07-01','2022-09-30','Guizhou','Hebei',1),(10000112,'2021-11-27','2023-02-26','Gansu','Sichuan',2),(10000113,'2022-01-22','2022-06-13','Guangdong','Jilin',3),(10000114,'2023-01-16','2023-10-29','Heilongjiang','Sichuan',2),(10000115,'2022-06-20','2021-07-29','Jiangxi','Heilongjiang',2),(10000116,'2023-10-10','2021-11-14','Shanghai','Hebei',3),(10000117,'2021-10-03','2022-03-16','Qinghai','Inner Mongolia',3),(10000118,'2022-04-29','2022-07-17','Hunan','Ningxia',2),(10000119,'2023-01-19','2023-11-10','Anhui','Jiangsu',2),(10000120,'2022-03-23','2022-07-03','Shanxi','Gansu',2),(10000121,'2022-05-28','2021-07-20','Gansu','Guizhou',1),(10000122,'2023-06-14','2023-03-29','Jiangsu','Liaoning',2),(10000123,'2021-08-04','2022-06-22','Shanxi','Jilin',2),(10000124,'2023-07-01','2023-12-21','Yunnan','Tibet',2),(10000125,'2023-03-05','2021-11-18','Anhui','Anhui',2),(10000126,'2021-07-11','2023-01-10','Jilin','Tibet',3),(10000127,'2021-10-21','2023-08-11','Tibet','Sichuan',3),(10000128,'2022-09-18','2023-01-14','Guizhou','Heilongjiang',2),(10000129,'2022-01-15','2021-04-18','Gansu','Guangdong',3),(10000130,'2022-02-18','2021-11-02','Jilin','Chongqing',2),(10000131,'2023-11-02','2023-06-21','Guangdong','Liaoning',3),(10000132,'2023-11-12','2023-11-07','Yunnan','Jilin',3),(10000133,'2023-07-30','2021-09-06','Jiangsu','Shaanxi',1),(10000134,'2021-07-10','2022-02-19','Henan','Hubei',2),(10000135,'2023-06-17','2023-03-23','Macau','Chongqing',1),(10000136,'2022-01-16','2021-06-26','Jiangsu','Sichuan',1),(10000137,'2022-07-09','2021-08-25','Zhejiang','Shaanxi',3),(10000138,'2022-08-18','2021-07-30','Anhui','Inner Mongolia',1),(10000139,'2022-05-04','2021-10-12','Ningxia','Hubei',2),(10000140,'2022-07-24','2023-08-05','Liaoning','Tibet',3),(10000141,'2023-09-29','2023-10-20','Inner Mongolia','Tibet',2),(10000142,'2021-08-28','2022-03-26','Zhejiang','Guangxi',2),(10000143,'2021-10-03','2021-02-18','Ningxia','Shanxi',2),(10000144,'2023-09-23','2023-06-29','Jiangxi','Guizhou',2),(10000145,'2022-08-11','2023-10-03','Shaanxi','Jilin',2),(10000146,'2022-07-09','2022-10-16','Guizhou','Sichuan',3),(10000147,'2022-03-22','2022-03-28','Guangdong','Guangdong',3),(10000148,'2021-10-07','2023-11-07','Jilin','Heilongjiang',2),(10000149,'2022-01-04','2022-02-08','Xinjiang','Gansu',2),(10000150,'2022-04-05','2021-03-12','Beijing','Inner Mongolia',2),(10000151,'2022-11-26','2021-10-05','Shanxi','Chongqing',2),(10000152,'2023-09-18','2022-07-15','Jiangxi','Anhui',1),(10000153,'2021-08-17','2022-09-01','Jilin','Heilongjiang',1),(10000154,'2023-05-27','2021-05-08','Hebei','Shanghai',2),(10000155,'2022-06-27','2022-11-16','Heilongjiang','Inner Mongolia',2),(10000156,'2023-07-02','2023-04-01','Henan','Gansu',2),(10000157,'2021-10-12','2021-04-21','Macau','Hong Kong',2),(10000158,'2023-07-03','2022-11-26','Qinghai','Qinghai',3),(10000159,'2021-08-21','2021-08-13','Tianjin','Guangdong',2),(10000160,'2021-11-17','2023-07-28','Hainan','Hong Kong',3),(10000161,'2021-08-07','2023-05-03','Yunnan','Yunnan',3),(10000162,'2023-05-18','2021-08-11','Heilongjiang','Liaoning',3),(10000163,'2021-07-04','2022-01-16','Jilin','Shaanxi',2),(10000164,'2021-07-19','2021-07-20','Tianjin','Shanghai',2),(10000165,'2023-03-06','2021-07-27','Ningxia','Guangxi',2),(10000166,'2023-11-25','2023-07-08','Shandong','Xinjiang',1),(10000167,'2023-05-09','2022-11-14','Jilin','Hong Kong',2),(10000168,'2022-06-04','2021-08-13','Chongqing','Zhejiang',3),(10000169,'2021-07-18','2023-08-27','Jiangxi','Ningxia',2),(10000170,'2022-06-26','2021-04-15','Inner Mongolia','Hubei',2),(10000171,'2022-12-30','2022-09-22','Macau','Hebei',2),(10000172,'2022-06-08','2023-08-05','Yunnan','Fujian',3),(10000173,'2022-05-22','2022-03-29','Liaoning','Xinjiang',2),(10000174,'2022-08-06','2023-05-28','Heilongjiang','Jiangsu',3),(10000175,'2021-09-18','2022-03-28','Henan','Jilin',3),(10000176,'2022-01-21','2022-09-09','Henan','Macau',2),(10000177,'2022-10-11','2023-09-18','Hainan','Jilin',2),(10000178,'2022-06-06','2023-03-21','Hebei','Guangdong',2),(10000179,'2023-05-09','2023-08-19','Jilin','Inner Mongolia',2),(10000180,'2023-03-24','2023-01-16','Jilin','Shandong',1),(10000181,'2023-09-21','2023-05-30','Shaanxi','Ningxia',1),(10000182,'2021-10-31','2023-01-14','Jiangxi','Heilongjiang',3),(10000183,'2023-02-09','2021-10-28','Heilongjiang','Shandong',1),(10000184,'2022-08-07','2021-06-26','Fujian','Jiangsu',1),(10000185,'2021-07-15','2021-06-10','Shaanxi','Yunnan',3),(10000186,'2023-07-24','2022-12-16','Macau','Heilongjiang',2),(10000187,'2023-12-21','2021-02-20','Shandong','Shandong',1),(10000188,'2022-10-18','2023-11-12','Hong Kong','Jilin',1),(10000189,'2021-11-06','2021-08-17','Sichuan','Guizhou',1),(10000190,'2022-11-04','2021-06-28','Inner Mongolia','Shanghai',3),(10000191,'2022-07-19','2022-11-07','Jilin','Tibet',3),(10000192,'2022-02-14','2022-07-07','Shaanxi','Shandong',3),(10000193,'2022-07-08','2022-06-24','Jiangxi','Jilin',2),(10000194,'2022-04-26','2023-06-07','Fujian','Shandong',2),(10000195,'2023-11-07','2021-02-19','Chongqing','Heilongjiang',1),(10000196,'2022-09-16','2021-08-24','Beijing','Ningxia',2),(10000197,'2023-08-25','2021-07-16','Henan','Heilongjiang',2),(10000198,'2023-01-18','2022-01-05','Guizhou','Anhui',1),(10000199,'2021-10-11','2023-02-14','Gansu','Shaanxi',2),(10000200,'2022-10-26','2021-01-06','Xinjiang','Heilongjiang',3),(10000201,'2022-11-16','2021-11-15','Tianjin','Qinghai',2),(10000202,'2023-02-07','2023-12-05','Ningxia','Jiangsu',3),(10000203,'2023-04-09','2021-10-15','Zhejiang','Yunnan',3),(10000204,'2022-05-26','2022-07-06','Inner Mongolia','Zhejiang',2),(10000205,'2021-11-17','2023-12-02','Qinghai','Beijing',1),(10000206,'2023-06-17','2022-04-26','Liaoning','Jilin',2),(10000207,'2022-08-17','2021-10-18','Beijing','Fujian',1),(10000208,'2023-02-08','2021-10-18','Guizhou','Hunan',2),(10000209,'2023-01-02','2021-07-23','Heilongjiang','Shanghai',2),(10000210,'2021-12-30','2023-03-05','Beijing','Liaoning',3),(10000211,'2023-09-15','2022-03-12','Hunan','Tianjin',1),(10000212,'2022-04-23','2022-07-01','Henan','Tibet',2),(10000213,'2023-11-08','2022-11-30','Yunnan','Hubei',2),(10000214,'2023-05-21','2022-12-07','Hong Kong','Guizhou',2),(10000215,'2023-06-15','2021-04-19','Hebei','Macau',3),(10000216,'2022-11-12','2022-03-23','Macau','Guangdong',2),(10000217,'2022-05-25','2022-07-20','Jilin','Anhui',2),(10000218,'2021-07-12','2022-09-15','Jiangxi','Ningxia',2),(10000219,'2021-08-22','2021-07-27','Shanxi','Inner Mongolia',2),(10000220,'2021-12-24','2023-12-29','Guangdong','Zhejiang',2),(10000221,'2022-05-18','2023-06-28','Guangdong','Heilongjiang',2),(10000222,'2023-09-24','2021-03-30','Shandong','Anhui',3),(10000223,'2023-04-05','2022-08-23','Ningxia','Chongqing',2),(10000224,'2021-11-07','2022-11-23','Jilin','Guizhou',2),(10000225,'2022-05-31','2021-08-09','Guangdong','Qinghai',2),(10000226,'2022-10-16','2022-01-22','Jilin','Hong Kong',2),(10000227,'2022-04-11','2021-02-08','Zhejiang','Heilongjiang',3),(10000228,'2021-09-27','2022-10-01','Heilongjiang','Shandong',2),(10000229,'2022-06-07','2022-04-22','Guangxi','Hong Kong',1),(10000230,'2022-12-14','2021-07-20','Anhui','Fujian',2),(10000231,'2022-08-31','2022-04-18','Zhejiang','Fujian',2),(10000232,'2021-09-08','2021-06-22','Xinjiang','Hubei',1),(10000233,'2023-02-07','2023-11-08','Anhui','Gansu',2),(10000234,'2021-07-07','2022-11-26','Jiangsu','Inner Mongolia',1),(10000235,'2022-11-18','2023-06-14','Jiangxi','Hubei',2),(10000236,'2022-06-17','2023-07-04','Sichuan','Henan',3),(10000237,'2022-06-01','2023-08-04','Anhui','Shanxi',1),(10000238,'2023-02-16','2023-01-04','Sichuan','Heilongjiang',2),(10000239,'2023-10-04','2021-04-25','Jilin','Xinjiang',1),(10000240,'2021-08-26','2022-05-04','Gansu','Shaanxi',2),(10000241,'2023-05-20','2021-07-20','Macau','Hainan',1),(10000242,'2023-08-27','2023-10-13','Zhejiang','Tianjin',2),(10000243,'2021-10-15','2023-05-22','Jiangsu','Macau',2),(10000244,'2023-01-04','2022-08-12','Jiangxi','Ningxia',3),(10000245,'2021-09-10','2023-09-28','Hubei','Inner Mongolia',1),(10000246,'2023-09-11','2023-03-06','Jilin','Sichuan',1),(10000247,'2022-01-16','2022-02-04','Shanghai','Tibet',1),(10000248,'2023-04-29','2021-09-27','Fujian','Guangdong',1),(10000249,'2022-03-05','2023-01-18','Jiangsu','Liaoning',1),(10000250,'2023-05-05','2022-08-17','Gansu','Jilin',1),(10000251,'2023-03-19','2022-07-03','Xinjiang','Shanxi',2),(10000252,'2022-03-15','2022-04-01','Shanxi','Beijing',3),(10000253,'2021-10-15','2021-01-08','Liaoning','Heilongjiang',2),(10000254,'2023-12-23','2023-01-31','Chongqing','Ningxia',2),(10000255,'2022-01-13','2023-04-12','Shanxi','Inner Mongolia',3),(10000256,'2022-09-21','2022-03-04','Yunnan','Fujian',3),(10000257,'2023-02-05','2022-10-16','Hong Kong','Shaanxi',2),(10000258,'2021-09-17','2021-03-07','Heilongjiang','Hong Kong',3),(10000259,'2021-09-26','2022-12-24','Gansu','Shaanxi',1),(10000260,'2022-06-15','2023-07-26','Jilin','Tibet',2),(10000261,'2023-12-09','2022-10-01','Tibet','Shaanxi',2),(10000262,'2023-11-22','2021-07-15','Tianjin','Chongqing',2),(10000263,'2021-10-23','2022-09-01','Heilongjiang','Inner Mongolia',1),(10000264,'2023-02-12','2021-04-14','Macau','Shaanxi',3),(10000265,'2021-09-08','2022-03-29','Tianjin','Liaoning',2),(10000266,'2022-10-28','2022-11-01','Jiangsu','Shanxi',2),(10000267,'2022-03-06','2022-04-06','Tibet','Shandong',3),(10000268,'2022-04-26','2022-04-22','Guangxi','Gansu',2),(10000269,'2023-07-30','2023-12-02','Shanghai','Tianjin',3),(10000270,'2023-01-23','2023-05-09','Chongqing','Jilin',2),(10000271,'2022-07-23','2021-07-06','Fujian','Inner Mongolia',2),(10000272,'2021-07-20','2021-07-14','Shanghai','Anhui',2),(10000273,'2023-08-27','2021-08-12','Shaanxi','Beijing',2),(10000274,'2021-11-04','2021-02-15','Hubei','Shandong',2),(10000275,'2022-05-14','2021-07-14','Henan','Tibet',1),(10000276,'2023-06-19','2022-05-11','Tianjin','Macau',3),(10000277,'2022-04-23','2021-05-16','Shaanxi','Liaoning',2),(10000278,'2022-07-04','2022-06-22','Liaoning','Heilongjiang',1),(10000279,'2021-07-19','2022-01-01','Qinghai','Sichuan',3),(10000280,'2023-11-26','2021-10-13','Zhejiang','Inner Mongolia',2),(10000281,'2023-02-03','2022-08-01','Guizhou','Sichuan',2),(10000282,'2022-06-22','2022-04-08','Hunan','Macau',1),(10000283,'2021-09-06','2022-01-16','Henan','Tianjin',3),(10000284,'2023-12-01','2023-03-26','Xinjiang','Heilongjiang',3),(10000285,'2023-09-01','2022-11-05','Yunnan','Beijing',1),(10000286,'2023-07-19','2021-09-25','Xinjiang','Shaanxi',2),(10000287,'2022-04-24','2021-04-18','Inner Mongolia','Gansu',1),(10000288,'2023-10-03','2021-06-09','Jilin','Qinghai',2),(10000289,'2022-06-26','2023-11-09','Tianjin','Jilin',3),(10000290,'2021-12-17','2021-03-18','Liaoning','Jiangxi',2),(10000291,'2023-08-27','2021-09-25','Sichuan','Shandong',2),(10000292,'2023-06-30','2023-03-06','Hubei','Anhui',2),(10000293,'2022-09-22','2021-09-09','Hunan','Guizhou',2),(10000294,'2022-12-16','2023-01-18','Guizhou','Sichuan',3),(10000295,'2023-04-26','2021-03-14','Qinghai','Chongqing',3),(10000296,'2022-10-07','2022-06-08','Fujian','Gansu',2),(10000297,'2023-12-06','2023-12-18','Fujian','Shandong',2),(10000298,'2022-03-25','2022-05-27','Xinjiang','Shanxi',1),(10000299,'2023-12-22','2021-09-17','Liaoning','Shanxi',2),(10000300,'2023-02-14','2021-01-26','Jilin','Shandong',1),(10000301,'2022-03-18','2021-04-22','Xinjiang','Hong Kong',1),(10000302,'2021-08-21','2023-04-13','Guangxi','Anhui',2),(10000303,'2023-06-14','2022-09-02','Tianjin','Inner Mongolia',3),(10000304,'2022-02-04','2021-01-10','Chongqing','Gansu',3),(10000305,'2022-06-19','2021-02-10','Shandong','Macau',2),(10000306,'2023-07-06','2021-09-11','Anhui','Beijing',1),(10000307,'2022-11-01','2023-09-04','Jiangsu','Beijing',2),(10000308,'2023-09-06','2023-10-12','Qinghai','Guangdong',2),(10000309,'2023-11-15','2023-09-24','Inner Mongolia','Shaanxi',1),(10000310,'2023-01-18','2021-09-05','Gansu','Fujian',2),(10000311,'2021-08-16','2021-11-12','Xinjiang','Jiangsu',3),(10000312,'2022-05-17','2021-08-04','Guizhou','Macau',1),(10000313,'2022-04-05','2022-03-12','Tianjin','Beijing',3),(10000314,'2023-01-24','2023-03-11','Jilin','Liaoning',3),(10000315,'2022-08-17','2021-08-07','Jilin','Macau',3),(10000316,'2023-11-12','2023-10-28','Chongqing','Beijing',3),(10000317,'2023-08-18','2023-01-25','Gansu','Beijing',2),(10000318,'2022-07-11','2023-11-21','Jiangxi','Ningxia',2),(10000319,'2023-02-12','2021-01-10','Ningxia','Shanghai',2),(10000320,'2021-07-26','2022-11-11','Henan','Liaoning',2),(10000321,'2022-03-20','2021-06-26','Macau','Tibet',3),(10000322,'2022-07-26','2022-03-31','Yunnan','Xinjiang',2),(10000323,'2023-12-03','2022-10-04','Hubei','Liaoning',2),(10000324,'2021-07-09','2022-12-08','Hong Kong','Gansu',2),(10000325,'2021-12-24','2022-05-06','Macau','Liaoning',3),(10000326,'2023-06-06','2022-09-09','Hubei','Guangxi',2),(10000327,'2021-11-24','2022-08-15','Beijing','Heilongjiang',1),(10000328,'2022-05-18','2023-07-04','Beijing','Ningxia',2),(10000329,'2022-02-17','2022-12-12','Tibet','Shaanxi',2),(10000330,'2022-09-21','2021-11-14','Henan','Hebei',2),(10000331,'2022-10-23','2022-10-21','Hebei','Heilongjiang',2),(10000332,'2023-08-24','2022-11-13','Jiangsu','Jiangsu',2),(10000333,'2022-05-07','2023-01-22','Hainan','Inner Mongolia',3),(10000334,'2022-08-18','2023-04-10','Jiangxi','Qinghai',1),(10000335,'2022-09-19','2022-10-27','Ningxia','Zhejiang',2),(10000336,'2022-09-21','2021-10-19','Xinjiang','Heilongjiang',2),(10000337,'2023-10-02','2021-05-18','Guangxi','Chongqing',2),(10000338,'2021-09-18','2021-09-27','Liaoning','Fujian',2),(10000339,'2023-06-06','2021-03-30','Inner Mongolia','Henan',1),(10000340,'2023-08-13','2023-12-21','Shandong','Beijing',1),(10000341,'2021-10-30','2023-05-14','Jiangxi','Inner Mongolia',2),(10000342,'2022-07-05','2023-12-19','Jiangxi','Shanxi',3),(10000343,'2022-11-15','2023-09-12','Beijing','Shaanxi',3),(10000344,'2021-09-06','2023-03-18','Shanghai','Ningxia',1),(10000345,'2022-04-23','2023-03-27','Shandong','Liaoning',2),(10000346,'2023-04-13','2022-05-03','Hebei','Tibet',1),(10000347,'2023-08-12','2021-08-26','Tianjin','Sichuan',1),(10000348,'2022-10-27','2021-01-08','Sichuan','Hubei',2),(10000349,'2021-07-09','2023-02-18','Shanghai','Liaoning',1),(10000350,'2023-05-24','2023-12-10','Anhui','Hong Kong',1),(10000351,'2023-12-22','2022-05-10','Ningxia','Macau',2),(10000352,'2023-04-23','2023-06-23','Shanghai','Shandong',2),(10000353,'2022-04-03','2022-10-18','Xinjiang','Qinghai',1),(10000354,'2023-08-08','2023-06-11','Hunan','Fujian',2),(10000355,'2022-11-22','2023-05-05','Jilin','Xinjiang',1),(10000356,'2022-10-08','2021-11-17','Shaanxi','Gansu',3),(10000357,'2023-06-16','2023-07-27','Heilongjiang','Heilongjiang',1),(10000358,'2022-06-30','2021-04-25','Chongqing','Shaanxi',2),(10000359,'2021-09-26','2022-03-16','Chongqing','Chongqing',2),(10000360,'2023-11-18','2023-10-14','Shanxi','Hebei',3),(10000361,'2022-10-19','2022-04-22','Shanghai','Henan',2),(10000362,'2023-04-22','2023-02-02','Zhejiang','Inner Mongolia',2),(10000363,'2022-12-10','2023-08-18','Chongqing','Shanxi',2),(10000364,'2022-02-24','2021-01-10','Guangdong','Jiangxi',2),(10000365,'2021-11-14','2021-05-09','Xinjiang','Jilin',3),(10000366,'2023-02-09','2022-06-02','Shandong','Gansu',2),(10000367,'2022-10-21','2023-09-24','Shanxi','Guizhou',1),(10000368,'2023-01-04','2023-09-27','Henan','Beijing',2),(10000369,'2023-10-19','2021-01-10','Beijing','Qinghai',2),(10000370,'2022-10-29','2022-04-14','Xinjiang','Hong Kong',2),(10000371,'2023-11-01','2021-10-15','Hubei','Jiangxi',1),(10000372,'2023-01-20','2022-02-26','Tianjin','Liaoning',2),(10000373,'2023-08-27','2021-08-08','Shanxi','Hainan',1),(10000374,'2023-08-25','2023-05-28','Chongqing','Shanxi',3),(10000375,'2022-06-04','2023-11-30','Shanxi','Hainan',2),(10000376,'2022-09-06','2022-05-17','Chongqing','Chongqing',3),(10000377,'2022-05-25','2021-03-29','Gansu','Hebei',1),(10000378,'2021-07-18','2023-04-26','Hebei','Jilin',3),(10000379,'2021-11-14','2022-07-10','Hebei','Henan',1),(10000380,'2023-11-24','2021-09-21','Yunnan','Jilin',2),(10000381,'2023-04-04','2023-08-16','Shanxi','Zhejiang',3),(10000382,'2023-01-07','2022-09-14','Inner Mongolia','Liaoning',1),(10000383,'2023-05-01','2021-10-11','Fujian','Jilin',1),(10000384,'2021-11-12','2021-03-30','Heilongjiang','Hebei',2),(10000385,'2021-07-03','2021-03-01','Hainan','Guizhou',3),(10000386,'2023-06-24','2021-10-21','Xinjiang','Hebei',2),(10000387,'2022-02-11','2023-12-19','Shaanxi','Tibet',2),(10000388,'2022-06-23','2022-04-18','Zhejiang','Guizhou',1),(10000389,'2022-05-29','2021-06-14','Shanxi','Guangdong',2),(10000390,'2023-12-25','2023-02-08','Ningxia','Jilin',3),(10000391,'2022-10-22','2021-07-08','Guizhou','Beijing',2),(10000392,'2021-10-06','2023-12-23','Inner Mongolia','Shandong',2),(10000393,'2023-02-10','2021-06-12','Anhui','Heilongjiang',1),(10000394,'2022-07-16','2023-03-28','Ningxia','Liaoning',1),(10000395,'2021-12-25','2023-04-21','Shaanxi','Beijing',2),(10000396,'2022-08-07','2021-09-01','Hebei','Guizhou',3),(10000397,'2023-04-09','2023-11-13','Henan','Shanxi',2),(10000398,'2021-08-27','2023-03-26','Inner Mongolia','Jiangxi',2),(10000399,'2022-05-11','2022-09-23','Zhejiang','Heilongjiang',1),(10000400,'2022-01-07','2022-07-02','Jilin','Shandong',3),(10000401,'2022-06-26','2023-04-14','Jilin','Heilongjiang',1),(10000402,'2023-11-22','2022-09-29','Jilin','Liaoning',3),(10000403,'2021-10-01','2021-04-09','Tibet','Shanghai',3),(10000404,'2021-10-14','2021-07-04','Hunan','Tibet',2),(10000405,'2021-08-17','2023-01-27','Jilin','Heilongjiang',3),(10000406,'2023-07-31','2023-11-06','Yunnan','Inner Mongolia',3),(10000407,'2023-07-19','2021-09-25','Jilin','Gansu',1),(10000408,'2021-10-06','2022-06-27','Hunan','Inner Mongolia',2),(10000409,'2021-08-03','2021-08-10','Jilin','Shanxi',3),(10000410,'2021-10-08','2021-06-07','Shanxi','Ningxia',2),(10000411,'2023-01-08','2022-12-11','Xinjiang','Qinghai',2),(10000412,'2023-06-28','2021-09-09','Ningxia','Chongqing',2),(10000413,'2022-06-09','2022-12-14','Hebei','Shaanxi',2),(10000414,'2023-09-01','2023-07-12','Hebei','Gansu',1),(10000415,'2021-08-28','2021-12-24','Anhui','Shanxi',3),(10000416,'2021-10-14','2023-12-21','Hebei','Yunnan',3),(10000417,'2022-06-06','2023-09-21','Yunnan','Liaoning',2),(10000418,'2022-01-30','2022-05-21','Hunan','Hong Kong',3),(10000419,'2022-06-15','2022-12-27','Shaanxi','Jilin',1),(10000420,'2023-03-13','2021-01-21','Inner Mongolia','Tianjin',2),(10000421,'2023-12-19','2022-04-16','Anhui','Shandong',2),(10000422,'2023-08-20','2022-09-26','Tibet','Ningxia',2),(10000423,'2022-06-02','2021-11-25','Heilongjiang','Heilongjiang',3),(10000424,'2023-07-17','2021-07-26','Sichuan','Jilin',2),(10000425,'2022-10-25','2023-02-08','Shaanxi','Heilongjiang',3),(10000426,'2021-11-21','2023-07-01','Heilongjiang','Hubei',2),(10000427,'2021-07-16','2023-11-28','Guizhou','Shaanxi',1),(10000428,'2022-06-25','2023-07-21','Hunan','Liaoning',1),(10000429,'2023-02-17','2023-11-09','Heilongjiang','Shaanxi',3),(10000430,'2021-11-23','2021-05-31','Shandong','Shanxi',2),(10000431,'2022-12-23','2022-03-03','Heilongjiang','Xinjiang',3),(10000432,'2021-07-05','2023-11-24','Liaoning','Qinghai',3),(10000433,'2022-01-05','2023-05-10','Liaoning','Qinghai',2),(10000434,'2021-10-13','2021-05-26','Heilongjiang','Jilin',2),(10000435,'2023-04-01','2021-06-12','Heilongjiang','Tibet',2),(10000436,'2022-10-29','2022-02-20','Zhejiang','Jiangsu',1),(10000437,'2023-09-29','2022-09-12','Chongqing','Gansu',2),(10000438,'2021-10-15','2023-12-08','Zhejiang','Chongqing',1),(10000439,'2022-03-16','2023-12-15','Inner Mongolia','Hebei',1),(10000440,'2022-10-14','2023-10-04','Liaoning','Jiangxi',1),(10000441,'2023-05-31','2022-08-01','Shanghai','Tianjin',2),(10000442,'2023-12-03','2021-11-01','Guangdong','Hebei',1),(10000443,'2022-01-06','2023-07-28','Shanxi','Xinjiang',2),(10000444,'2023-08-24','2022-12-29','Chongqing','Inner Mongolia',2),(10000445,'2023-09-23','2023-04-02','Hebei','Inner Mongolia',2),(10000446,'2023-10-08','2023-11-19','Liaoning','Guizhou',2),(10000447,'2023-08-17','2021-11-11','Chongqing','Liaoning',2),(10000448,'2023-04-23','2022-08-19','Henan','Shanxi',3),(10000449,'2021-07-22','2021-01-16','Shanghai','Jiangsu',2),(10000450,'2022-09-05','2022-07-31','Shaanxi','Gansu',1),(10000451,'2023-06-22','2023-04-26','Qinghai','Qinghai',1),(10000452,'2023-09-02','2023-05-30','Liaoning','Shanxi',2),(10000453,'2023-10-12','2021-05-22','Jiangsu','Yunnan',3),(10000454,'2023-11-30','2023-04-02','Heilongjiang','Xinjiang',2),(10000455,'2022-05-26','2021-10-24','Sichuan','Liaoning',2),(10000456,'2023-02-06','2023-09-24','Zhejiang','Jilin',1),(10000457,'2023-11-14','2023-04-05','Shanghai','Chongqing',1),(10000458,'2021-07-19','2022-08-08','Jilin','Jiangxi',2),(10000459,'2022-07-15','2021-02-08','Guangxi','Yunnan',1),(10000460,'2023-06-30','2021-06-28','Heilongjiang','Guizhou',3),(10000461,'2023-06-05','2021-08-26','Zhejiang','Yunnan',2),(10000462,'2022-07-08','2021-01-05','Heilongjiang','Jilin',2),(10000463,'2022-05-25','2022-11-02','Gansu','Hubei',3),(10000464,'2022-06-04','2023-06-11','Tianjin','Zhejiang',1),(10000465,'2021-12-05','2021-09-01','Macau','Shaanxi',2),(10000466,'2022-01-26','2021-10-20','Inner Mongolia','Shandong',2),(10000467,'2022-05-15','2022-10-24','Shanxi','Inner Mongolia',2),(10000468,'2022-08-09','2021-12-10','Liaoning','Jiangxi',3),(10000469,'2023-05-13','2022-08-20','Shaanxi','Hainan',1),(10000470,'2022-02-28','2022-02-08','Inner Mongolia','Xinjiang',3),(10000471,'2022-04-14','2021-04-15','Tibet','Henan',3),(10000472,'2023-09-03','2021-05-24','Yunnan','Qinghai',2),(10000473,'2022-08-23','2022-01-01','Gansu','Heilongjiang',1),(10000474,'2022-04-20','2021-12-24','Guangdong','Liaoning',2),(10000475,'2023-08-09','2022-08-07','Inner Mongolia','Hebei',2),(10000476,'2023-08-21','2022-07-07','Gansu','Fujian',2),(10000477,'2023-03-24','2021-03-17','Sichuan','Hong Kong',3),(10000478,'2021-08-12','2021-03-18','Hebei','Tianjin',3),(10000479,'2023-10-28','2023-03-12','Fujian','Tibet',2),(10000480,'2022-04-04','2022-02-06','Shanghai','Liaoning',2),(10000481,'2023-11-19','2022-06-09','Macau','Beijing',2),(10000482,'2021-11-09','2021-05-27','Chongqing','Hong Kong',1),(10000483,'2023-04-11','2022-06-01','Shaanxi','Gansu',1),(10000484,'2023-03-29','2022-01-18','Hubei','Guizhou',2),(10000485,'2023-11-29','2022-01-29','Fujian','Hebei',1),(10000486,'2023-05-16','2022-04-08','Jilin','Ningxia',2),(10000487,'2022-08-22','2022-03-22','Hubei','Hebei',2),(10000488,'2023-11-29','2022-05-25','Shaanxi','Chongqing',3),(10000489,'2023-05-17','2021-04-15','Jilin','Qinghai',2),(10000490,'2021-11-23','2021-09-25','Heilongjiang','Gansu',1),(10000491,'2021-07-12','2021-10-13','Chongqing','Jilin',3),(10000492,'2023-10-19','2021-04-28','Macau','Guangdong',2),(10000493,'2023-04-18','2022-11-18','Gansu','Zhejiang',1),(10000494,'2022-07-25','2021-04-10','Yunnan','Xinjiang',2),(10000495,'2023-06-22','2023-11-03','Jilin','Hubei',1),(10000496,'2021-09-27','2023-10-05','Hubei','Gansu',1),(10000497,'2022-03-22','2021-02-07','Shaanxi','Shandong',3),(10000498,'2023-03-28','2022-08-23','Liaoning','Hubei',2),(10000499,'2023-09-24','2022-04-24','Beijing','Anhui',2),(10000500,'2023-07-04','2023-12-14','Jilin','Shanxi',1),(10000501,'2023-04-19','2023-08-13','Yunnan','Qinghai',2),(10000502,'2023-01-22','2022-08-26','Beijing','Tibet',2),(10000503,'2022-08-30','2022-02-26','Shaanxi','Chongqing',3),(10000504,'2023-02-21','2023-05-14','Macau','Heilongjiang',2),(10000505,'2023-12-03','2023-03-15','Ningxia','Heilongjiang',1),(10000506,'2022-10-14','2021-07-05','Liaoning','Shaanxi',2),(10000507,'2021-10-27','2021-02-15','Hunan','Shanghai',2),(10000508,'2021-12-15','2022-09-10','Yunnan','Gansu',3),(10000509,'2022-07-30','2021-08-04','Yunnan','Hebei',2),(10000510,'2022-04-23','2023-06-01','Hainan','Liaoning',2),(10000511,'2021-11-30','2022-05-25','Guangdong','Hong Kong',3),(10000512,'2022-11-20','2021-01-09','Liaoning','Fujian',2),(10000513,'2022-10-06','2023-08-28','Hebei','Inner Mongolia',2),(10000514,'2022-07-19','2021-08-27','Shaanxi','Liaoning',2);
+
+/*Table structure for table `user_info` */
+
 DROP TABLE IF EXISTS `user_info`;
+
 CREATE TABLE `user_info` (
   `id` char(10) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
@@ -598,17 +317,14 @@ CREATE TABLE `user_info` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- ----------------------------
--- Records of user_info
--- ----------------------------
-BEGIN;
-INSERT INTO `user_info` (`id`, `username`, `passwd`, `email`) VALUES ('0123456789', 'pzhlsm', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '000000@email.com');
-COMMIT;
+/*Data for the table `user_info` */
 
--- ----------------------------
--- Table structure for vehicle
--- ----------------------------
+insert  into `user_info`(`id`,`username`,`passwd`,`email`) values ('0123456789','pzhlsm','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92','000000@email.com');
+
+/*Table structure for table `vehicle` */
+
 DROP TABLE IF EXISTS `vehicle`;
+
 CREATE TABLE `vehicle` (
   `vehicle_id` bigint NOT NULL AUTO_INCREMENT,
   `vehicle_number` varchar(20) DEFAULT NULL,
@@ -622,11 +338,11 @@ CREATE TABLE `vehicle` (
   PRIMARY KEY (`vehicle_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
--- ----------------------------
--- Records of vehicle
--- ----------------------------
-BEGIN;
-INSERT INTO `vehicle` (`vehicle_id`, `vehicle_number`, `type_id`, `latest_use`, `status`, `supplier`, `plate`, `purpose`, `automobile_id`) VALUES (3, '20001', '1', '2023-07-04', 0, '大众', '川FAB222', '运输', 56);
-COMMIT;
+/*Data for the table `vehicle` */
 
-SET FOREIGN_KEY_CHECKS = 1;
+insert  into `vehicle`(`vehicle_id`,`vehicle_number`,`type_id`,`latest_use`,`status`,`supplier`,`plate`,`purpose`,`automobile_id`) values (3,'20001','1','2023-07-04',0,'大众','川FAB222','运输',56);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
