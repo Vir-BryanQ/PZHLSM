@@ -28,6 +28,11 @@ public class GoodsService {
         return goods;
     }
 
+    public List<Goods> queryByCondition(String type){
+        List<Goods> goodsfList = goodsDao.queryByCondition(type);
+        return goodsfList;
+    }
+
     public int insertGoods(Goods goods){
         int result = goodsDao.insertGoods(goods);
         return result;

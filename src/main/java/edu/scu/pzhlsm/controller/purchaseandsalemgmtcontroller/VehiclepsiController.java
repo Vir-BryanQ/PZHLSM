@@ -31,6 +31,13 @@ public class VehiclepsiController {
     }
 
     @CrossOrigin
+    @PostMapping("api/purchaseandsalemgmt/automobilepurchase/getbycondition")
+    public List<VehiclePsi> queryByCondition(@RequestBody VehiclePsi vehiclePsi){
+        List<VehiclePsi> vehiclePsiList = vehiclepsiService.queryByCondition(vehiclePsi.getVehicleName(), vehiclePsi.getCreateTime());
+        return vehiclePsiList;
+    }
+
+    @CrossOrigin
     @PostMapping("api/purchaseandsalemgmt/automobilepurchase/save")
     public Result insertVehiclePsi(@RequestBody VehiclePsi vehiclePsi){
         int result = vehiclepsiService.addVehiclePsi(vehiclePsi);

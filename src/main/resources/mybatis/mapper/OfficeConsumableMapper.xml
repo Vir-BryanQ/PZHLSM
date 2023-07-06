@@ -25,8 +25,19 @@
         select * from office_consumables
         where office_consumables_id = #{consumableId};
     </select>
+    <select id="queryByCondition" resultType="edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.OfficeConsumable">
+        select * from office_consumables
+        <where>
+            <if test="consumableName != null and consumableName != ''">
+                and consumable_name like concat('%', #{consumableName}, '%')
+            </if>
+            <if test="consumableTime != null and consumableTime != ''">
+                and create_time like concat('%', #{consumableTime}, '%')
+            </if>
+        </where>
+    </select>
 
-<!--    insertConsumable-->
+    <!--    insertConsumable-->
     <insert id="insertConsumable" useGeneratedKeys="true">
         insert into office_consumables(consumable_name, purchase_quantity, create_time, per_price, remark)
         values (#{consumableName}, #{purchaseQuantity}, #{createTime}, #{perPrice}, #{remark});

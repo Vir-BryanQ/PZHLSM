@@ -15,7 +15,7 @@ public interface CommodityDao {
     CommodityPsi queryById(@Param("commodityId") int id);
 
     List<CommodityPsi> queryByCondition(@Param("commodityName") String name,
-                                        @Param("commodityTime") String createtime);
+                                        @Param("commodityTime") String time);
 
     int insertCommodityPsi(CommodityPsi commodityPsi);
 

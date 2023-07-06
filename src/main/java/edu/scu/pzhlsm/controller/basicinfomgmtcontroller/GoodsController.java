@@ -29,6 +29,13 @@ public class GoodsController {
     }
 
     @CrossOrigin
+    @PostMapping("api/basicinfomgmt/goods/getbycondition")
+    public List<Goods> queryByCondition(@RequestBody Goods goods){
+        List<Goods> goodsfList = goodsService.queryByCondition(goods.getGoodsType());
+        return goodsfList;
+    }
+
+    @CrossOrigin
     @PostMapping("api/basicinfomgmt/goods/save")
     public Result insertGoods(@RequestBody Goods goods){
         int result = goodsService.insertGoods(goods);

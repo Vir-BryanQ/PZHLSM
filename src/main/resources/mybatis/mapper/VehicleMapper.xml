@@ -34,5 +34,14 @@
         from vehicle
         where vehicle_id = #{vehicleId}
     </select>
+    <select id="queryByCondition" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Vehicle">
+        select *
+        from vehicle
+        <where>
+            <if test="vehicleNumber != null and vehicleNumber != ''">
+                and vehicle_number like concat('%', #{vehicleNumber}, '%')
+            </if>
+        </where>;
+    </select>
 
 </mapper>

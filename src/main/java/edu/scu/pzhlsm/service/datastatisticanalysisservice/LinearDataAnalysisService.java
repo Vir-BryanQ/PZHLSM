@@ -20,32 +20,43 @@ public class LinearDataAnalysisService {
     private CarRepairRecordsDAO carRepairRecordsDAO;
 
     public List<Integer> monthMissionFinishedRecord(List<String> dates){
-        List<Integer> missionFinished = new ArrayList<>();
-        List<MissionRecord> missionRecordList = missionRecordDAO.selectAll();
-        for (String date : dates) {
-            Integer count=0;
-            for (MissionRecord missionRecord : missionRecordList) {
-                if(missionRecord.getMissionFinishTime().contains(date)){
-                    count++;
+        try {
+            List<Integer> missionFinished = new ArrayList<>();
+            List<MissionRecord> missionRecordList = missionRecordDAO.selectAll();
+            for (String date : dates) {
+                Integer count = 0;
+                for (MissionRecord missionRecord : missionRecordList) {
+                    if (missionRecord.getMissionFinishTime().contains(date)) {
+                        count++;
+                    }
                 }
+                missionFinished.add(count);
             }
-            missionFinished.add(count);
+            return missionFinished;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
-        return missionFinished;
     }
 
+
     public List<Integer> monthCarRepairRecord(List<String> dates){
-        List<Integer> carRepaired = new ArrayList<>();
-        List<CarRepairRecord> carRepairRecordList = carRepairRecordsDAO.findAll();
-        for (String date : dates) {
-            Integer count=0;
-            for (CarRepairRecord carRepairRecord : carRepairRecordList) {
-                if(carRepairRecord.getRepairDate().contains(date)){
-                    count++;
+        try {
+            List<Integer> carRepaired = new ArrayList<>();
+            List<CarRepairRecord> carRepairRecordList = carRepairRecordsDAO.findAll();
+            for (String date : dates) {
+                Integer count = 0;
+                for (CarRepairRecord carRepairRecord : carRepairRecordList) {
+                    if (carRepairRecord.getRepairDate().contains(date)) {
+                        count++;
+                    }
                 }
+                carRepaired.add(count);
             }
-            carRepaired.add(count);
+            return carRepaired;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
-        return carRepaired;
     }
 }

@@ -1,6 +1,7 @@
 package edu.scu.pzhlsm.controller.basicinfomgmtcontroller;
 
 import edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Staff;
+import edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.OfficeConsumable;
 import edu.scu.pzhlsm.result.Result;
 import edu.scu.pzhlsm.service.basicinfomgmtservice.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,13 @@ public class StaffController {
     public Staff querryById(@RequestParam(defaultValue = "1") int id){
         Staff staff= staffService.querryById(id);
         return staff;
+    }
+
+    @CrossOrigin
+    @PostMapping("api/basicinfomgmt/staff/getbycondition")
+    public List<Staff> queryByCondition(@RequestBody Staff staff){
+        List<Staff> staffList = staffService.queryByCondition(staff.getStaffName(), staff.getStaffNumber());
+        return staffList;
     }
 
     @CrossOrigin

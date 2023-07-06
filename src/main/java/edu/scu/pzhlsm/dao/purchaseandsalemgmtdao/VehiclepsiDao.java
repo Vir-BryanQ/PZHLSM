@@ -14,6 +14,9 @@ public interface VehiclepsiDao {
 
     VehiclePsi queryById(@Param("vehicleId") int id);
 
+    List<VehiclePsi> queryByCondition(@Param("vehicleName") String name,
+                                      @Param("vehicleTime") String time);
+
     int insertVehiclePsi(VehiclePsi vehiclePsi);
 
     int deleteVehiclePsi(@Param("vehicleId") int id);

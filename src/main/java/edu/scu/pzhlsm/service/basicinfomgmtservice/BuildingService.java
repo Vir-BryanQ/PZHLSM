@@ -27,6 +27,11 @@ public class BuildingService {
         return building;
     }
 
+    public List<Building> queryByCondition(String name){
+        List<Building> buildingList = buildingDao.queryByCondition(name);
+        return buildingList;
+    }
+
     public int insertBuilding(Building building){
         int result = buildingDao.insertBuilding(building);
         return result;

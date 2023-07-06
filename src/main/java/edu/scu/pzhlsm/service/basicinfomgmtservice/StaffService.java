@@ -2,6 +2,7 @@ package edu.scu.pzhlsm.service.basicinfomgmtservice;
 
 import edu.scu.pzhlsm.dao.basicinfomgmtdao.StaffDao;
 import edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Staff;
+import edu.scu.pzhlsm.pojo.purchaseandsalemgmtpojo.OfficeConsumable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,11 @@ public class StaffService {
         Staff staff = staffDao.queryById(id);
 //        System.out.println(staff);
         return staff;
+    }
+
+    public List<Staff> queryByCondition(String name, String number){
+        List<Staff> staffList = staffDao.queryByCondition(name, number);
+        return staffList;
     }
 
     public int insertStaff(Staff staff){

@@ -28,6 +28,12 @@ public class BuildingController {
         Building building= buildingService.querryById(id);
         return building;
     }
+    @CrossOrigin
+    @PostMapping("api/basicinfomgmt/building/getbycondition")
+    public List<Building> queryByCondition(@RequestBody Building building){
+        List<Building> buildingList = buildingService.queryByCondition(building.getBuildingName());
+        return buildingList;
+    }
 
     @CrossOrigin
     @PostMapping("api/basicinfomgmt/building/save")

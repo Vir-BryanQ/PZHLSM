@@ -15,6 +15,8 @@ public interface GoodsDao {
 
     Goods queryById(@Param("goodsId") int id);
 
+    List<Goods> queryByCondition(@Param("goodsType") String type);
+
     int insertGoods(Goods goods);
 
     int deleteGoods(@Param("goodsId") int id);

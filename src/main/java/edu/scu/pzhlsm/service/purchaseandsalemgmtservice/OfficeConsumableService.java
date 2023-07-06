@@ -28,6 +28,11 @@ public class OfficeConsumableService {
         return officeConsumable;
     }
 
+    public List<OfficeConsumable> queryByCondition(String name, String time){
+        List<OfficeConsumable> officeConsumableList = officeConsumableDao.queryByCondition(name, time);
+        return officeConsumableList;
+    }
+
     //新增办公耗材采购信息
     public int addConsumable(OfficeConsumable officeConsumable){
         int result = officeConsumableDao.insertConsumable(officeConsumable);

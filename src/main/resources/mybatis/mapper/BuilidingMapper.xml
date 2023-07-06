@@ -27,4 +27,13 @@
         select * from building
         where building_id = #{buildingId}
     </select>
+    <select id="queryByCondition" resultType="edu.scu.pzhlsm.pojo.basicinfomgmtpojo.Building">
+        select *
+        from building
+        <where>
+            <if test="buildingName != null and buildingName != ''">
+                and building_name like concat('%', #{buildingName}, '%')
+            </if>
+        </where>;
+    </select>
 </mapper>

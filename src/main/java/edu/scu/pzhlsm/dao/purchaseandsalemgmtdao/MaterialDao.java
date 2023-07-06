@@ -15,6 +15,9 @@ public interface MaterialDao {
 
     MaterialPsi queryById(@Param("materialId") int id);
 
+    List<MaterialPsi> queryByCondition(@Param("materialName") String name,
+                                       @Param("materialTime") String time);
+
     int insertMaterialPsi(MaterialPsi materialPsi);
 
     int deleteMaterialPsi(@Param("materialId") int id);
