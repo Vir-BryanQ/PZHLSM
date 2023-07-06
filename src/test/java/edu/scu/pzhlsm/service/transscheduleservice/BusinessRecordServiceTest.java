@@ -32,8 +32,8 @@ public class BusinessRecordServiceTest {
     {
         //封装查询参数
         Map<String, Object> map = new HashMap<>();
-        map.put("state", 0);
-        map.put("companyName", "nv");
+        //map.put("state", 0);
+        map.put("companyName", "华");
         JSONObject json = new JSONObject();
         json.putAll(map);
         //调用
@@ -57,7 +57,7 @@ public class BusinessRecordServiceTest {
         System.out.println(ret);
     }
 
-    //插入测试
+/*    //插入测试
     @Test
     void insert(){
         //封装参数
@@ -67,5 +67,5 @@ public class BusinessRecordServiceTest {
         record.setmissionPrice(100000);
         //调用service
         System.out.println(businessRecordService.insert(record));
-    }
+    }*/
 }

@@ -59,4 +59,11 @@ public class MaterialUsageRecordsController {
             return new Result(400);
         }
     }
+
+    @CrossOrigin
+    @PostMapping(value = "api/carrepairmgmt/materialusagerecords/getbydepartmentoruser")
+    @ResponseBody
+    public List<MaterialUsageRecord> doGetByDepartmentOrUser(@RequestBody MaterialUsageRecord record) {
+        return materialUsageRecordsService.searchByDepartmentOrUser(record);
+    }
 }

@@ -27,13 +27,13 @@
             <if test="carType != null and carType != 0">
                 and car_type = #{carType}
             </if>
-            <if test="carId != null">
+            <if test="carId != null and carId != ''">
                 and car_id like concat('%', #{carId}, '%')
             </if>
-            <if test="carLicence != null">
+            <if test="carLicence != null and carLicence != ''">
                 and car_licence like concat('%', #{carLicence}, '%')
             </if>
-            <if test="missionBeginTime != null">
+            <if test="missionBeginTime != null and missionBeginTime != ''">
                 and mission_begin_time like concat('%', #{missionBeginTime}, '%')
             </if>
             <if test="state != null and state != 0">

@@ -2,7 +2,9 @@ package edu.scu.pzhlsm.service.transscheduleservice;
 
 import com.alibaba.fastjson.JSON;
 import edu.scu.pzhlsm.dao.transscheduledao.BusinessRecordDAO;
+import edu.scu.pzhlsm.dao.transscheduledao.CarRecordDAO;
 import edu.scu.pzhlsm.pojo.transschedulepojo.BusinessRecord;
+import edu.scu.pzhlsm.pojo.transschedulepojo.CarRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,14 +28,14 @@ public class BusinessRecordService {
         return businessRecordDAO.update(businessRecord);
     }
 
-    public List<BusinessRecord> dynamicQuery(JSON json){
+    public List<BusinessRecord> dynamicQuery(Map<String, Object> map){
 /*        String jsonStr = json.toJSONString();
-        Map<String, Object> map = JSON.parseObject(jsonStr, new TypeReference<>(){});*/
-        Map<String, Object> map = JSON.parseObject(json.toString());
+        Map<String, Object> map = JSON.parseObject(jsonStr, new TypeReference<>(){});
+        Map<String, Object> map = JSON.parseObject(json.toString());*/
         return businessRecordDAO.dynamicQuery(map);
     }
 
-    public int insert(BusinessRecord businessRecord){
-        return businessRecordDAO.insert(businessRecord);
-    }
+/*    public int insert(BusinessRecord businessRecord){
+        return this.businessRecordDAO.insert(businessRecord);
+    }*/
 }

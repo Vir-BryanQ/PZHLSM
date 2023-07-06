@@ -61,4 +61,11 @@ public class BuildingTransactionRecordsController {
         }
     }
 
+    @CrossOrigin
+    @PostMapping(value = "api/purchaseandsalemgmt/buildingtransactionrecords/getbynameordate")
+    @ResponseBody
+    public List<BuildingTransactionRecord> doGetByNameOrDate(@RequestBody BuildingTransactionRecord record) {
+        return buildingTransactionRecordsService.searchByBuyerNameOrTransactionDate(record);
+    }
+
 }

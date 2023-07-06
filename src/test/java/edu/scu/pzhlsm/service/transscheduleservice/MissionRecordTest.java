@@ -20,9 +20,8 @@ public class MissionRecordTest {
     void missionRecordInsertTest(){
         //插入对象
         MissionRecord missionRecord = new MissionRecord();
-        missionRecord.setMissionId(10);
         missionRecord.setstate(2);
-        missionRecord.setMissionCreateTime("2023-06-06");
+        missionRecord.setMissionCreateTime("2023-06-11");
         missionRecord.setMissionFinishTime("2002-01-01");
         missionRecord.setMissionOrigin("成都市郫都区圆通分公司");
         missionRecord.setMissionDestination("成都市郫都区京东分公司");
@@ -56,11 +55,12 @@ public class MissionRecordTest {
     @Test
     void dynamicQuery(){
         Map<String, Object> map = new HashMap<>();
-        map.put("createTime", "2023-06");
-        map.put("state", 1);
-        map.put("missionOrigin", "京东");
+        map.put("missionCreateTime", "2023-06-05");
+        //map.put("state", 1);
+        map.put("missionDestination", "双流");
         JSONObject json = new JSONObject();
         json.putAll(map);
-        System.out.println(missionRecordService.dynamicQuery(json));
+        List<MissionRecord> result = missionRecordService.dynamicQuery(map);
+        for(MissionRecord missionRecord : result) System.out.println(missionRecord);
     }
 }

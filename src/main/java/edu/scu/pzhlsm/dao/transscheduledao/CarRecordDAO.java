@@ -22,10 +22,13 @@ public interface CarRecordDAO {
 
 /*    int dynamicUpdate(CarRecord carRecord);*/
 
-    @Insert("insert into car_operate_record(mission_id, car_id, car_type, car_licence, state, " +
+/*    @Insert("insert into car_operate_record(mission_id, car_id, car_type, car_licence, state, " +
             "mission_begin_time) values (#{missionId}, #{carId}, #{carType}, #{carLicence}, " +
             "#{state}, #{missionBeginTime})")
-    int insert(CarRecord carRecord);
+    int insert(CarRecord carRecord);*/
+
+    @Insert("insert into car_operate_record(mission_id) values (#{missionId})")
+    int insert(int missionId);
 
     @Update("UPDATE car_operate_record set car_id = #{carId}, car_type = #{carType}," +
             "car_licence = #{carLicence}, state = #{state}, mission_begin_time = #{missionBeginTime}" +
